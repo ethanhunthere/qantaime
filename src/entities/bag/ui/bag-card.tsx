@@ -6,7 +6,6 @@ import Link from "next/link";
 import { ArrowUpRight, ShoppingBag } from "lucide-react";
 import { Bag, CartItem } from "@/shared/types";
 import { formatCurrency } from "@/shared/lib";
-import { Badge } from "@/shared/ui";
 import { useLanguage } from "@/features/language";
 import { useCart } from "@/features/cart";
 
@@ -15,11 +14,32 @@ export interface BagCardProps {
   onQuickView?: (bag: Bag) => void;
 }
 
+function getCategoryLabel(category: string, slug: string): string {
+  if (slug.includes("cardholder") || slug.includes("porte-monnaie") || slug.includes("wallet")) {
+    return "Kuletë & Aksesor";
+  }
+  switch (category) {
+    case "briefcase":
+      return "Çantë Pune";
+    case "tote":
+      return "Çantë Dore";
+    case "crossbody":
+      return "Çantë Krahu";
+    case "weekender":
+      return "Çantë Udhëtimi";
+    case "backpack":
+      return "Çantë Shpine";
+    default:
+      return "Çantë Luksoze";
+  }
+}
+
 export function BagCard({ bag, onQuickView }: BagCardProps) {
   const { t } = useLanguage();
   const { addItem } = useCart();
   const [activeColorIdx, setActiveColorIdx] = useState(0);
   const currentColor = bag.colors[activeColorIdx] || bag.colors[0];
+  const categoryLabel = getCategoryLabel(bag.category, bag.slug);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -41,8 +61,8 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
   };
 
   return (
-    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all duration-300 shadow-xs hover:shadow-md overflow-hidden">
-      {/* Product Image Frame — Strict 1:1 Square with Hardware Paint Isolation */}
+    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] transition-all duration-300 shadow-xs hover:shadow-md overflow-hidden">
+      {/* Product Image Frame — Strict 1:1 Square with Paint Isolation */}
       <div className="relative aspect-square w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] [isolation:isolate] [contain:paint]">
         <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full overflow-hidden">
           <Image
@@ -54,56 +74,88 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           />
         </Link>
 
-        {/* Authenticity Badges */}
+        {/* Clear Category Badge so users instantly know what each bag is */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10 pointer-events-none">
-          {bag.isBestseller && <Badge variant="accent">{t.iconicBadge}</Badge>}
-          {bag.isNewArrival && <Badge variant="neutral">{t.newEditionBadge}</Badge>}
+          <span className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.16em] font-semibold bg-[var(--text-primary)] text-[var(--bg-canvas)] border border-[var(--border-subtle)] shadow-xs">
+            {categoryLabel}
+          </span>
+          {bag.isBestseller && (
+            <span className="px-2 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-xs">
+              Më e Kërkuara
+            </span>
+          )}
         </div>
 
         {/* Quick View trigger */}
         {onQuickView && (
           <button
             onClick={() => onQuickView(bag)}
-            className="absolute bottom-2.5 right-2.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-150 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans font-medium text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)] min-h-[32px] flex items-center touch-manipulation"
+            className="absolute bottom-2.5 right-2.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-150 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans font-medium text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)] min-h-[32px] flex items-center touch-manipulation cursor-pointer"
           >
             {t.quickInspect}
           </button>
         )}
       </div>
 
-      {/* Bag Details */}
-      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3.5 sm:gap-4">
-        {/* Bag Title & Price */}
-        <div className="space-y-1">
-          <h3 className="font-sans font-medium text-[14px] uppercase tracking-[0.08em] text-[var(--text-primary)] truncate">
-            <Link href={`/bags/${bag.slug}`} className="hover:text-[var(--text-secondary)] transition-colors">
+      {/* Bag Details: Rich, Distinct, Art-Directed Hierarchy */}
+      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3 sm:gap-3.5">
+        <div className="space-y-1.5">
+          {/* Category Micro-tag + Capacity */}
+          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-secondary)]">
+            <span className="uppercase tracking-[0.14em] font-medium text-[var(--accent-cognac)]">
+              {categoryLabel}
+            </span>
+            {bag.capacityLiters > 0 && (
+              <span className="tabular-nums tracking-wider text-[var(--text-muted)]">
+                {bag.capacityLiters} L
+              </span>
+            )}
+          </div>
+
+          {/* Bold Distinct Bag Title */}
+          <h3 className="font-sans font-semibold text-[15px] sm:text-[16px] uppercase tracking-[0.05em] text-[var(--text-primary)] leading-tight truncate">
+            <Link
+              href={`/bags/${bag.slug}`}
+              className="hover:underline decoration-1 underline-offset-4 transition-all"
+            >
               {bag.name}
             </Link>
           </h3>
 
-          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-secondary)]">
-            {formatCurrency(bag.priceEur)}
+          {/* Distinctive Silhouette & Function Tagline */}
+          <p className="font-sans text-xs text-[var(--text-secondary)] line-clamp-1 leading-normal">
+            {bag.tagline}
           </p>
+
+          {/* High-Contrast Price */}
+          <div className="flex items-baseline justify-between pt-1">
+            <p className="font-mono font-bold text-[15px] sm:text-[16px] tabular-nums tracking-[0.02em] text-[var(--text-primary)]">
+              {formatCurrency(bag.priceEur)}
+            </p>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-medium">
+              Në Gjendje
+            </span>
+          </div>
         </div>
 
-        {/* Architectural Patina Swatches */}
-        <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
-          <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono">
-            {t.colorLabel}
+        {/* Color Swatches with Active Color Name Display */}
+        <div className="flex items-center justify-between pt-2.5 border-t border-[var(--border-subtle)] text-[10px] font-mono">
+          <span className="text-[var(--text-secondary)] truncate max-w-[150px] sm:max-w-[180px]">
+            Lëkura: <strong className="text-[var(--text-primary)] font-medium">{currentColor.name}</strong>
           </span>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
             {bag.colors.map((color, idx) => (
               <button
                 key={color.id}
                 onClick={() => setActiveColorIdx(idx)}
-                className="py-1 inline-flex items-center justify-center touch-manipulation group/swatch cursor-pointer"
+                className="py-1 inline-flex items-center justify-center touch-manipulation cursor-pointer"
                 title={color.name}
                 aria-label={`Zgjidh ${color.name}`}
               >
                 <span
-                  className={`w-4 sm:w-5 h-2 rounded-none border transition-all ${
+                  className={`w-4 sm:w-5 h-2.5 rounded-none border transition-all ${
                     idx === activeColorIdx
-                      ? "border-[var(--text-primary)] shadow-xs scale-105"
+                      ? "border-[var(--text-primary)] ring-1 ring-[var(--text-primary)] scale-110"
                       : "border-[var(--border-strong)] opacity-60 hover:opacity-100"
                   }`}
                   style={{ backgroundColor: color.hex }}
@@ -113,18 +165,18 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </div>
         </div>
 
-        {/* Footer of Card: Direct Actions */}
+        {/* Footer Actions */}
         <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
           <button
             onClick={handleQuickAdd}
-            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none touch-manipulation"
+            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.16em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer select-none touch-manipulation"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>{t.addToCarry}</span>
           </button>
           <Link
             href={`/bags/${bag.slug}`}
-            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
+            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-strong)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
             title={t.viewDetails}
             aria-label={t.viewDetails}
           >

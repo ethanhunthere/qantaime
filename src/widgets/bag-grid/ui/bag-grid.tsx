@@ -51,18 +51,15 @@ export function BagGrid({ initialBags }: BagGridProps) {
 
   return (
     <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 space-y-5 sm:space-y-6">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 pb-4 border-b border-[var(--border-subtle)]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
         <div>
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-[var(--accent-cognac)] block">
             {t.catalogTitle}
           </span>
-          <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl md:text-4xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)] mt-1">
+          <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)] mt-1">
             {t.catalogSubtitle}
           </h2>
         </div>
-        <p className="text-xs font-mono text-[var(--text-secondary)] max-w-md">
-          {t.catalogDesc}
-        </p>
       </div>
 
       {/* Unified Page-Level Control Bar */}
