@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ShoppingBag } from "lucide-react";
 import { Bag, CartItem } from "@/shared/types";
-import { formatCurrency, formatDimensions } from "@/shared/lib";
+import { formatCurrency } from "@/shared/lib";
 import { Badge } from "@/shared/ui";
 import { useLanguage } from "@/features/language";
 import { useCart } from "@/features/cart";
@@ -87,9 +87,9 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
             </Link>
           </h3>
 
-          {/* Line 3 — Price & Dimensions */}
+          {/* Line 3 — Price */}
           <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-primary)]">
-            {formatCurrency(bag.priceEur)} — {formatDimensions(bag.dimensions)}
+            {formatCurrency(bag.priceEur)}
           </p>
         </div>
 
