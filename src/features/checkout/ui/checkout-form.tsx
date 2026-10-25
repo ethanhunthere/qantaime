@@ -1,17 +1,19 @@
 "use client";
 
 import React, { useState, useTransition } from "react";
-import { Lock, Truck, CreditCard } from "lucide-react";
+import { Lock } from "lucide-react";
 import { useCart } from "@/features/cart";
 import { submitOrderAction } from "../api/submit-order";
 import { ActionState, OrderConfirmation } from "@/shared/types";
 import { Button, Input } from "@/shared/ui";
 import { OrderSummaryCard } from "@/entities/order";
+import { PaymentMethodSelector } from "./payment-method-selector";
 
 export function CheckoutForm() {
   const { items, subtotalEur, discountEur, shippingEur, totalEur, clearCart } = useCart();
   const [isPending, startTransition] = useTransition();
   const [state, setState] = useState<ActionState<OrderConfirmation> | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<"stripe_bank" | "card" | "apple_pay" | "wire">("stripe_bank");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ export function CheckoutForm() {
     return (
       <div className="space-y-6">
         <div className="p-4 bg-green-900/10 border border-green-800/30 text-green-900 dark:text-green-300 text-sm font-mono">
-          Commission confirmed. Master leathercrafters in Paris & Milan have received your order specs.
+          {state.message}
         </div>
         <OrderSummaryCard order={state.data} />
       </div>
@@ -125,28 +127,28 @@ export function CheckoutForm() {
         />
       </div>
 
-      {/* Shipping Method */}
+      {/* Handled Transit */}
       <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
         <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)]">
           2. Handled Transit
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
-            <input type="radio" name="shippingMethod" value="courier" defaultChecked className="mt-1" />
+            <input type="radio" name="shippingMethod" value="courier" defaultChecked className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
               <p className="font-semibold text-[var(--text-primary)]">White-Glove Courier</p>
               <p className="text-[var(--text-secondary)]">24h Express Insured</p>
             </div>
           </label>
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
-            <input type="radio" name="shippingMethod" value="express" className="mt-1" />
+            <input type="radio" name="shippingMethod" value="express" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
               <p className="font-semibold text-[var(--text-primary)]">Priority Air</p>
               <p className="text-[var(--text-secondary)]">2-3 Business Days</p>
             </div>
           </label>
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
-            <input type="radio" name="shippingMethod" value="standard" className="mt-1" />
+            <input type="radio" name="shippingMethod" value="standard" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
               <p className="font-semibold text-[var(--text-primary)]">Standard Ground</p>
               <p className="text-[var(--text-secondary)]">4-5 Business Days</p>
@@ -155,27 +157,12 @@ export function CheckoutForm() {
         </div>
       </div>
 
-      {/* Payment Selection */}
-      <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
-        <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)]">
-          3. Secure Settlement
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <label className="flex items-center gap-2.5 p-3 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer">
-            <input type="radio" name="paymentMethod" value="card" defaultChecked />
-            <CreditCard className="w-4 h-4 text-[var(--text-secondary)]" />
-            <span className="text-xs font-mono text-[var(--text-primary)]">Card / Vault</span>
-          </label>
-          <label className="flex items-center gap-2.5 p-3 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer">
-            <input type="radio" name="paymentMethod" value="apple_pay" />
-            <span className="text-xs font-mono text-[var(--text-primary)]">Apple Pay</span>
-          </label>
-          <label className="flex items-center gap-2.5 p-3 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer">
-            <input type="radio" name="paymentMethod" value="wire" />
-            <span className="text-xs font-mono text-[var(--text-primary)]">Bank Wire</span>
-          </label>
-        </div>
-      </div>
+      {/* Payment Selection with Stripe Bank Payment */}
+      <PaymentMethodSelector
+        selectedMethod={paymentMethod}
+        onChangeMethod={setPaymentMethod}
+        errors={state?.errors}
+      />
 
       {state?.message && !state.success && (
         <p className="text-xs font-mono text-red-600 bg-red-100/10 p-3 border border-red-500/30">
@@ -183,11 +170,11 @@ export function CheckoutForm() {
         </p>
       )}
 
-      {/* Action */}
-      <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+      {/* Action Footer */}
+      <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
-          <Lock className="w-3.5 h-3.5" />
-          <span>256-Bit Encrypted Atelier Gateway</span>
+          <Lock className="w-3.5 h-3.5 text-green-600" />
+          <span>256-Bit Encrypted Stripe Infrastructure</span>
         </div>
         <Button
           type="submit"
@@ -195,8 +182,9 @@ export function CheckoutForm() {
           variant="primary"
           isLoading={isPending}
           disabled={items.length === 0}
+          className="w-full sm:w-auto"
         >
-          Confirm Commission
+          {paymentMethod === "stripe_bank" ? "Authorize Bank Payment with Stripe" : "Confirm Commission"}
         </Button>
       </div>
     </form>

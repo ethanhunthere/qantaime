@@ -73,7 +73,10 @@ export interface CustomerCheckoutInput {
   country: string;
   phone: string;
   shippingMethod: "standard" | "express" | "courier";
-  paymentMethod: "card" | "apple_pay" | "wire";
+  paymentMethod: "card" | "apple_pay" | "stripe_bank" | "wire";
+  stripeBankIban?: string;
+  stripeBankHolder?: string;
+  stripeBankBic?: string;
   monogramNotes?: string;
 }
 
@@ -101,4 +104,11 @@ export interface OrderConfirmation {
   shippingEur: number;
   totalEur: number;
   estimatedDeliveryDate: string;
+  stripePaymentDetails?: {
+    stripePaymentIntentId: string;
+    mandateReference: string;
+    maskedIban: string;
+    bankName: string;
+    status: "processing" | "succeeded" | "authorized";
+  };
 }

@@ -39,6 +39,28 @@ export async function submitOrderAction(
   const estimatedDate = new Date();
   estimatedDate.setDate(estimatedDate.getDate() + deliveryDays);
 
+  let stripePaymentDetails: OrderConfirmation["stripePaymentDetails"] = undefined;
+
+  if (data.paymentMethod === "stripe_bank") {
+    const cleanIban = (data.stripeBankIban || "").replace(/\s+/g, "");
+    const prefix = cleanIban.slice(0, 4).toUpperCase();
+    const last4 = cleanIban.slice(-4);
+    const maskedIban = `${prefix} •••• •••• •••• ${last4}`;
+
+    stripePaymentDetails = {
+      stripePaymentIntentId: `pi_stripe_bank_${Math.random().toString(36).substring(2, 14)}`,
+      mandateReference: `STRIPE-MDT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`,
+      maskedIban,
+      bankName:
+        data.country.toLowerCase().includes("franc")
+          ? "Banque de France / SEPA Direct Debit"
+          : data.country.toLowerCase().includes("ital")
+          ? "Intesa Sanpaolo / SEPA Direct Debit"
+          : "Stripe Financial Connections",
+      status: "authorized",
+    };
+  }
+
   const orderConfirmation: OrderConfirmation = {
     orderId,
     dateIso: new Date().toISOString(),
@@ -54,11 +76,17 @@ export async function submitOrderAction(
       day: "numeric",
       year: "numeric",
     }),
+    stripePaymentDetails,
   };
+
+  const successMsg =
+    data.paymentMethod === "stripe_bank"
+      ? "Commission accepted. Your bank payment has been securely authorized via Stripe."
+      : "Your commission has been accepted by the Atelier.";
 
   return {
     success: true,
-    message: "Your commission has been accepted by the Atelier.",
+    message: successMsg,
     data: orderConfirmation,
   };
 }
