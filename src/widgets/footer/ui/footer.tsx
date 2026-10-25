@@ -1,0 +1,81 @@
+import React from "react";
+import Link from "next/link";
+import { NewsletterForm } from "@/features/newsletter";
+
+export function Footer() {
+  return (
+    <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-[var(--text-secondary)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Brand Manifesto & Newsletter */}
+          <div className="md:col-span-6 space-y-4">
+            <span className="font-serif text-xl tracking-tight font-semibold text-[var(--text-primary)] block">
+              ATELIER VÉLOCE
+            </span>
+            <p className="text-xs font-mono leading-relaxed max-w-md text-[var(--text-secondary)]">
+              Architectural leather goods and modular carry crafted in France and Italy. Built with lifetime restorative service for those who value quiet permanence.
+            </p>
+            <div className="pt-2">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[var(--text-primary)] block mb-2 font-medium">
+                Private Workshop Dispatch
+              </span>
+              <NewsletterForm />
+            </div>
+          </div>
+
+          {/* Workshop Addresses */}
+          <div className="md:col-span-3 space-y-3 font-mono text-xs">
+            <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
+              Workshops & Salons
+            </span>
+            <div className="space-y-1">
+              <p className="text-[var(--text-primary)] font-medium">Atelier Paris</p>
+              <p className="text-[var(--text-muted)]">14 Rue de Verneuil, 75007 Paris</p>
+              <p className="text-[var(--text-muted)]">By private appointment only</p>
+            </div>
+            <div className="space-y-1 pt-2">
+              <p className="text-[var(--text-primary)] font-medium">Laboratorio Milano</p>
+              <p className="text-[var(--text-muted)]">Via Solferino 19, 20121 Milano</p>
+              <p className="text-[var(--text-muted)]">Tuesday — Saturday</p>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="md:col-span-3 space-y-3 font-mono text-xs">
+            <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
+              Documentation
+            </span>
+            <ul className="space-y-2">
+              <li>
+                <Link href="#craftsmanship" className="hover:text-[var(--text-primary)] transition-colors">
+                  Vegetable Tanning Standards
+                </Link>
+              </li>
+              <li>
+                <Link href="#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+                  Permanent Catalogue
+                </Link>
+              </li>
+              <li>
+                <span className="text-[var(--text-muted)]">Lifetime Conditioning Protocol</span>
+              </li>
+              <li>
+                <span className="text-[var(--text-muted)]">Certificates of Authenticity</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[var(--text-muted)]">
+          <p>© {new Date().getFullYear()} Atelier Véloce SAS. All rights reserved. Registered in Paris.</p>
+          <div className="flex items-center gap-6">
+            <span>Terms of Commission</span>
+            <span>Privacy Policy</span>
+            <span>White-Glove Courier Logistics</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

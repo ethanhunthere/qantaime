@@ -1,0 +1,207 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { Check, ShieldCheck, Sparkles } from "lucide-react";
+import { Bag, CartItem } from "@/shared/types";
+import { formatCurrency } from "@/shared/lib";
+import { Button } from "@/shared/ui";
+import { useCart } from "@/features/cart";
+
+interface BagCustomizerProps {
+  bag: Bag;
+}
+
+export function BagCustomizer({ bag }: BagCustomizerProps) {
+  const { addItem } = useCart();
+  const [selectedColor, setSelectedColor] = useState(bag.colors[0]);
+  const [selectedHardware, setSelectedHardware] = useState(bag.hardwareOptions[0]);
+  const [monogram, setMonogram] = useState("");
+  const [enableMonogram, setEnableMonogram] = useState(false);
+  const [isAddedFeedback, setIsAddedFeedback] = useState(false);
+
+  const MONOGRAM_FEE_EUR = 45;
+  const unitPrice = bag.priceEur + (enableMonogram && monogram.trim().length > 0 ? MONOGRAM_FEE_EUR : 0);
+
+  const handleAddToCart = () => {
+    const finalMonogram = enableMonogram && monogram.trim().length > 0 ? monogram.trim().toUpperCase() : undefined;
+    const cartItemId = `${bag.id}-${selectedColor.id}-${selectedHardware.id}-${finalMonogram || "none"}`;
+
+    const cartItem: CartItem = {
+      id: cartItemId,
+      bagId: bag.id,
+      bagName: bag.name,
+      slug: bag.slug,
+      color: selectedColor,
+      hardware: selectedHardware,
+      monogram: finalMonogram,
+      unitPriceEur: unitPrice,
+      quantity: 1,
+      image: selectedColor.image,
+    };
+
+    addItem(cartItem);
+    setIsAddedFeedback(true);
+    setTimeout(() => setIsAddedFeedback(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-col gap-6 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 md:p-8">
+      {/* Visual Preview Frame */}
+      <div className="relative aspect-16/10 w-full overflow-hidden bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)]">
+        <Image
+          src={selectedColor.image}
+          alt={`${bag.name} in ${selectedColor.name}`}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-center transition-all duration-300"
+        />
+        {enableMonogram && monogram.trim().length > 0 && (
+          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-3 py-1 font-serif text-sm tracking-widest border border-[#d4af37]/40 shadow-lg">
+            DEBOSSED: {monogram.trim().toUpperCase()}
+          </div>
+        )}
+      </div>
+
+      {/* Configuration Controls */}
+      <div className="space-y-6">
+        {/* Color Choice */}
+        <div>
+          <div className="flex justify-between items-baseline mb-2">
+            <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
+              1. Full-Grain Patina
+            </span>
+            <span className="text-xs font-mono font-medium text-[var(--text-primary)]">
+              {selectedColor.name}
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {bag.colors.map((color) => {
+              const isSelected = color.id === selectedColor.id;
+              return (
+                <button
+                  key={color.id}
+                  onClick={() => setSelectedColor(color)}
+                  className={`flex items-center gap-2.5 p-2.5 border text-left transition-all ${
+                    isSelected
+                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
+                      : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
+                  }`}
+                >
+                  <span
+                    className="w-4 h-4 rounded-full border border-black/20 shrink-0"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                  <span className="text-xs font-mono text-[var(--text-primary)] truncate">
+                    {color.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Hardware Finishing */}
+        <div>
+          <div className="flex justify-between items-baseline mb-2">
+            <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
+              2. Milled Hardware Finishing
+            </span>
+            <span className="text-xs font-mono font-medium text-[var(--text-primary)]">
+              {selectedHardware.name}
+            </span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {bag.hardwareOptions.map((hw) => {
+              const isSelected = hw.id === selectedHardware.id;
+              return (
+                <button
+                  key={hw.id}
+                  onClick={() => setSelectedHardware(hw)}
+                  className={`p-2.5 text-xs font-mono border text-center transition-all ${
+                    isSelected
+                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
+                      : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
+                  }`}
+                >
+                  {hw.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bespoke Hot-Stamping Monogram */}
+        <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={enableMonogram}
+              onChange={(e) => setEnableMonogram(e.target.checked)}
+              className="accent-[var(--accent-cognac)] w-4 h-4 cursor-pointer"
+            />
+            <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-primary)]">
+              Bespoke Gold-Foil Monogramming (+{formatCurrency(MONOGRAM_FEE_EUR)})
+            </span>
+          </label>
+
+          {enableMonogram && (
+            <div className="flex items-center gap-3">
+              <input
+                type="text"
+                maxLength={3}
+                placeholder="ABC"
+                value={monogram}
+                onChange={(e) => setMonogram(e.target.value.toUpperCase())}
+                className="w-24 h-10 px-3 text-center uppercase tracking-widest font-mono text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] focus-visible:border-[var(--text-primary)]"
+              />
+              <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                Up to 3 uppercase initials. Debossed by hand in Milan.
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Pricing Summary & Action */}
+        <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
+              Total Composition Price
+            </span>
+            <p className="font-mono text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+              {formatCurrency(unitPrice)}
+            </p>
+          </div>
+
+          <Button
+            size="lg"
+            variant="primary"
+            onClick={handleAddToCart}
+            className="w-full sm:w-auto min-w-[220px]"
+          >
+            {isAddedFeedback ? (
+              <span className="flex items-center gap-1.5 text-green-400">
+                <Check className="w-4 h-4" /> Added to Carry
+              </span>
+            ) : (
+              "Acquire Silhouette"
+            )}
+          </Button>
+        </div>
+
+        {/* Workshop guarantee badges */}
+        <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
+            Lifetime Craftsmanship Guarantee
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
+            Complimentary Courier Delivery
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
