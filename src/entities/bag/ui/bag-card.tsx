@@ -73,22 +73,15 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
 
       {/* Bag Details */}
       <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3.5 sm:gap-4">
-        {/* Strict 3-Line Brutalist Layout */}
+        {/* Bag Title & Price */}
         <div className="space-y-1">
-          {/* Line 1 — Brand Name */}
-          <p className="font-sans font-medium text-[11px] uppercase tracking-[0.20em] text-[var(--text-primary)]">
-            QANTAIME
-          </p>
-
-          {/* Line 2 — Bag Model & Leather */}
-          <h3 className="font-sans font-normal text-[14px] uppercase tracking-[0.08em] text-[var(--text-secondary)] truncate">
-            <Link href={`/bags/${bag.slug}`} className="hover:text-[var(--text-primary)] transition-colors">
-              {bag.name} {bag.leatherType}
+          <h3 className="font-sans font-medium text-[14px] uppercase tracking-[0.08em] text-[var(--text-primary)] truncate">
+            <Link href={`/bags/${bag.slug}`} className="hover:text-[var(--text-secondary)] transition-colors">
+              {bag.name}
             </Link>
           </h3>
 
-          {/* Line 3 — Price */}
-          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-primary)]">
+          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-secondary)]">
             {formatCurrency(bag.priceEur)}
           </p>
         </div>

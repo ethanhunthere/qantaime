@@ -1,12 +1,12 @@
 import { Bag } from "@/shared/types";
-import { MOCK_BAGS } from "./mock-bags";
+import { fetchAllBagsMerged } from "./store";
 
 export async function getAllBags(): Promise<Bag[]> {
-  // Simulates server-side database retrieval with 0 overhead
-  return MOCK_BAGS;
+  return fetchAllBagsMerged();
 }
 
 export async function getBagBySlug(slug: string): Promise<Bag | null> {
-  const bag = MOCK_BAGS.find((b) => b.slug === slug);
+  const allBags = fetchAllBagsMerged();
+  const bag = allBags.find((b) => b.slug === slug);
   return bag || null;
 }

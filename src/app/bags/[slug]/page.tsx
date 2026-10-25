@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getBagBySlug, getAllBags } from "@/entities/bag";
+import { getBagBySlug, getAllBags } from "@/entities/bag/server";
 import { BagDetailView } from "@/views/bag-detail-view";
 
 interface BagPageProps {

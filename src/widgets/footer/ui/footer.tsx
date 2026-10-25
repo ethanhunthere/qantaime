@@ -52,7 +52,12 @@ export function Footer() {
 
         {/* Bottom Minimal Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-[var(--text-muted)] text-center sm:text-left">
-          <p>© {new Date().getFullYear()} {t.allRightsReserved}</p>
+          <p>
+            © {new Date().getFullYear()} {t.allRightsReserved} ·{" "}
+            <Link href="/cms" className="hover:text-[var(--text-primary)] transition-colors">
+              CMS
+            </Link>
+          </p>
           <p className="tracking-wider uppercase text-[10px]">Dërgesë e Siguruar me Korrier VIP</p>
         </div>
       </div>

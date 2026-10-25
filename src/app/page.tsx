@@ -1,4 +1,4 @@
-import { getAllBags } from "@/entities/bag";
+import { getAllBags } from "@/entities/bag/server";
 import { StoreView } from "@/views/store-view";
 
 export default async function HomePage() {
