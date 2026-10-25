@@ -27,7 +27,7 @@ export function BagSpecsTable({ bag }: BagSpecsTableProps) {
         {specs.map((item) => (
           <div key={item.label} className="grid grid-cols-1 sm:grid-cols-3 px-3.5 sm:px-4 py-2 sm:py-2.5 font-mono font-normal text-[11px] sm:text-[12px] tracking-[0.02em]">
             <dt className="text-[var(--text-muted)] uppercase text-[10px] sm:text-[11px]">{item.label}</dt>
-            <dd className="sm:col-span-2 text-[#1A1614] tabular-nums mt-0.5 sm:mt-0 break-words">
+            <dd className="sm:col-span-2 text-[var(--text-primary)] tabular-nums mt-0.5 sm:mt-0 break-words">
               {item.value}
             </dd>
           </div>

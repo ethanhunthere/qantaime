@@ -27,10 +27,10 @@ export function CartDrawer() {
       {items.length === 0 ? (
         <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
           <div className="w-12 h-12 rounded-none bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] flex items-center justify-center">
-            <ShoppingBag className="w-6 h-6 text-[#1A1614]" />
+            <ShoppingBag className="w-6 h-6 text-[var(--text-primary)]" />
           </div>
           <div className="space-y-1">
-            <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[#1A1614]">{t.emptyCarry}</p>
+            <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[var(--text-primary)]">{t.emptyCarry}</p>
             <p className="text-xs font-mono text-[var(--text-secondary)]">
               {t.emptyCarryDesc}
             </p>
@@ -74,7 +74,7 @@ export function CartDrawer() {
                   {shippingEur === 0 ? t.complimentary : formatCurrency(shippingEur)}
                 </span>
               </div>
-              <div className="flex justify-between font-mono text-[12px] tabular-nums tracking-[0.04em] text-[#1A1614] pt-2 border-t border-[var(--border-subtle)] items-baseline">
+              <div className="flex justify-between font-mono text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-primary)] pt-2 border-t border-[var(--border-subtle)] items-baseline">
                 <span className="font-sans font-medium uppercase text-[11px] tracking-[0.18em]">{t.totalEstimated}</span>
                 <span className="font-mono text-sm tabular-nums">{formatCurrency(totalEur)}</span>
               </div>

@@ -62,8 +62,8 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
                 onClick={() => handleCategoryClick(cat.id)}
                 className={`px-3 py-2 sm:py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] transition-all whitespace-nowrap min-h-[36px] flex items-center touch-manipulation ${
                   isActive
-                    ? "bg-[#1A1614] text-[var(--bg-canvas)] shadow-xs"
-                    : "bg-[var(--bg-surface-raised)] text-[#736B62] hover:text-[#1A1614] hover:bg-[var(--bg-surface-active)]"
+                    ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
+                    : "bg-[var(--bg-surface-raised)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-active)]"
                 }`}
               >
                 {cat.label}
@@ -98,20 +98,20 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
             placeholder={t.searchPlaceholder}
             value={filters.search}
             onChange={handleSearchChange}
-            className="w-full h-11 pl-9 pr-3 font-sans text-base sm:text-xs bg-[var(--bg-surface-raised)] text-[#1A1614] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
+            className="w-full h-11 pl-9 pr-3 font-sans text-base sm:text-xs bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
           />
         </div>
 
         <div className="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto">
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <SlidersHorizontal className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#736B62] whitespace-nowrap hidden sm:inline">
+            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)] whitespace-nowrap hidden sm:inline">
               {t.sortLabel}
             </span>
             <select
               value={filters.sortBy}
               onChange={handleSortChange}
-              className="h-11 flex-1 sm:flex-none px-3 font-sans text-base sm:text-[11px] uppercase tracking-[0.10em] bg-[var(--bg-surface-raised)] text-[#1A1614] border border-[var(--border-subtle)] outline-none focus-visible:border-[var(--text-primary)]"
+              className="h-11 flex-1 sm:flex-none px-3 font-sans text-base sm:text-[11px] uppercase tracking-[0.10em] bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] outline-none focus-visible:border-[var(--text-primary)]"
             >
               <option value="curated">{t.sortCurated}</option>
               <option value="price-asc">{t.sortPriceAsc}</option>

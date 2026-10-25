@@ -63,15 +63,15 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)] block mb-1">
               Modeli {bag.category}
             </span>
-            <h1 className="font-sans font-medium uppercase text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
+            <h1 className="font-sans font-medium uppercase text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)]">
               {bag.name}
             </h1>
-            <p className="font-sans font-normal text-xs sm:text-[14px] text-[#736B62] tracking-[0.02em] uppercase mt-1.5 sm:mt-2">
+            <p className="font-sans font-normal text-xs sm:text-[14px] text-[var(--text-secondary)] tracking-[0.02em] uppercase mt-1.5 sm:mt-2">
               {bag.tagline}
             </p>
           </div>
 
-          <div className="font-sans font-light text-[13px] sm:text-[14px] leading-[1.65] tracking-[0.01em] text-[#736B62] space-y-3">
+          <div className="font-sans font-light text-[13px] sm:text-[14px] leading-[1.65] tracking-[0.01em] text-[var(--text-secondary)] space-y-3">
             <p>{bag.description}</p>
           </div>
 
@@ -114,7 +114,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
       <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)] border-t border-[var(--border-strong)] z-30 shadow-lg flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
         <div>
           <span className="text-[9px] font-mono uppercase text-[var(--text-muted)] block">Çmimi</span>
-          <p className="font-mono font-bold text-lg tabular-nums text-[#1A1614]">
+          <p className="font-mono font-bold text-lg tabular-nums text-[var(--text-primary)]">
             {formatCurrency(bag.priceEur)}
           </p>
         </div>

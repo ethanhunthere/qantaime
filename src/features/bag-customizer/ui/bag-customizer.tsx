@@ -60,7 +60,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           className="object-cover object-center transition-all duration-300"
         />
         {enableMonogram && monogram.trim().length > 0 && (
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[#1A1614] text-[#d4af37] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[var(--text-primary)] text-[var(--bg-canvas)] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[var(--border-subtle)] shadow-lg">
             INITIALS: {monogram.trim().toUpperCase()}
           </div>
         )}
@@ -87,7 +87,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                   onClick={() => setSelectedColor(color)}
                   className={`flex items-center gap-2.5 p-2 sm:p-2.5 min-h-[44px] border text-left transition-all touch-manipulation rounded-none ${
                     isSelected
-                      ? "border-[#1A1614] bg-[var(--bg-surface-raised)] ring-1 ring-[#1A1614]"
+                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                   }`}
                 >
@@ -123,7 +123,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                   onClick={() => setSelectedHardware(hw)}
                   className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation rounded-none ${
                     isSelected
-                      ? "border-[#1A1614] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[#1A1614]"
+                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
                   }`}
                 >

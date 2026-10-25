@@ -34,7 +34,7 @@ export function OrderSummaryCard({ order }: { order: OrderConfirmation }) {
               <Image src={item.image} alt={item.bagName} fill className="object-cover" />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-sans font-medium uppercase text-xs tracking-[0.08em] text-[#1A1614] truncate">{item.bagName}</h4>
+              <h4 className="font-sans font-medium uppercase text-xs tracking-[0.08em] text-[var(--text-primary)] truncate">{item.bagName}</h4>
               <p className="text-[11px] font-mono text-[var(--text-secondary)]">
                 {item.color.name} — {item.hardware.name}
               </p>

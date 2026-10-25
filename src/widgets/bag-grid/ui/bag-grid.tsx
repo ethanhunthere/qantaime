@@ -56,7 +56,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-[var(--accent-cognac)] block">
             {t.catalogTitle}
           </span>
-          <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl md:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614] mt-1">
+          <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl md:text-4xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)] mt-1">
             {t.catalogSubtitle}
           </h2>
         </div>
@@ -75,7 +75,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
       {/* Product Grid */}
       {filteredBags.length === 0 ? (
         <div className="p-8 sm:p-12 text-center border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-3">
-          <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[#1A1614]">
+          <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[var(--text-primary)]">
             {t.noBagsFound}
           </p>
           <p className="text-xs font-mono text-[var(--text-secondary)]">
@@ -104,7 +104,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
           <div className="space-y-5 sm:space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
               <div>
-                <h3 className="font-sans font-medium uppercase text-lg sm:text-xl tracking-[0.06em] text-[#1A1614]">{inspectBag.name}</h3>
+                <h3 className="font-sans font-medium uppercase text-lg sm:text-xl tracking-[0.06em] text-[var(--text-primary)]">{inspectBag.name}</h3>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">{inspectBag.tagline}</p>
               </div>
               <span className="font-mono text-lg sm:text-xl font-bold tabular-nums text-[var(--text-primary)]">

@@ -11,25 +11,25 @@
 }
 
 :root {
-  /* Alabaster & warm mineral stone canvas */
-  --bg-canvas: #faf8f5;
+  /* Ultra-clean modern luxury gallery white canvas */
+  --bg-canvas: #fafafa;
   --bg-surface: #ffffff;
-  --bg-surface-raised: #f4efe9;
-  --bg-surface-active: #ece5dc;
+  --bg-surface-raised: #f5f5f7;
+  --bg-surface-active: #ececed;
 
   /* Architectural hairlines */
-  --border-subtle: #e6dfd5;
-  --border-strong: #c8bfb0;
+  --border-subtle: #eeeeee;
+  --border-strong: #d4d4d8;
 
-  /* Deep charcoal & warm bistre typography */
-  --text-primary: #1A1614;
-  --text-secondary: #736B62;
-  --text-muted: #9E9589;
+  /* Deep obsidian & neutral graphite typography */
+  --text-primary: #0a0a0a;
+  --text-secondary: #6b6b70;
+  --text-muted: #9e9ea4;
 
-  /* Craft accents */
-  --accent-cognac: #964F28;
-  --accent-espresso: #3A2B20;
-  --accent-ochre: #B8860B;
+  /* Accents */
+  --accent-cognac: #111111;
+  --accent-espresso: #1a1614;
+  --accent-ochre: #b8860b;
 
   /* Precision radii */
   --radius-sm: 2px;
@@ -43,21 +43,21 @@
 }
 
 .dark {
-  --bg-canvas: #12100E;
-  --bg-surface: #1C1917;
-  --bg-surface-raised: #292524;
-  --bg-surface-active: #38332E;
+  --bg-canvas: #09090b;
+  --bg-surface: #121214;
+  --bg-surface-raised: #1c1c1f;
+  --bg-surface-active: #27272a;
 
-  --border-subtle: #332C26;
-  --border-strong: #4F453C;
+  --border-subtle: #27272a;
+  --border-strong: #3f3f46;
 
-  --text-primary: #F7F5F2;
-  --text-secondary: #B8B0A2;
-  --text-muted: #A39B8E;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
 
-  --accent-cognac: #C67848;
-  --accent-espresso: #6E5340;
-  --accent-ochre: #D4AF37;
+  --accent-cognac: #e4e4e7;
+  --accent-espresso: #27272a;
+  --accent-ochre: #d4af37;
 }
 
 html, body {

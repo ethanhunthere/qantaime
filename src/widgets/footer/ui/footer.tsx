@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NewsletterForm } from "@/features/newsletter";
 import { useLanguage, LanguageSwitcher } from "@/features/language";
 
 export function Footer() {
@@ -11,87 +10,50 @@ export function Footer() {
 
   return (
     <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-[var(--text-secondary)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          {/* Brand Manifesto & Newsletter */}
-          <div className="md:col-span-6 space-y-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-6">
+        {/* Top Minimal Tier */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-[var(--border-subtle)]">
+          {/* Logo & Brand Wordmark */}
+          <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/images/logo.png"
               alt="Logo"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               style={{ width: "auto", height: "auto" }}
-              className="h-9 object-contain"
+              className="h-8 object-contain transition-opacity group-hover:opacity-80"
             />
-            <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] block">
+            <span className="font-sans font-medium uppercase text-[15px] sm:text-[16px] tracking-[0.28em] text-[var(--text-primary)]">
               {t.brandName}
             </span>
-            <p className="text-xs font-mono leading-relaxed max-w-md text-[var(--text-secondary)]">
-              {t.footerDesc}
-            </p>
-            <div className="pt-2">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[var(--text-primary)] block mb-2 font-medium">
-                {t.newsletterTitle}
-              </span>
-              <NewsletterForm />
-            </div>
-          </div>
+          </Link>
 
-          {/* Dispatch & Customer Care */}
-          <div className="md:col-span-3 space-y-3 font-mono text-xs">
-            <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
-              {t.salonsTitle}
-            </span>
-            <div className="space-y-1">
-              <p className="text-[var(--text-primary)] font-medium">Dërgesa me Korrier VIP</p>
-              <p className="text-[var(--text-muted)]">Dërgesë e shpejtë dhe e siguruar në adresën tuaj</p>
-              <p className="text-[var(--text-muted)]">Kujdesi për Klientin: E Hënë — E Shtunë (10:00 — 20:00)</p>
-            </div>
-            <div className="space-y-1 pt-2">
-              <p className="text-[var(--text-primary)] font-medium">Mbulimi Ndërkombëtar</p>
-              <p className="text-[var(--text-muted)]">Kosovë, Shqipëri, Zvicër, Gjermani & SHBA</p>
-              <p className="text-[var(--text-muted)]">Gjurmim i plotë i pakos</p>
-            </div>
-          </div>
+          {/* Simple Navigation Links */}
+          <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+            <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+              Të Gjitha
+            </Link>
+            <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+              Çanta Luksoze
+            </Link>
+            <Link href="/bags/porte-monnaie-cardholder" className="hover:text-[var(--text-primary)] transition-colors">
+              Kuleta
+            </Link>
+            <Link href="/checkout" className="hover:text-[var(--text-primary)] transition-colors">
+              Porosia
+            </Link>
+          </nav>
 
-          {/* Navigation Links & Language */}
-          <div className="md:col-span-3 space-y-3 font-mono text-xs">
-            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614] block">
-              Navigimi & Gjuha
-            </span>
-            <ul className="space-y-2 font-sans font-medium text-[11px] uppercase tracking-[0.18em]">
-              <li>
-                <Link href="/#catalog" className="hover:text-[#1A1614] transition-colors">
-                  {t.catalogTitle}
-                </Link>
-              </li>
-              <li>
-                <Link href="/checkout" className="hover:text-[#1A1614] transition-colors">
-                  {t.checkoutTitle}
-                </Link>
-              </li>
-              <li>
-                <span className="text-[var(--text-muted)]">Garancia & Autenticiteti</span>
-              </li>
-            </ul>
-
-            <div className="pt-3">
-              <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
-                Zgjidh Gjuhën
-              </span>
-              <LanguageSwitcher />
-            </div>
+          {/* Compact Language Switcher */}
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher compact />
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[var(--text-muted)] text-center sm:text-left">
+        {/* Bottom Minimal Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-[var(--text-muted)] text-center sm:text-left">
           <p>© {new Date().getFullYear()} {t.allRightsReserved}</p>
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-6 text-center sm:text-right">
-            <span>Kushtet e Porosisë</span>
-            <span>Privatësia</span>
-            <span>Dërgesa me Korrier VIP</span>
-          </div>
+          <p className="tracking-wider uppercase text-[10px]">Dërgesë e Siguruar me Korrier VIP</p>
         </div>
       </div>
     </footer>

@@ -19,10 +19,10 @@ export function CheckoutView() {
       <div className="max-w-2xl mx-auto px-4 py-16 sm:py-24 space-y-6">
         <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-8 sm:p-12 space-y-6">
           <div className="w-12 h-12 bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] flex items-center justify-center">
-            <ShoppingBag className="w-6 h-6 text-[#1A1614]" />
+            <ShoppingBag className="w-6 h-6 text-[var(--text-primary)]" />
           </div>
           <div className="space-y-2">
-            <h1 className="font-sans font-medium uppercase text-xl sm:text-2xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
+            <h1 className="font-sans font-medium uppercase text-xl sm:text-2xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)]">
               {t.emptyCarry}
             </h1>
             <p className="text-xs font-mono text-[var(--text-secondary)]">
@@ -63,7 +63,7 @@ export function CheckoutView() {
             <span className="font-medium">{t.yourCarry} ({items.length})</span>
             {showMobileSummary ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
           </div>
-          <span className="font-bold tabular-nums text-sm text-[#1A1614]">{formatCurrency(totalEur)}</span>
+          <span className="font-bold tabular-nums text-sm text-[var(--text-primary)]">{formatCurrency(totalEur)}</span>
         </button>
 
         {showMobileSummary && (
@@ -113,7 +113,7 @@ export function CheckoutView() {
 
         {/* Right: Itemized Carry Breakdown (Desktop persistent) */}
         <div className="hidden lg:block lg:col-span-5 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 space-y-6">
-          <h2 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614] pb-3 border-b border-[var(--border-subtle)]">
+          <h2 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[var(--text-primary)] pb-3 border-b border-[var(--border-subtle)]">
             {t.yourCarry} ({items.length} {items.length === 1 ? "Model" : "Modele"})
           </h2>
 

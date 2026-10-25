@@ -64,7 +64,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         {onQuickView && (
           <button
             onClick={() => onQuickView(bag)}
-            className="absolute bottom-2.5 right-2.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-150 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans font-medium text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] bg-[var(--bg-surface)] text-[#1A1614] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)] min-h-[32px] flex items-center touch-manipulation"
+            className="absolute bottom-2.5 right-2.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-150 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans font-medium text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)] min-h-[32px] flex items-center touch-manipulation"
           >
             {t.quickInspect}
           </button>
@@ -76,19 +76,19 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         {/* Strict 3-Line Brutalist Layout */}
         <div className="space-y-1">
           {/* Line 1 — Brand Name */}
-          <p className="font-sans font-medium text-[11px] uppercase tracking-[0.20em] text-[#1A1614]">
+          <p className="font-sans font-medium text-[11px] uppercase tracking-[0.20em] text-[var(--text-primary)]">
             QANTAIME
           </p>
 
           {/* Line 2 — Bag Model & Leather */}
-          <h3 className="font-sans font-normal text-[14px] uppercase tracking-[0.08em] text-[#736B62] truncate">
-            <Link href={`/bags/${bag.slug}`} className="hover:text-[#1A1614] transition-colors">
+          <h3 className="font-sans font-normal text-[14px] uppercase tracking-[0.08em] text-[var(--text-secondary)] truncate">
+            <Link href={`/bags/${bag.slug}`} className="hover:text-[var(--text-primary)] transition-colors">
               {bag.name} {bag.leatherType}
             </Link>
           </h3>
 
           {/* Line 3 — Price & Dimensions */}
-          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[#1A1614]">
+          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[var(--text-primary)]">
             {formatCurrency(bag.priceEur)} — {formatDimensions(bag.dimensions)}
           </p>
         </div>
@@ -110,7 +110,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
                 <span
                   className={`w-4 sm:w-5 h-2 rounded-none border transition-all ${
                     idx === activeColorIdx
-                      ? "border-[#1A1614] shadow-xs scale-105"
+                      ? "border-[var(--text-primary)] shadow-xs scale-105"
                       : "border-[var(--border-strong)] opacity-60 hover:opacity-100"
                   }`}
                   style={{ backgroundColor: color.hex }}
@@ -127,14 +127,14 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
           <button
             onClick={handleQuickAdd}
-            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[#1A1614] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none touch-manipulation"
+            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none touch-manipulation"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>{t.addToCarry}</span>
           </button>
           <Link
             href={`/bags/${bag.slug}`}
-            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[#1A1614] transition-colors active:scale-95 touch-manipulation"
+            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
             title={t.viewDetails}
             aria-label={t.viewDetails}
           >

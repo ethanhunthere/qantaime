@@ -30,7 +30,7 @@ export function PaymentMethodSelector({
   return (
     <div className="space-y-4 pt-4 border-t border-[var(--border-subtle)]">
       <div className="flex items-center justify-between pb-1">
-        <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614]">
+        <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[var(--text-primary)]">
           {t.paymentTitle}
         </h3>
         <span className="text-[10px] font-mono text-[var(--accent-cognac)] uppercase tracking-wider flex items-center gap-1">
