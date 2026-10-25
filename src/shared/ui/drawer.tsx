@@ -47,7 +47,7 @@ export function Drawer({ isOpen, onClose, title, children, position = "right" }:
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/40 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/60"
           />
 
           {/* Drawer container */}

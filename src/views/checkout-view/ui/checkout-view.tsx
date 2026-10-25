@@ -16,21 +16,28 @@ export function CheckoutView() {
 
   if (items.length === 0) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-20 sm:py-24 text-center space-y-6">
-        <div className="w-16 h-16 rounded-full bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto">
-          <ShoppingBag className="w-8 h-8 text-[var(--text-muted)]" />
+      <div className="max-w-2xl mx-auto px-4 py-16 sm:py-24 space-y-6">
+        <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-8 sm:p-12 space-y-6">
+          <div className="w-12 h-12 bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] flex items-center justify-center">
+            <ShoppingBag className="w-6 h-6 text-[#1A1614]" />
+          </div>
+          <div className="space-y-2">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-muted)] block">
+              [DISPATCH PROTOCOL]
+            </span>
+            <h1 className="font-sans font-medium uppercase text-xl sm:text-2xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
+              {t.emptyCarry}
+            </h1>
+            <p className="text-xs font-mono text-[var(--text-secondary)]">
+              {t.emptyCarryDesc}
+            </p>
+          </div>
+          <Link href="/" className="inline-block">
+            <Button variant="primary" size="md" className="rounded-none">
+              {t.heroCtaCatalog}
+            </Button>
+          </Link>
         </div>
-        <div className="space-y-2">
-          <h1 className="font-sans font-medium uppercase text-xl sm:text-2xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">{t.emptyCarry}</h1>
-          <p className="text-xs font-mono text-[var(--text-secondary)]">
-            {t.emptyCarryDesc}
-          </p>
-        </div>
-        <Link href="/">
-          <Button variant="primary" size="md">
-            {t.heroCtaCatalog}
-          </Button>
-        </Link>
       </div>
     );
   }
@@ -70,7 +77,7 @@ export function CheckoutView() {
                   <div>
                     <p className="font-medium text-[var(--text-primary)]">{item.bagName}</p>
                     <p className="text-[var(--text-secondary)] text-[10px]">
-                      {item.color.name} • Sasia: {item.quantity}
+                      {item.color.name} / Sasia: {item.quantity}
                     </p>
                   </div>
                   <span className="tabular-nums font-medium text-[var(--text-primary)]">
@@ -119,7 +126,7 @@ export function CheckoutView() {
                 <div>
                   <p className="font-semibold text-[var(--text-primary)]">{item.bagName}</p>
                   <p className="text-[var(--text-secondary)] text-[11px]">
-                    {item.color.name} • {item.hardware.name}
+                    {item.color.name} / {item.hardware.name}
                   </p>
                   {item.monogram && (
                     <p className="text-[var(--accent-cognac)] text-[10px]">

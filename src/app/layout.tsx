@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "QANTAIME — Architectural Leather Goods & Monolithic Carry",
+    default: "QANTAIME | Architectural Leather Goods & Monolithic Carry",
     template: "%s | QANTAIME",
   },
   description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "QANTAIME" }],
   openGraph: {
-    title: "QANTAIME — Architectural Leather Goods",
+    title: "QANTAIME | Architectural Leather Goods",
     description: "Handcrafted full-grain box calfskin and monolithic modular carry.",
     type: "website",
     locale: "sq_AL",

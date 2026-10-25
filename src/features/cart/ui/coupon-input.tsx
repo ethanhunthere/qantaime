@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Tag, Check, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useCart } from "../model/cart-context";
 
 export function CouponInput() {
@@ -23,8 +23,8 @@ export function CouponInput() {
   if (couponCode) {
     return (
       <div className="flex items-center justify-between p-2.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] text-xs font-mono">
-        <div className="flex items-center gap-2 text-green-700">
-          <Check className="w-4 h-4" />
+        <div className="flex items-center gap-2 text-[var(--text-primary)]">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent-cognac)]">[APPLIED]</span>
           <span>Privilege Code: <strong>{couponCode}</strong> ({discountPercent}% off)</span>
         </div>
         <button

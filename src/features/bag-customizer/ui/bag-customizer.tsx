@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Check, ShieldCheck, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import { Bag, CartItem } from "@/shared/types";
 import { formatCurrency } from "@/shared/lib";
 import { Button } from "@/shared/ui";
@@ -60,8 +60,8 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           className="object-cover object-center transition-all duration-300"
         />
         {enableMonogram && monogram.trim().length > 0 && (
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
-            INICIALE: {monogram.trim().toUpperCase()}
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[#1A1614] text-[#d4af37] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
+            INITIALS: {monogram.trim().toUpperCase()}
           </div>
         )}
       </div>
@@ -85,14 +85,14 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2 p-2 sm:p-2.5 min-h-[44px] border text-left transition-all touch-manipulation ${
+                  className={`flex items-center gap-2.5 p-2 sm:p-2.5 min-h-[44px] border text-left transition-all touch-manipulation rounded-none ${
                     isSelected
-                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
+                      ? "border-[#1A1614] bg-[var(--bg-surface-raised)] ring-1 ring-[#1A1614]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                   }`}
                 >
                   <span
-                    className="w-4 h-4 rounded-full border border-black/20 shrink-0"
+                    className="w-5 h-3 rounded-none border border-[var(--border-strong)] shrink-0"
                     style={{ backgroundColor: color.hex }}
                   />
                   <span className="text-xs font-mono text-[var(--text-primary)] truncate">
@@ -121,9 +121,9 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation ${
+                  className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation rounded-none ${
                     isSelected
-                      ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
+                      ? "border-[#1A1614] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[#1A1614]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
                   }`}
                 >
@@ -180,10 +180,10 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
             size="lg"
             variant="primary"
             onClick={handleAddToCart}
-            className="w-full sm:w-auto min-w-[220px] min-h-[48px]"
+            className="w-full sm:w-auto min-w-[220px] min-h-[48px] rounded-none"
           >
             {isAddedFeedback ? (
-              <span className="flex items-center gap-1.5 text-green-400">
+              <span className="flex items-center gap-1.5 text-stone-300">
                 <Check className="w-4 h-4" /> {t.addedToCarry}
               </span>
             ) : (
@@ -194,13 +194,11 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
 
         {/* Workshop guarantee badges */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
-          <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-cognac)] shrink-0" />
-            {t.lifetimeGuarantee}
+          <span className="tracking-wider uppercase">
+            [ARCHIVAL LIFETIME CRAFTSMANSHIP]
           </span>
-          <span className="flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-cognac)] shrink-0" />
-            {t.complimentaryCourier}
+          <span className="tracking-wider uppercase">
+            [INSURED AIR COURIER DISPATCH]
           </span>
         </div>
       </div>

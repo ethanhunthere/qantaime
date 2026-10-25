@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Drawer, Button } from "@/shared/ui";
 import { formatCurrency } from "@/shared/lib";
 import { useCart, CartItemRow, CouponInput } from "@/features/cart";
@@ -26,8 +26,8 @@ export function CartDrawer() {
     <Drawer isOpen={isOpen} onClose={closeCart} title={t.yourCarry} position="right">
       {items.length === 0 ? (
         <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-          <div className="w-14 h-14 rounded-full bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] flex items-center justify-center">
-            <ShoppingBag className="w-6 h-6 text-[var(--text-muted)]" />
+          <div className="w-12 h-12 rounded-none bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] flex items-center justify-center">
+            <ShoppingBag className="w-6 h-6 text-[#1A1614]" />
           </div>
           <div className="space-y-1">
             <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[#1A1614]">{t.emptyCarry}</p>
@@ -82,9 +82,8 @@ export function CartDrawer() {
 
             <div className="pt-2">
               <Link href="/checkout" onClick={closeCart} className="block w-full">
-                <Button size="lg" variant="primary" className="w-full justify-between group min-h-[48px] touch-manipulation">
+                <Button size="lg" variant="primary" className="w-full min-h-[48px] touch-manipulation rounded-none">
                   <span>{t.proceedCheckout}</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
             </div>

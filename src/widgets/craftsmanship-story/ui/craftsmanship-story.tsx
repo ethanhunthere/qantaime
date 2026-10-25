@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { Scissors, Shield, Compass, Sparkles } from "lucide-react";
 import { useLanguage } from "@/features/language";
 
 export function CraftsmanshipStory() {
@@ -10,22 +9,22 @@ export function CraftsmanshipStory() {
 
   const pillars = [
     {
-      icon: Compass,
+      code: "01 / TAN",
       title: t.craftTanningTitle,
       desc: t.craftTanningDesc,
     },
     {
-      icon: Scissors,
+      code: "02 / SEAM",
       title: t.craftStitchingTitle,
       desc: t.craftStitchingDesc,
     },
     {
-      icon: Sparkles,
+      code: "03 / EDGE",
       title: t.craftBeeswaxTitle,
       desc: t.craftBeeswaxDesc,
     },
     {
-      icon: Shield,
+      code: "04 / CARE",
       title: t.craftRestorationTitle,
       desc: t.craftRestorationDesc,
     },
@@ -35,8 +34,8 @@ export function CraftsmanshipStory() {
     <section id="craftsmanship" className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         <div className="max-w-3xl space-y-3 sm:space-y-4">
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
-            {t.craftPhilosophy}
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-[#1A1614] block">
+            [ATELIER DOSSIER — CRAFTSMANSHIP STANDARDS]
           </span>
           <h2 className="font-sans font-medium uppercase text-2xl sm:text-4xl lg:text-5xl tracking-[0.06em] leading-[1.05] text-[#1A1614] text-balance">
             {t.craftTitle}
@@ -46,27 +45,26 @@ export function CraftsmanshipStory() {
           </p>
         </div>
 
-        {/* 4 Pillars Grid */}
+        {/* 4 Pillars Architectural Dossier Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.title}
-                className="p-5 sm:p-6 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] space-y-3"
-              >
-                <div className="w-9 h-9 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-cognac)]">
-                  <Icon className="w-4 h-4" />
-                </div>
-                <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614]">
+          {pillars.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="p-5 sm:p-6 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] space-y-3 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)] block border-b border-[var(--border-subtle)] pb-2">
+                  {pillar.code}
+                </span>
+                <h3 className="font-sans font-medium uppercase text-sm tracking-[0.08em] text-[#1A1614]">
                   {pillar.title}
                 </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  {pillar.desc}
-                </p>
               </div>
-            );
-          })}
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed pt-2">
+                {pillar.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Atmospheric Workshop Imagery */}

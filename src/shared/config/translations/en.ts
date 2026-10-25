@@ -3,7 +3,7 @@ import { sq } from "./sq";
 export const en: typeof sq = {
   brandName: "QANTAIME",
   brandSubtitle: "Architectural Carry Goods",
-  topAnnouncement: "Edition 2026 • Complimentary Insured Courier Shipping Worldwide • Handcrafted in Paris & Milan",
+  topAnnouncement: "COMPLIMENTARY INSURED COURIER SHIPPING WORLDWIDE — ATELIER PARIS & MILAN",
   navWorks: "Works Catalog",
   navBriefcases: "Briefcases",
   navTotes: "Totes",
@@ -11,8 +11,8 @@ export const en: typeof sq = {
   navProvenance: "Craft & Leather",
   cartButton: "Carry",
 
-  heroBadge: "Autumn / Winter 2026 Collection",
-  heroTitle: "Architectural Carry Sculpted for Decades.",
+  heroBadge: "PERMANENT ATELIER ARCHIVE",
+  heroTitle: "MONOLITHIC FORM. UNCOMPROMISING CALFSKIN.",
   heroSubtitle: "Handcrafted in limited editions between Paris and Milan. We eliminate ornamental hardware and commercial branding in favor of continuous full-grain box calf, saddle-stitch reinforcement, and Swiss-machined metal fittings.",
   heroCtaCatalog: "Explore Collection",
   heroCtaFlagship: "View Flagship Briefcase",

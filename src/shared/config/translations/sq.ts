@@ -2,7 +2,7 @@ export const sq = {
   // Brand & Header
   brandName: "QANTAIME",
   brandSubtitle: "Çanta Luksoze Arkitekturore",
-  topAnnouncement: "Koleksioni 2026 • Dërgesë Falas me Korrier në Gjithë Botën • Punuar me Dorë në Paris & Milano",
+  topAnnouncement: "DËRGESË E SIGURUAR ME KORRIER NË TË GJITHË BOTËN — ATELIER PARIS & MILANO",
   navWorks: "Katalogu i Çantave",
   navBriefcases: "Çanta Pune",
   navTotes: "Çanta Krahu",
@@ -11,8 +11,8 @@ export const sq = {
   cartButton: "Shporta",
 
   // Hero Section
-  heroBadge: "Koleksioni Vjeshtë / Dimër 2026",
-  heroTitle: "Çanta Arkitekturore të Skalitura për Dekada.",
+  heroBadge: "ARKIVË E PËRHERSHME E ATELIERIT",
+  heroTitle: "DISIPLINA E LËKURËS DHE SILUETËS ARKITEKTURORE.",
   heroSubtitle: "Punuar në seri të kufizuara midis Parisit dhe Milanos. Ne eliminojmë logot vulgare dhe detajet e panevojshme për t'i dhënë përparësi lëkurës origjinale italiane, qepjes tradicionale me dorë dhe metalit të pastër zviceran.",
   heroCtaCatalog: "Eksploro Koleksionin",
   heroCtaFlagship: "Shiko Çantën Kryesore",

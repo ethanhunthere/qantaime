@@ -146,15 +146,17 @@ export function PaymentMethodSelector({
       {/* Conditional Sub-form for Stripe Bank Payment */}
       {selectedMethod === "stripe_bank" && (
         <div className="p-5 bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] space-y-4">
-          <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2.5">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest border border-[var(--border-strong)] px-1.5 py-0.5">
+                SECURE
+              </span>
               <span className="text-xs font-mono font-medium text-[var(--text-primary)] uppercase tracking-wider">
                 {t.stripeBankTitle}
               </span>
             </div>
-            <span className="text-[10px] font-mono text-[var(--text-muted)]">
-              SEPA • ACH • Stripe Financial Connections
+            <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
+              SEPA / ACH / FINANCIAL CONNECTIONS
             </span>
           </div>
 

@@ -93,32 +93,32 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </p>
         </div>
 
-        {/* Color variant dots */}
+        {/* Architectural Patina Swatches */}
         <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
           <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono">
             {t.colorLabel}
           </span>
-          <div className="flex items-center gap-1 sm:gap-1.5">
+          <div className="flex items-center gap-1.5">
             {bag.colors.map((color, idx) => (
               <button
                 key={color.id}
                 onClick={() => setActiveColorIdx(idx)}
-                className="p-1 -m-0.5 inline-flex items-center justify-center touch-manipulation"
+                className="py-1 inline-flex items-center justify-center touch-manipulation group/swatch"
                 title={color.name}
                 aria-label={`Zgjidh ${color.name}`}
               >
                 <span
-                  className={`w-3.5 h-3.5 rounded-full border transition-all ${
+                  className={`w-4 sm:w-5 h-2 rounded-none border transition-all ${
                     idx === activeColorIdx
-                      ? "ring-1 ring-offset-1 ring-[var(--text-primary)] scale-110"
-                      : "opacity-80 hover:opacity-100"
+                      ? "border-[#1A1614] shadow-xs scale-105"
+                      : "border-[var(--border-strong)] opacity-60 hover:opacity-100"
                   }`}
-                  style={{ backgroundColor: color.hex, borderColor: "var(--border-strong)" }}
+                  style={{ backgroundColor: color.hex }}
                 />
               </button>
             ))}
           </div>
-          <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto">
+          <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto truncate max-w-[100px]">
             {bag.colors[activeColorIdx]?.name}
           </span>
         </div>

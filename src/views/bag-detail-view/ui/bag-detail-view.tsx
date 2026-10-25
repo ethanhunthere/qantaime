@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ShoppingBag } from "lucide-react";
 import { Bag, CartItem } from "@/shared/types";
 import { BagCustomizer } from "@/features/bag-customizer";
 import { BagSpecsTable } from "@/entities/bag";
@@ -83,7 +83,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             <ul className="space-y-2 text-xs font-mono text-[var(--text-secondary)]">
               {bag.features.map((feat) => (
                 <li key={feat} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-cognac)] shrink-0 mt-0.5" />
+                  <span className="text-[var(--text-muted)] select-none">/</span>
                   <span>{feat}</span>
                 </li>
               ))}
@@ -97,8 +97,9 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             </h4>
             <ul className="space-y-1.5 text-xs font-mono text-[var(--text-secondary)]">
               {bag.craftsmanshipNotes.map((note, idx) => (
-                <li key={idx} className="leading-relaxed">
-                  • {note}
+                <li key={idx} className="leading-relaxed flex items-start gap-2">
+                  <span className="text-[var(--text-muted)] select-none">[{String(idx + 1).padStart(2, "0")}]</span>
+                  <span>{note}</span>
                 </li>
               ))}
             </ul>
@@ -110,7 +111,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
       </div>
 
       {/* Mobile Sticky Quick Action Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)]/95 backdrop-blur-md border-t border-[var(--border-subtle)] z-30 shadow-lg flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)] border-t border-[var(--border-strong)] z-30 shadow-lg flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
         <div>
           <span className="text-[9px] font-mono uppercase text-[var(--text-muted)] block">Çmimi</span>
           <p className="font-mono font-bold text-lg tabular-nums text-[#1A1614]">

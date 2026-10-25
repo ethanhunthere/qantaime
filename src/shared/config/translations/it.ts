@@ -3,7 +3,7 @@ import { sq } from "./sq";
 export const it: typeof sq = {
   brandName: "QANTAIME",
   brandSubtitle: "Borse in Pelle Architetturali",
-  topAnnouncement: "Edizione 2026 • Spedizione Corriere Assicurata Gratuita • Fatto a Mano a Parigi e Milano",
+  topAnnouncement: "SPEDIZIONE CORRIERE ASSICURATA GRATUITA — ATELIER PARIGI & MILANO",
   navWorks: "Catalogo Opere",
   navBriefcases: "Ventiquattr&apos;ore",
   navTotes: "Borse Tote",
@@ -11,8 +11,8 @@ export const it: typeof sq = {
   navProvenance: "Artigianato & Pelli",
   cartButton: "Carrello",
 
-  heroBadge: "Collezione Autunno / Inverno 2026",
-  heroTitle: "Borse Architetturali Scolpite per Durare Decenni.",
+  heroBadge: "ARCHIVIO PERMANENTE DELL'ATELIER",
+  heroTitle: "FORMA MONOLITICA. PELLE SENZA COMPROMESSI.",
   heroSubtitle: "Realizzate in edizioni limitate tra Parigi e Milano. Eliminiamo i loghi vistosi a favore di vera pelle di vitello francese, cuciture a mano e dettagli metallici svizzeri.",
   heroCtaCatalog: "Esplora la Collezione",
   heroCtaFlagship: "Vedi Borsa Iconica",
