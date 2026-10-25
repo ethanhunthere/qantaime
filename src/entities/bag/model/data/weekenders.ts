@@ -66,7 +66,7 @@ export const weekenders: Bag[] = [
     capacityLiters: 52.0,
     weightGrams: 2100,
     dimensions: { widthMm: 560, heightMm: 350, depthMm: 280 },
-    leatherType: "Lëkurë Demi e Trashë e Zgjedhur me Dorë",
+    leatherType: "Lëkurë Demi e Trashë e Zgjedhur",
     liningMaterial: "Kamosh i Kuq Bourdeaux",
     hardwareOptions: [
       { id: "brass", name: "Tunxh Masiv i Rëndë", finish: "brass" },
@@ -74,8 +74,8 @@ export const weekenders: Bag[] = [
     colors: [
       { id: "espresso", name: "Kafe e Zezë Bourdeaux", hex: "#1f1513", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80" },
     ],
-    description: "Vepra më madhështore e koleksionit të udhëtimit. Çdo detaj është i përforcuar për t'i bërë ballë dekadave të udhëtimeve të largëta.",
-    craftsmanshipNotes: ["Kërkon 42 orë punë të pandërprerë të mjeshtrit kryesor."],
+    description: "Modeli më madhështor i koleksionit të udhëtimit. Çdo detaj është i përforcuar për t'i bërë ballë dekadave të udhëtimeve të largëta.",
+    craftsmanshipNotes: ["Konstruksion i dyfishtë për mbajtje peshe deri në 40 kg."],
     features: ["Kapaciteti më i madh në koleksion", "Përfshin etiketë lëkure me iniciale", "Hapje me kornizë metalike 'Doctor's Bag'"],
     inStock: true,
     isBestseller: true,

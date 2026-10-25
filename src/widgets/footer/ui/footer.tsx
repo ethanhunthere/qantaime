@@ -21,7 +21,7 @@ export function Footer() {
               width={36}
               height={36}
               style={{ width: "auto", height: "auto" }}
-              className="h-9 object-contain dark:invert"
+              className="h-9 object-contain"
             />
             <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] block">
               {t.brandName}
@@ -43,35 +43,35 @@ export function Footer() {
               {t.salonsTitle}
             </span>
             <div className="space-y-1">
-              <p className="text-[var(--text-primary)] font-medium">Punishtja në Prishtinë</p>
+              <p className="text-[var(--text-primary)] font-medium">Salloni në Prishtinë</p>
               <p className="text-[var(--text-muted)]">Rruga Fehmi Agani 24, 10000 Prishtinë, Kosovë</p>
-              <p className="text-[var(--text-muted)]">Hapur: E Hënë — E Shtunë</p>
+              <p className="text-[var(--text-muted)]">Hapur: E Hënë — E Shtunë (10:00 — 20:00)</p>
             </div>
             <div className="space-y-1 pt-2">
-              <p className="text-[var(--text-primary)] font-medium">Dërgesat Ndërkombëtare</p>
-              <p className="text-[var(--text-muted)]">Kosovë, Shqipëri, Zvicër, Gjermani & Diasporë</p>
-              <p className="text-[var(--text-muted)]">Dërgesë e siguruar me korrier</p>
+              <p className="text-[var(--text-primary)] font-medium">Dërgesat me Korrier</p>
+              <p className="text-[var(--text-muted)]">Kosovë (brenda 24h), Shqipëri, Zvicër, Gjermani & SHBA</p>
+              <p className="text-[var(--text-muted)]">Dërgesë e shpejtë dhe e siguruar</p>
             </div>
           </div>
 
           {/* Navigation Links & Language */}
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
             <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614] block">
-              Dokumentacioni & Gjuha
+              Navigimi & Gjuha
             </span>
             <ul className="space-y-2 font-sans font-medium text-[11px] uppercase tracking-[0.18em]">
               <li>
-                <Link href="#craftsmanship" className="hover:text-[#1A1614] transition-colors">
-                  {t.navProvenance}
-                </Link>
-              </li>
-              <li>
-                <Link href="#catalog" className="hover:text-[#1A1614] transition-colors">
+                <Link href="/#catalog" className="hover:text-[#1A1614] transition-colors">
                   {t.catalogTitle}
                 </Link>
               </li>
               <li>
-                <span className="text-[var(--text-muted)]">Protokolli i Mirëmbajtjes</span>
+                <Link href="/checkout" className="hover:text-[#1A1614] transition-colors">
+                  {t.checkoutTitle}
+                </Link>
+              </li>
+              <li>
+                <span className="text-[var(--text-muted)]">Garancia & Autenticiteti</span>
               </li>
             </ul>
 

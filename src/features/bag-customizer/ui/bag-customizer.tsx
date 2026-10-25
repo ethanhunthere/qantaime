@@ -192,13 +192,13 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           </Button>
         </div>
 
-        {/* Workshop guarantee badges */}
+        {/* Guarantee and dispatch indicators */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
           <span className="tracking-wider uppercase">
-            [ARCHIVAL LIFETIME CRAFTSMANSHIP]
+            [AUTENTICITET I GARANTUAR]
           </span>
           <span className="tracking-wider uppercase">
-            [INSURED AIR COURIER DISPATCH]
+            [DËRGESË E SIGURUAR ME KORRIER]
           </span>
         </div>
       </div>

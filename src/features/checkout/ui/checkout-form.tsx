@@ -61,7 +61,7 @@ export function CheckoutForm() {
             id="fullName"
             name="fullName"
             label={t.fullName}
-            placeholder="p.sh. Alban Kastrati"
+            placeholder="p.sh. Alban Berisha"
             required
             error={state?.errors?.fullName?.[0]}
           />
@@ -70,7 +70,7 @@ export function CheckoutForm() {
             name="email"
             type="email"
             label={t.emailAddress}
-            placeholder="alban@kastrati-atelier.com"
+            placeholder="alban@qantaime.com"
             required
             error={state?.errors?.email?.[0]}
           />
@@ -97,7 +97,7 @@ export function CheckoutForm() {
             id="city"
             name="city"
             label={t.city}
-            placeholder="Tiranë / Prishtinë"
+            placeholder="Prishtinë / Prizren / Pejë"
             required
             error={state?.errors?.city?.[0]}
           />
@@ -113,7 +113,7 @@ export function CheckoutForm() {
             id="country"
             name="country"
             label={t.country}
-            placeholder="Shqipëri / Kosovë"
+            placeholder="Kosovë / Shqipëri / Zvicër"
             required
             error={state?.errors?.country?.[0]}
           />
@@ -123,7 +123,7 @@ export function CheckoutForm() {
           name="phone"
           type="tel"
           label={t.phone}
-          placeholder="+355 69 123 4567"
+          placeholder="+383 44 123 456"
           required
           error={state?.errors?.phone?.[0]}
         />

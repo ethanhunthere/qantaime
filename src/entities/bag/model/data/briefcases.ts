@@ -25,7 +25,7 @@ export const briefcases: Bag[] = [
     ],
     description: "Krijuar për arkitektë dhe profesionistë elitarë nga një copë e vetme lëkure viçi franceze. Ka hapësirë të mbushur për laptop 16-inch dhe xhep të fshehtë MagSafe.",
     craftsmanshipNotes: [
-      "28 orë punë artizanale për prerje, qepje dhe lyerje buzësh në punishten tonë në Prishtinë.",
+      "Strukturë e përforcuar me prerje precize dhe lyerje elegante e skajeve.",
       "Dorezë titani e përforcuar për shpërndarje të barabartë të peshës.",
       "Zinxhirë metalikë zviceranë Riri me dy koka."
     ],
@@ -65,7 +65,7 @@ export const briefcases: Bag[] = [
       { id: "obsidian", name: "E Zezë Klasike", hex: "#121214", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
     ],
     description: "Frymëzuar nga aktet noteriale franceze të shekullit të kaluar, Le Notaire ofron tre seksione të ndara për kontrata, laptop dhe stilolapsa luksozë.",
-    craftsmanshipNotes: ["Kyc me shifër i punuar me dorë në Zvicër.", "Kënde të përforcuara me lëkurë të dyfishtë."],
+    craftsmanshipNotes: ["Kyç me shifër i certifikuar me saktësi zvicerane.", "Kënde të përforcuara me lëkurë të dyfishtë."],
     features: ["Tre ndarje të brendshme", "Xhep i fshehtë për pasaportë", "Mbyllje me shifër"],
     inStock: true,
     images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80"],
@@ -113,13 +113,13 @@ export const briefcases: Bag[] = [
     leatherType: "Lëkurë Demi e Rrallë Sadlle Bridle",
     liningMaterial: "Mëndafsh & Kamosh të Kuq Hermès",
     hardwareOptions: [
-      { id: "brass", name: "Tunxh i Lustruar me Dorë", finish: "brass" },
+      { id: "brass", name: "Tunxh Masiv i Lustruar", finish: "brass" },
     ],
     colors: [
       { id: "espresso", name: "Ekspreso e Thellë", hex: "#221815", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
     ],
     description: "Krijuar për udhëheqës korporatash dhe diplomatë. Kornizë druri ahu e lehtë e veshur me lëkurë të plotë demi.",
-    craftsmanshipNotes: ["Kornizë e brendshme druri ahu francez.", "Kycje me çelës të punuar me dorë."],
+    craftsmanshipNotes: ["Kornizë e brendshme druri ahu francez.", "Kyçje precize me çelës metalik të sigurt."],
     features: ["Kapacitet i zgjeruar", "Kuti e integruar stilolapsi", "Baza me këmbëza mbrojtëse tunxhi"],
     inStock: true,
     images: ["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80"],

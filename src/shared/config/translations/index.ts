@@ -11,7 +11,7 @@ export const translations: Record<Language, typeof sq> = {
 };
 
 export const LANGUAGE_LABELS: Record<Language, { label: string; flag: string }> = {
-  sq: { label: "Shqip", flag: "🇦🇱" },
+  sq: { label: "Shqip", flag: "🇽🇰" },
   en: { label: "English", flag: "🇬🇧" },
   it: { label: "Italiano", flag: "🇮🇹" },
 };

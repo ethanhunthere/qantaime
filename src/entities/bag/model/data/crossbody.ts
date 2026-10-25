@@ -76,7 +76,7 @@ export const crossbodies: Bag[] = [
       { id: "cognac", name: "Toskane Natyrale", hex: "#8c5327", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80" },
     ],
     description: "Mbrojtje e shkëlqyer për aparate fotografikë Leica ose sende personale. Muret e mbushura me kamosh mbrojnë gjithçka nga goditjet.",
-    craftsmanshipNotes: ["Formë cilindrike e qepur me dorë mbi kallëp druri."],
+    craftsmanshipNotes: ["Formë cilindrike e modeluar me strukturë të përforcuar të qëndrueshme."],
     features: ["Ndarëse të brendshme me ngjitëse", "Zinxhir i dyfishtë për hapje të shpejtë", "Rrip i butë lëkure"],
     inStock: true,
     images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80"],

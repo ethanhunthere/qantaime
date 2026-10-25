@@ -45,7 +45,7 @@ export function Header() {
               height={44}
               priority
               style={{ width: "auto", height: "auto" }}
-              className="h-9 sm:h-11 object-contain dark:invert transition-opacity group-hover:opacity-80"
+              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80"
             />
           </Link>
         </div>
@@ -63,9 +63,6 @@ export function Header() {
           </Link>
           <Link href="/bags/nomade-weekender" className="hover:text-[var(--text-primary)] transition-colors">
             {t.navWeekenders}
-          </Link>
-          <Link href="#craftsmanship" className="hover:text-[var(--text-primary)] transition-colors">
-            {t.navProvenance}
           </Link>
         </nav>
 
@@ -142,14 +139,6 @@ export function Header() {
             >
               <span>{t.navWeekenders}</span>
               <span className="text-[10px] font-mono text-[var(--text-muted)]">48H</span>
-            </Link>
-            <Link
-              href="#craftsmanship"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
-            >
-              <span>{t.navProvenance}</span>
-              <span className="text-[10px] font-mono text-[var(--text-muted)]">Atelier</span>
             </Link>
           </nav>
 

@@ -81,8 +81,8 @@ export async function submitOrderAction(
 
   const successMsg =
     data.paymentMethod === "stripe_bank"
-      ? "Commission accepted. Your bank payment has been securely authorized via Stripe."
-      : "Your commission has been accepted by the Atelier.";
+      ? "Porosia u pranua me sukses. Pagesa juaj bankare u autorizua në mënyrë të sigurt nga Stripe."
+      : "Porosia juaj u konfirmua me sukses nga QANTAIME.";
 
   return {
     success: true,

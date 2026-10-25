@@ -137,7 +137,7 @@ export function PaymentMethodSelector({
           <div className="text-xs font-mono">
             <p className="font-semibold text-[var(--text-primary)]">Transfertë Bankare Direkte</p>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Faturë me IBAN të Atelierit
+              Faturë me IBAN të QANTAIME
             </p>
           </div>
         </label>
@@ -165,7 +165,7 @@ export function PaymentMethodSelector({
               id="stripeBankHolder"
               name="stripeBankHolder"
               label={t.accountHolder}
-              placeholder="p.sh. Alban Kastrati"
+              placeholder="p.sh. Alban Berisha"
               value={holder}
               onChange={(e) => setHolder(e.target.value)}
               error={errors?.stripeBankHolder?.[0]}
@@ -175,7 +175,7 @@ export function PaymentMethodSelector({
               id="stripeBankBic"
               name="stripeBankBic"
               label={t.bicSwift}
-              placeholder="p.sh. BNPAFRPPXXX"
+              placeholder="p.sh. PRBKXKPRXXX"
               value={bic}
               onChange={(e) => setBic(e.target.value.toUpperCase())}
             />
@@ -185,7 +185,7 @@ export function PaymentMethodSelector({
             id="stripeBankIban"
             name="stripeBankIban"
             label={t.accountIban}
-            placeholder="AL35 2021 1109 0000 0002 0150 1234"
+            placeholder="XK05 1501 0000 1234 5678"
             value={iban}
             onChange={handleIbanChange}
             error={errors?.stripeBankIban?.[0]}

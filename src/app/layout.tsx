@@ -18,24 +18,25 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "QANTAIME | Çanta Lëkure të Punuara me Dorë në Kosovë",
+    default: "QANTAIME | Çanta Luksoze Origjinale në Prishtinë, Kosovë",
     template: "%s | QANTAIME",
   },
   description:
-    "Çanta lëkure origjinale të punuara me dorë në Prishtinë, Kosovë. Lëkurë e plotë natyrale, qepje tradicionale me dorë dhe pajisje metalike masive me garanci të përjetshme.",
+    "Dyqani ekskluziv i çantave luksoze origjinale në Prishtinë, Kosovë. Modele të zgjedhura lëkure, çmime transparente në Euro dhe dërgesë e shpejtë me korrier të siguruar në Kosovë, Shqipëri dhe diasporë.",
   keywords: [
     "QANTAIME",
+    "çanta luksoze",
     "çanta lëkure",
     "çanta kosovë",
-    "punuar me dorë",
-    "prishtinë",
+    "dyqan çantash prishtinë",
     "leather bags kosovo",
-    "handcrafted leather",
+    "luxury bags prishtina",
   ],
   authors: [{ name: "QANTAIME Kosovë" }],
   openGraph: {
-    title: "QANTAIME | Çanta Lëkure të Punuara me Dorë në Kosovë",
-    description: "Çanta lëkure origjinale të punuara me dorë në Prishtinë, Kosovë me lëkurë të plotë natyrale dhe qepje tradicionale.",
+    title: "QANTAIME | Çanta Luksoze Origjinale në Prishtinë, Kosovë",
+    description:
+      "Dyqani ekskluziv i çantave luksoze origjinale në Prishtinë, Kosovë me dërgesë të shpejtë në Kosovë dhe diasporë.",
     type: "website",
     locale: "sq_XK",
     siteName: "QANTAIME",

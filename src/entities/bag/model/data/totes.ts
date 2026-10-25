@@ -22,7 +22,7 @@ export const totes: Bag[] = [
       { id: "obsidian", name: "E Zezë e Thellë", hex: "#18181b", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
       { id: "olive", name: "Ulli Pylli", hex: "#3b443b", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80" },
     ],
-    description: "Le Flâneur përfaqëson thelbin e minimalizmit. Skaje të papërpunuara, pa rreshta të tepërt, me ribatina tunxhi të ngulura me dorë. Lëkura fiton një nuancë qelibari me kalimin e viteve.",
+    description: "Le Flâneur përfaqëson thelbin e minimalizmit. Skaje të papërpunuara, pa rreshta të tepërt, me ribatina tunxhi të fiksuara me saktësi. Lëkura fiton një nuancë qelibari me kalimin e viteve.",
     craftsmanshipNotes: ["Prerë nga pjesa e shpatullës së demit toskan.", "Doreza të përforcuara me kordon të padukshëm."],
     features: ["Qasje e hapur me kopsë magnetike", "Qëndron vetë në këmbë në sipërfaqe të sheshta", "Përfshin çantëz të brendshme të heqshme"],
     inStock: true,

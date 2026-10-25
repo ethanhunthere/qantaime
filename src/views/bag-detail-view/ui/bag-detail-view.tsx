@@ -93,7 +93,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
           {/* Artisan Notes */}
           <div className="p-3.5 sm:p-4 bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2">
             <h4 className="text-xs uppercase font-mono tracking-wider font-semibold text-[var(--text-primary)]">
-              Shënime nga Punishtja
+              Shënime & Veçori të Modelit
             </h4>
             <ul className="space-y-1.5 text-xs font-mono text-[var(--text-secondary)]">
               {bag.craftsmanshipNotes.map((note, idx) => (
