@@ -25,7 +25,7 @@ export const it: typeof sq = {
 
   catalogTitle: "Collezione Borse di Pregio",
   catalogSubtitle: "Collezione Esclusiva",
-  catalogDesc: "Selezione esclusiva di borse in vera pelle con prezzi chiari in Euro. Consegna con corriere assicurato direttamente al tuo indirizzo.",
+  catalogDesc: "",
   allWorks: "Tutte le Borse",
   catBriefcase: "Ventiquattr'ore & Cartelle",
   catTote: "Borse a Mano & Spalla",

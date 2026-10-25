@@ -123,3 +123,17 @@ button, a, input, select, textarea {
   padding-top: env(safe-area-inset-top, 0px);
 }
 
+/* Hide Next.js dev indicator circle logo */
+nextjs-portal,
+#nextjs-dev-tools,
+[data-nextjs-dev-tools],
+[data-nextjs-toast],
+div[class*="nextjs-toast"],
+div[class*="dev-indicator"],
+div[class*="devTools"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+

@@ -25,7 +25,7 @@ export const en: typeof sq = {
 
   catalogTitle: "Curated Luxury Bag Collection",
   catalogSubtitle: "Exclusive Collection",
-  catalogDesc: "Curated collection of genuine leather bags with transparent Euro pricing. Fast insured courier delivery directly to your address.",
+  catalogDesc: "",
   allWorks: "All Bags",
   catBriefcase: "Briefcases & Portfolios",
   catTote: "Totes & Shoulder Bags",

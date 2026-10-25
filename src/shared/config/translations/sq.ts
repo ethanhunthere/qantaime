@@ -26,7 +26,7 @@ export const sq = {
   // Filter Bar & Catalog
   catalogTitle: "Koleksioni i Çantave Luksoze",
   catalogSubtitle: "Koleksioni Ekskluziv",
-  catalogDesc: "Përzgjedhje ekskluzive e modeleve origjinale me çmime transparente në Euro. Dërgesë e shpejtë me korrier të siguruar në adresën tuaj.",
+  catalogDesc: "",
   allWorks: "Të Gjitha",
   catBriefcase: "Çanta Pune & Dokumentash",
   catTote: "Çanta Dore & Krahu",

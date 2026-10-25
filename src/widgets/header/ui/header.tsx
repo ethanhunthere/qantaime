@@ -31,6 +31,7 @@ export function Header() {
         {/* Brand Logo */}
         <div className="flex items-center gap-4 sm:gap-6">
           <Link href="/" className="group flex items-center py-1">
+            {/* Light Mode Logo (Espresso Brown) */}
             <Image
               src="/images/logo.png"
               alt="Logo"
@@ -38,7 +39,17 @@ export function Header() {
               height={44}
               priority
               style={{ width: "auto", height: "auto" }}
-              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80"
+              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80 dark:hidden"
+            />
+            {/* Dark Mode Logo (Pure White) */}
+            <Image
+              src="/images/logo-white.png"
+              alt="Logo"
+              width={44}
+              height={44}
+              priority
+              style={{ width: "auto", height: "auto" }}
+              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80 hidden dark:block"
             />
           </Link>
         </div>

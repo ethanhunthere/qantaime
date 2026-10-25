@@ -10,13 +10,23 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Small Logo */}
         <Link href="/" className="inline-flex items-center">
+          {/* Light Mode Logo */}
           <Image
             src="/images/logo.png"
             alt="Logo"
             width={32}
             height={32}
             style={{ width: "auto", height: "auto" }}
-            className="h-7 sm:h-8 object-contain"
+            className="h-7 sm:h-8 object-contain dark:hidden"
+          />
+          {/* Dark Mode Logo */}
+          <Image
+            src="/images/logo-white.png"
+            alt="Logo"
+            width={32}
+            height={32}
+            style={{ width: "auto", height: "auto" }}
+            className="h-7 sm:h-8 object-contain hidden dark:block"
           />
         </Link>
 
