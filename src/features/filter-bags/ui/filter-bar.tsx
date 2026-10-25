@@ -63,37 +63,39 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
   return (
     <div className="w-full space-y-2">
       {/* Single Unified Control Panel (Search Box + Filters) with Crisp Visible Borders */}
-      <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-strong)] p-3 sm:p-3.5 shadow-xs">
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          {/* Search Input with inline clear — zero outer lines on click/focus */}
-          <div className="relative flex-1 max-w-full sm:max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)] pointer-events-none" />
+      <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-strong)] p-3 sm:p-4 shadow-xs">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 w-full">
+          {/* Search Input — Fully Expansive Width & Bespoke Luxury Obsidian/Cognac Palette */}
+          <div className="relative flex-1 w-full">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-none bg-[#26201b] border border-[#3b322a] flex items-center justify-center text-[#d4af37] pointer-events-none shrink-0 shadow-xs">
+              <Search className="w-4 h-4" />
+            </div>
             <input
               type="search"
               placeholder={t.searchPlaceholder}
               value={filters.search}
               onChange={handleSearchChange}
-              className="w-full h-11 pl-9 pr-9 font-sans text-base sm:text-xs bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:border-[var(--border-subtle)] outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-none focus:shadow-none transition-none [appearance:none] [-webkit-appearance:none]"
+              className="w-full h-12 sm:h-13 pl-13 pr-10 font-sans text-sm sm:text-[13px] tracking-[0.02em] bg-[#181614] dark:bg-[#11100f] text-[#faf7f2] placeholder:text-[#9c948a] border border-[#2d2722] dark:border-[#332c26] focus:border-[#42372e] outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-none focus:shadow-none transition-none [appearance:none] [-webkit-appearance:none]"
             />
             {filters.search && (
               <button
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer outline-none focus:outline-none"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-[#9c948a] hover:text-[#faf7f2] transition-colors cursor-pointer outline-none focus:outline-none"
                 title="Pastro kërkimin"
                 aria-label="Pastro kërkimin"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
             )}
           </div>
 
           {/* Custom Bespoke Luxury Sort Dropdown */}
-          <div ref={sortRef} className="relative flex-1 sm:flex-none">
+          <div ref={sortRef} className="relative md:w-auto shrink-0">
             <button
               type="button"
               onClick={() => setSortOpen((prev) => !prev)}
-              className="h-11 w-full sm:w-auto min-w-[210px] px-3.5 flex items-center justify-between gap-3 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-sans text-xs uppercase tracking-[0.12em] outline-none focus:outline-none focus:ring-0 ring-0 cursor-pointer select-none"
+              className="h-12 sm:h-13 w-full md:w-auto min-w-[210px] px-4 flex items-center justify-between gap-3 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-strong)] transition-all font-sans text-xs uppercase tracking-[0.12em] outline-none focus:outline-none focus:ring-0 ring-0 cursor-pointer select-none"
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
             >
