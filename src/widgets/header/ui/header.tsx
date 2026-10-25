@@ -44,7 +44,8 @@ export function Header() {
               width={160}
               height={44}
               priority
-              className="h-9 sm:h-11 w-auto object-contain dark:invert transition-opacity group-hover:opacity-80"
+              style={{ width: "auto" }}
+              className="h-9 sm:h-11 object-contain dark:invert transition-opacity group-hover:opacity-80"
             />
           </Link>
         </div>
