@@ -39,14 +39,14 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16 space-y-8 sm:space-y-12 pb-24 lg:pb-16">
       {/* Breadcrumb navigation */}
-      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-[var(--text-muted)]">
+      <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono text-[var(--text-muted)]">
         <Link href="/" className="inline-flex items-center gap-1 hover:text-[var(--text-primary)] transition-colors min-h-[32px]">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{t.navWorks}</span>
         </Link>
-        <span>/</span>
+        <span className="text-[var(--text-muted)]">›</span>
         <span className="uppercase text-[var(--text-secondary)]">{bag.category}</span>
-        <span>/</span>
+        <span className="text-[var(--text-muted)]">›</span>
         <span className="text-[var(--text-primary)] font-medium truncate max-w-[200px] sm:max-w-none">{bag.name}</span>
       </div>
 
@@ -83,7 +83,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             <ul className="space-y-2 text-xs font-mono text-[var(--text-secondary)]">
               {bag.features.map((feat) => (
                 <li key={feat} className="flex items-start gap-2">
-                  <span className="text-[var(--text-muted)] select-none">/</span>
+                  <span className="text-[var(--text-muted)] select-none">—</span>
                   <span>{feat}</span>
                 </li>
               ))}
@@ -98,7 +98,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             <ul className="space-y-1.5 text-xs font-mono text-[var(--text-secondary)]">
               {bag.craftsmanshipNotes.map((note, idx) => (
                 <li key={idx} className="leading-relaxed flex items-start gap-2">
-                  <span className="text-[var(--text-muted)] select-none">[{String(idx + 1).padStart(2, "0")}]</span>
+                  <span className="text-[var(--text-muted)] select-none">—</span>
                   <span>{note}</span>
                 </li>
               ))}

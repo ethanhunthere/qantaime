@@ -18,25 +18,24 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "QANTAIME | Çanta Luksoze Origjinale në Prishtinë, Kosovë",
-    template: "%s | QANTAIME",
+    default: "QANTAIME — Çanta Luksoze Origjinale",
+    template: "%s — QANTAIME",
   },
   description:
-    "Dyqani ekskluziv i çantave luksoze origjinale në Prishtinë, Kosovë. Modele të zgjedhura lëkure, çmime transparente në Euro dhe dërgesë e shpejtë me korrier të siguruar në Kosovë, Shqipëri dhe diasporë.",
+    "Dyqani ekskluziv i çantave luksoze origjinale. Modele të zgjedhura lëkure, çmime transparente në Euro dhe dërgesë e shpejtë me korrier të siguruar.",
   keywords: [
     "QANTAIME",
     "çanta luksoze",
     "çanta lëkure",
-    "çanta kosovë",
-    "dyqan çantash prishtinë",
-    "leather bags kosovo",
-    "luxury bags prishtina",
+    "dyqan çantash",
+    "leather bags",
+    "luxury bags",
   ],
-  authors: [{ name: "QANTAIME Kosovë" }],
+  authors: [{ name: "QANTAIME" }],
   openGraph: {
-    title: "QANTAIME | Çanta Luksoze Origjinale në Prishtinë, Kosovë",
+    title: "QANTAIME — Çanta Luksoze Origjinale",
     description:
-      "Dyqani ekskluziv i çantave luksoze origjinale në Prishtinë, Kosovë me dërgesë të shpejtë në Kosovë dhe diasporë.",
+      "Dyqani ekskluziv i çantave luksoze origjinale me dërgesë të shpejtë me korrier të siguruar.",
     type: "website",
     locale: "sq_XK",
     siteName: "QANTAIME",

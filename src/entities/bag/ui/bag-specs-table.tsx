@@ -9,11 +9,11 @@ export interface BagSpecsTableProps {
 export function BagSpecsTable({ bag }: BagSpecsTableProps) {
   const specs = [
     { label: "Dimensions", value: formatDimensions(bag.dimensions) },
-    { label: "Material", value: `${bag.leatherType} / ${bag.liningMaterial}` },
-    { label: "Hardware", value: bag.hardwareOptions.map((h) => h.name).join(" / ") },
-    { label: "Condition", value: "Pristine / Archive Grade" },
+    { label: "Material", value: `${bag.leatherType}, ${bag.liningMaterial}` },
+    { label: "Hardware", value: bag.hardwareOptions.map((h) => h.name).join(", ") },
+    { label: "Condition", value: "Pristine, Archive Grade" },
     { label: "Serial Code", value: `QA-${bag.id.toUpperCase()}-2026` },
-    { label: "Capacity & Weight", value: `${bag.capacityLiters.toFixed(1)} L / ${formatWeight(bag.weightGrams)}` },
+    { label: "Capacity & Weight", value: `${bag.capacityLiters.toFixed(1)} L — ${formatWeight(bag.weightGrams)}` },
   ];
 
   return (

@@ -37,20 +37,20 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Workshop Addresses */}
+          {/* Dispatch & Customer Care */}
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
             <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
               {t.salonsTitle}
             </span>
             <div className="space-y-1">
-              <p className="text-[var(--text-primary)] font-medium">Salloni në Prishtinë</p>
-              <p className="text-[var(--text-muted)]">Rruga Fehmi Agani 24, 10000 Prishtinë, Kosovë</p>
-              <p className="text-[var(--text-muted)]">Hapur: E Hënë — E Shtunë (10:00 — 20:00)</p>
+              <p className="text-[var(--text-primary)] font-medium">Dërgesa me Korrier VIP</p>
+              <p className="text-[var(--text-muted)]">Dërgesë e shpejtë dhe e siguruar në adresën tuaj</p>
+              <p className="text-[var(--text-muted)]">Kujdesi për Klientin: E Hënë — E Shtunë (10:00 — 20:00)</p>
             </div>
             <div className="space-y-1 pt-2">
-              <p className="text-[var(--text-primary)] font-medium">Dërgesat me Korrier</p>
-              <p className="text-[var(--text-muted)]">Kosovë (brenda 24h), Shqipëri, Zvicër, Gjermani & SHBA</p>
-              <p className="text-[var(--text-muted)]">Dërgesë e shpejtë dhe e siguruar</p>
+              <p className="text-[var(--text-primary)] font-medium">Mbulimi Ndërkombëtar</p>
+              <p className="text-[var(--text-muted)]">Kosovë, Shqipëri, Zvicër, Gjermani & SHBA</p>
+              <p className="text-[var(--text-muted)]">Gjurmim i plotë i pakos</p>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export function Footer() {
 
             <div className="pt-3">
               <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
-                Zgjidh Gjuhën / Select Language
+                Zgjidh Gjuhën
               </span>
               <LanguageSwitcher />
             </div>

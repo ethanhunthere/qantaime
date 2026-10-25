@@ -156,7 +156,7 @@ export function PaymentMethodSelector({
               </span>
             </div>
             <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
-              SEPA / ACH / FINANCIAL CONNECTIONS
+              SEPA, ACH & FINANCIAL CONNECTIONS
             </span>
           </div>
 

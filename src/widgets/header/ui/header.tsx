@@ -27,13 +27,6 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)]/95 backdrop-blur-md border-b border-[var(--border-subtle)] transition-colors">
-      {/* Top micro-announcement banner */}
-      <div className="bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] px-3 sm:px-4 py-1.5 text-center overflow-hidden">
-        <p className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] truncate sm:whitespace-normal">
-          {t.topAnnouncement}
-        </p>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div className="flex items-center gap-4 sm:gap-6">
@@ -53,16 +46,13 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
-            {t.navWorks}
+            Të Gjitha
           </Link>
-          <Link href="/bags/arche-briefcase" className="hover:text-[var(--text-primary)] transition-colors">
-            {t.navBriefcases}
+          <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+            Çanta Luksoze
           </Link>
-          <Link href="/bags/flaneur-tote" className="hover:text-[var(--text-primary)] transition-colors">
-            {t.navTotes}
-          </Link>
-          <Link href="/bags/nomade-weekender" className="hover:text-[var(--text-primary)] transition-colors">
-            {t.navWeekenders}
+          <Link href="/bags/porte-monnaie-cardholder" className="hover:text-[var(--text-primary)] transition-colors">
+            Kuleta
           </Link>
         </nav>
 
@@ -75,7 +65,7 @@ export function Header() {
           <button
             onClick={toggleTheme}
             className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
-            aria-label="Toggle light / dark stone mode"
+            aria-label="Ndrysho pamjen"
             title="Toggle theme"
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -113,37 +103,26 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>{t.navWorks}</span>
-              <span className="text-[10px] font-mono text-[var(--text-muted)]">20 Modele</span>
+              <span>Të Gjitha</span>
             </Link>
             <Link
-              href="/bags/arche-briefcase"
+              href="/#catalog"
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>{t.navBriefcases}</span>
-              <span className="text-[10px] font-mono text-[var(--text-muted)]">Porte-Documents</span>
+              <span>Çanta Luksoze</span>
             </Link>
             <Link
-              href="/bags/flaneur-tote"
+              href="/bags/porte-monnaie-cardholder"
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>{t.navTotes}</span>
-              <span className="text-[10px] font-mono text-[var(--text-muted)]">Totes</span>
-            </Link>
-            <Link
-              href="/bags/nomade-weekender"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
-            >
-              <span>{t.navWeekenders}</span>
-              <span className="text-[10px] font-mono text-[var(--text-muted)]">48H</span>
+              <span>Kuleta</span>
             </Link>
           </nav>
 
           <div className="pt-2 flex items-center justify-between border-t border-[var(--border-subtle)]">
-            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Gjuha / Language:</span>
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Gjuha:</span>
             <LanguageSwitcher />
           </div>
         </div>

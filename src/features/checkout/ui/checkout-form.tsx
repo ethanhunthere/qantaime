@@ -97,7 +97,7 @@ export function CheckoutForm() {
             id="city"
             name="city"
             label={t.city}
-            placeholder="Prishtinë / Prizren / Pejë"
+            placeholder="Prizren, Pejë, Gjakovë"
             required
             error={state?.errors?.city?.[0]}
           />
@@ -113,7 +113,7 @@ export function CheckoutForm() {
             id="country"
             name="country"
             label={t.country}
-            placeholder="Kosovë / Shqipëri / Zvicër"
+            placeholder="Kosovë, Shqipëri, Zvicër"
             required
             error={state?.errors?.country?.[0]}
           />

@@ -16,7 +16,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 min-h-[38px] text-xs font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all select-none touch-manipulation"
-        aria-label="Ndrysho Gjuhën / Select Language"
+        aria-label="Zgjidh Gjuhën"
       >
         <span className="text-sm">{current.flag}</span>
         {!compact && <span className="font-medium uppercase">{current.code}</span>}

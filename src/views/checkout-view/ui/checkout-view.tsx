@@ -47,7 +47,7 @@ export function CheckoutView() {
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{t.navWorks}</span>
         </Link>
-        <span>/</span>
+        <span className="text-[var(--text-muted)]">›</span>
         <span className="text-[var(--text-primary)] font-medium">{t.checkoutTitle}</span>
       </div>
 
@@ -74,7 +74,7 @@ export function CheckoutView() {
                   <div>
                     <p className="font-medium text-[var(--text-primary)]">{item.bagName}</p>
                     <p className="text-[var(--text-secondary)] text-[10px]">
-                      {item.color.name} / Sasia: {item.quantity}
+                      {item.color.name} — Sasia: {item.quantity}
                     </p>
                   </div>
                   <span className="tabular-nums font-medium text-[var(--text-primary)]">
@@ -123,7 +123,7 @@ export function CheckoutView() {
                 <div>
                   <p className="font-semibold text-[var(--text-primary)]">{item.bagName}</p>
                   <p className="text-[var(--text-secondary)] text-[11px]">
-                    {item.color.name} / {item.hardware.name}
+                    {item.color.name} — {item.hardware.name}
                   </p>
                   {item.monogram && (
                     <p className="text-[var(--accent-cognac)] text-[10px]">
