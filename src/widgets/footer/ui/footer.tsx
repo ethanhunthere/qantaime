@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { NewsletterForm } from "@/features/newsletter";
 import { useLanguage, LanguageSwitcher } from "@/features/language";
@@ -14,6 +15,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand Manifesto & Newsletter */}
           <div className="md:col-span-6 space-y-4">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={36}
+              height={36}
+              className="h-9 w-9 object-contain dark:invert"
+            />
             <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] block">
               {t.brandName}
             </span>

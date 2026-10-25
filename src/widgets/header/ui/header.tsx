@@ -41,7 +41,7 @@ export function Header() {
             <Image
               src="/images/logo.png"
               alt="Logo"
-              width={160}
+              width={44}
               height={44}
               priority
               style={{ width: "auto" }}
