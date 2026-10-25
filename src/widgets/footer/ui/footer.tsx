@@ -43,14 +43,14 @@ export function Footer() {
               {t.salonsTitle}
             </span>
             <div className="space-y-1">
-              <p className="text-[var(--text-primary)] font-medium">Atelier Paris</p>
-              <p className="text-[var(--text-muted)]">14 Rue de Verneuil, 75007 Paris</p>
-              <p className="text-[var(--text-muted)]">Me takim privat</p>
+              <p className="text-[var(--text-primary)] font-medium">Punishtja në Prishtinë</p>
+              <p className="text-[var(--text-muted)]">Rruga Fehmi Agani 24, 10000 Prishtinë, Kosovë</p>
+              <p className="text-[var(--text-muted)]">Hapur: E Hënë — E Shtunë</p>
             </div>
             <div className="space-y-1 pt-2">
-              <p className="text-[var(--text-primary)] font-medium">Laboratorio Milano</p>
-              <p className="text-[var(--text-muted)]">Via Solferino 19, 20121 Milano</p>
-              <p className="text-[var(--text-muted)]">E Martë — E Shtunë</p>
+              <p className="text-[var(--text-primary)] font-medium">Dërgesat Ndërkombëtare</p>
+              <p className="text-[var(--text-muted)]">Kosovë, Shqipëri, Zvicër, Gjermani & Diasporë</p>
+              <p className="text-[var(--text-muted)]">Dërgesë e siguruar me korrier</p>
             </div>
           </div>
 

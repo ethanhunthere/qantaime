@@ -25,7 +25,7 @@ export const briefcases: Bag[] = [
     ],
     description: "Krijuar për arkitektë dhe profesionistë elitarë nga një copë e vetme lëkure viçi franceze. Ka hapësirë të mbushur për laptop 16-inch dhe xhep të fshehtë MagSafe.",
     craftsmanshipNotes: [
-      "28 orë punë artizanale për prerje dhe lyerje buzësh në Milano.",
+      "28 orë punë artizanale për prerje, qepje dhe lyerje buzësh në punishten tonë në Prishtinë.",
       "Dorezë titani e përforcuar për shpërndarje të barabartë të peshës.",
       "Zinxhirë metalikë zviceranë Riri me dy koka."
     ],

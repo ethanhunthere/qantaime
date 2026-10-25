@@ -18,26 +18,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "QANTAIME | Architectural Leather Goods & Monolithic Carry",
+    default: "QANTAIME | Çanta Lëkure të Punuara me Dorë në Kosovë",
     template: "%s | QANTAIME",
   },
   description:
-    "Handcrafted full-grain box calfskin, Tuscan Vachetta, and milled Swiss hardware. Limited editions crafted between Paris and Milan with lifetime restorative service.",
+    "Çanta lëkure origjinale të punuara me dorë në Prishtinë, Kosovë. Lëkurë e plotë natyrale, qepje tradicionale me dorë dhe pajisje metalike masive me garanci të përjetshme.",
   keywords: [
     "QANTAIME",
-    "luxury bags",
-    "architectural carry",
-    "leather briefcase",
-    "weekender holdall",
-    "vegetable tanned leather",
-    "Swiss luxury leathercraft",
+    "çanta lëkure",
+    "çanta kosovë",
+    "punuar me dorë",
+    "prishtinë",
+    "leather bags kosovo",
+    "handcrafted leather",
   ],
-  authors: [{ name: "QANTAIME" }],
+  authors: [{ name: "QANTAIME Kosovë" }],
   openGraph: {
-    title: "QANTAIME | Architectural Leather Goods",
-    description: "Handcrafted full-grain box calfskin and monolithic modular carry.",
+    title: "QANTAIME | Çanta Lëkure të Punuara me Dorë në Kosovë",
+    description: "Çanta lëkure origjinale të punuara me dorë në Prishtinë, Kosovë me lëkurë të plotë natyrale dhe qepje tradicionale.",
     type: "website",
-    locale: "sq_AL",
+    locale: "sq_XK",
     siteName: "QANTAIME",
   },
 };

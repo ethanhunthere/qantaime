@@ -9,22 +9,22 @@ export function CraftsmanshipStory() {
 
   const pillars = [
     {
-      code: "01 / TAN",
+      code: "01 / LËKURA",
       title: t.craftTanningTitle,
       desc: t.craftTanningDesc,
     },
     {
-      code: "02 / SEAM",
+      code: "02 / QEPJA",
       title: t.craftStitchingTitle,
       desc: t.craftStitchingDesc,
     },
     {
-      code: "03 / EDGE",
+      code: "03 / DYLLI",
       title: t.craftBeeswaxTitle,
       desc: t.craftBeeswaxDesc,
     },
     {
-      code: "04 / CARE",
+      code: "04 / KUJDESI",
       title: t.craftRestorationTitle,
       desc: t.craftRestorationDesc,
     },
