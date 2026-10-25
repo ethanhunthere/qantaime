@@ -34,14 +34,11 @@ export function Header() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-        {/* Brand Logo & Tag */}
+        {/* Brand Logo */}
         <div className="flex items-center gap-4 sm:gap-6">
-          <Link href="/" className="group flex flex-col">
+          <Link href="/" className="group flex items-center">
             <span className="font-sans font-medium uppercase text-[15px] sm:text-[16px] md:text-[18px] tracking-[0.24em] sm:tracking-[0.28em] text-[#1A1614] group-hover:opacity-75 transition-opacity">
               {t.brandName}
-            </span>
-            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] uppercase text-[var(--text-muted)] mt-0.5">
-              {t.brandSubtitle}
             </span>
           </Link>
         </div>
