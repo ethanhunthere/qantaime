@@ -44,7 +44,7 @@ export function Header() {
               width={44}
               height={44}
               priority
-              style={{ width: "auto" }}
+              style={{ width: "auto", height: "auto" }}
               className="h-9 sm:h-11 object-contain dark:invert transition-opacity group-hover:opacity-80"
             />
           </Link>

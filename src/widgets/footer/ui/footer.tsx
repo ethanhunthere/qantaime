@@ -20,7 +20,8 @@ export function Footer() {
               alt="Logo"
               width={36}
               height={36}
-              className="h-9 w-9 object-contain dark:invert"
+              style={{ width: "auto", height: "auto" }}
+              className="h-9 object-contain dark:invert"
             />
             <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] block">
               {t.brandName}
