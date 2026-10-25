@@ -103,7 +103,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
               <button
                 key={color.id}
                 onClick={() => setActiveColorIdx(idx)}
-                className="py-1 inline-flex items-center justify-center touch-manipulation group/swatch"
+                className="py-1 inline-flex items-center justify-center touch-manipulation group/swatch cursor-pointer"
                 title={color.name}
                 aria-label={`Zgjidh ${color.name}`}
               >
@@ -118,9 +118,6 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
               </button>
             ))}
           </div>
-          <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto truncate max-w-[100px]">
-            {bag.colors[activeColorIdx]?.name}
-          </span>
         </div>
 
         {/* Footer of Card: Direct Actions */}
