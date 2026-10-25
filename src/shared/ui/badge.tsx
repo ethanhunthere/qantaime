@@ -15,7 +15,7 @@ export function Badge({ className, variant = "neutral", children, ...props }: Ba
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 text-[10px] uppercase tracking-widest font-medium select-none",
+        "inline-flex items-center px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider font-normal select-none",
         styles[variant],
         className
       )}

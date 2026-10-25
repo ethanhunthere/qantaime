@@ -63,7 +63,7 @@ export function Drawer({ isOpen, onClose, title, children, position = "right" }:
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-              <h2 className="text-base uppercase tracking-widest font-medium text-[var(--text-primary)]">
+              <h2 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614]">
                 {title}
               </h2>
               <button

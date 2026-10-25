@@ -22,7 +22,7 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
 
       {/* Details */}
       <div className="flex-1 min-w-0 space-y-1">
-        <h4 className="font-serif text-sm text-[var(--text-primary)] leading-tight truncate">
+        <h4 className="font-sans font-medium uppercase text-xs tracking-[0.08em] text-[#1A1614] leading-tight truncate">
           {item.bagName}
         </h4>
         <div className="text-[11px] font-mono text-[var(--text-secondary)] space-y-0.5">

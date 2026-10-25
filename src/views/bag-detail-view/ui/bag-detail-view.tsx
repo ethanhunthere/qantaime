@@ -42,15 +42,15 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
             <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)] block mb-1">
               Modeli {bag.category}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)]">
+            <h1 className="font-sans font-medium uppercase text-3xl sm:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
               {bag.name}
             </h1>
-            <p className="text-sm font-mono text-[var(--text-secondary)] mt-2">
+            <p className="font-sans font-normal text-[14px] text-[#736B62] tracking-[0.02em] uppercase mt-2">
               {bag.tagline}
             </p>
           </div>
 
-          <div className="prose text-xs text-[var(--text-secondary)] leading-relaxed space-y-3">
+          <div className="font-sans font-light text-[14px] leading-[1.65] tracking-[0.01em] text-[#736B62] space-y-3">
             <p>{bag.description}</p>
           </div>
 

@@ -1,7 +1,7 @@
 import { sq } from "./sq";
 
 export const en: typeof sq = {
-  brandName: "ATELIER VÉLOCE",
+  brandName: "QANTAIME",
   brandSubtitle: "Architectural Carry Goods",
   topAnnouncement: "Edition 2026 • Complimentary Insured Courier Shipping Worldwide • Handcrafted in Paris & Milan",
   navWorks: "Works Catalog",
@@ -93,13 +93,13 @@ export const en: typeof sq = {
   accountHolder: "Account Holder Legal Name",
   accountIban: "IBAN or Bank Account Number",
   bicSwift: "Bank Identifier / BIC (Optional)",
-  stripeNotice: "Powered by Stripe. By providing your bank account details, you authorize Stripe and Atelier Véloce to issue debit instructions to your bank.",
+  stripeNotice: "Powered by Stripe. By providing your bank account details, you authorize Stripe and QANTAIME to issue debit instructions to your bank.",
   confirmCommission: "Authorize Bank Payment with Stripe",
   encryptedGateway: "256-Bit Encrypted Stripe Infrastructure",
 
   craftPhilosophy: "Philosophy & Provenance",
   craftTitle: "Designed to Acquire Character Rather Than Wear.",
-  craftDesc: "In an era of disposable mass production, Atelier Véloce builds carry goods that outlive seasonal fashion. We treat leather as an architectural material.",
+  craftDesc: "In an era of disposable mass production, QANTAIME builds carry goods that outlive seasonal fashion. We treat leather as an architectural material.",
   craftTanningTitle: "Santa Croce sull'Arno Tanning",
   craftTanningDesc: "Conditioned with natural chestnut and mimosa tannins over sixty days in revolving wooden vats, preserving the authentic grain topography.",
   craftStitchingTitle: "Hand Saddle-Stitched Seams",
@@ -116,5 +116,5 @@ export const en: typeof sq = {
   newsletterTitle: "Private Workshop Dispatch",
   newsletterPlaceholder: "Private dispatch address...",
   subscribeButton: "Subscribe",
-  allRightsReserved: "All rights reserved. Atelier Véloce SAS.",
+  allRightsReserved: "All rights reserved. QANTAIME.",
 };

@@ -54,7 +54,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           />
         </Link>
 
-        {/* Badges */}
+        {/* Authenticity Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10 pointer-events-none">
           {bag.isBestseller && <Badge variant="accent">{t.iconicBadge}</Badge>}
           {bag.isNewArrival && <Badge variant="neutral">{t.newEditionBadge}</Badge>}
@@ -64,7 +64,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         {onQuickView && (
           <button
             onClick={() => onQuickView(bag)}
-            className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)]"
+            className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150 px-3 py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[var(--bg-surface)] text-[#1A1614] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)]"
           >
             {t.quickInspect}
           </button>
@@ -73,71 +73,69 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
 
       {/* Bag Details */}
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
-        <div>
-          <div className="flex items-baseline justify-between gap-2 mb-1.5">
-            <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)] group-hover:text-[var(--accent-cognac)] transition-colors">
-              <Link href={`/bags/${bag.slug}`}>{bag.name}</Link>
-            </h3>
-            <span className="font-mono text-sm font-semibold tabular-nums text-[var(--text-primary)]">
-              {formatCurrency(bag.priceEur)}
-            </span>
-          </div>
-
-          <p className="text-xs text-[var(--text-secondary)] line-clamp-2 leading-relaxed mb-3">
-            {bag.tagline}
+        {/* Strict 3-Line Brutalist Layout */}
+        <div className="space-y-1">
+          {/* Line 1 — Brand Name */}
+          <p className="font-sans font-medium text-[11px] uppercase tracking-[0.20em] text-[#1A1614]">
+            QANTAIME
           </p>
 
-          {/* Color variant dots */}
-          <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
-            <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono">
-              {t.colorLabel}
-            </span>
-            <div className="flex items-center gap-1.5">
-              {bag.colors.map((color, idx) => (
-                <button
-                  key={color.id}
-                  onClick={() => setActiveColorIdx(idx)}
-                  className={`w-3.5 h-3.5 rounded-full border transition-all ${
-                    idx === activeColorIdx
-                      ? "ring-1 ring-offset-1 ring-[var(--text-primary)] scale-110"
-                      : "opacity-80 hover:opacity-100"
-                  }`}
-                  style={{ backgroundColor: color.hex, borderColor: "var(--border-strong)" }}
-                  title={color.name}
-                  aria-label={`Zgjidh ${color.name}`}
-                />
-              ))}
-            </div>
-            <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto">
-              {bag.colors[activeColorIdx]?.name}
-            </span>
-          </div>
+          {/* Line 2 — Bag Model & Leather */}
+          <h3 className="font-sans font-normal text-[14px] uppercase tracking-[0.08em] text-[#736B62] truncate">
+            <Link href={`/bags/${bag.slug}`} className="hover:text-[#1A1614] transition-colors">
+              {bag.name} {bag.leatherType}
+            </Link>
+          </h3>
+
+          {/* Line 3 — Price & Dimensions */}
+          <p className="font-mono font-normal text-[12px] tabular-nums tracking-[0.04em] text-[#1A1614]">
+            {formatCurrency(bag.priceEur)} — {formatDimensions(bag.dimensions)}
+          </p>
         </div>
 
-        {/* Footer of Card: Specs + Direct Actions */}
-        <div className="pt-3 border-t border-[var(--border-subtle)] space-y-3">
-          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] tabular-nums">
-            <span>{bag.capacityLiters} L</span>
-            <span>{formatDimensions(bag.dimensions)}</span>
+        {/* Color variant dots */}
+        <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
+          <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono">
+            {t.colorLabel}
+          </span>
+          <div className="flex items-center gap-1.5">
+            {bag.colors.map((color, idx) => (
+              <button
+                key={color.id}
+                onClick={() => setActiveColorIdx(idx)}
+                className={`w-3.5 h-3.5 rounded-full border transition-all ${
+                  idx === activeColorIdx
+                    ? "ring-1 ring-offset-1 ring-[var(--text-primary)] scale-110"
+                    : "opacity-80 hover:opacity-100"
+                }`}
+                style={{ backgroundColor: color.hex, borderColor: "var(--border-strong)" }}
+                title={color.name}
+                aria-label={`Zgjidh ${color.name}`}
+              />
+            ))}
           </div>
+          <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto">
+            {bag.colors[activeColorIdx]?.name}
+          </span>
+        </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleQuickAdd}
-              className="flex-1 flex items-center justify-center gap-1.5 h-9 px-3 text-xs font-mono uppercase tracking-wider bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none"
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span>{t.addToCarry}</span>
-            </button>
-            <Link
-              href={`/bags/${bag.slug}`}
-              className="flex items-center justify-center w-9 h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-colors active:scale-95"
-              title={t.viewDetails}
-              aria-label={t.viewDetails}
-            >
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+        {/* Footer of Card: Direct Actions */}
+        <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
+          <button
+            onClick={handleQuickAdd}
+            className="flex-1 flex items-center justify-center gap-1.5 h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[#1A1614] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none"
+          >
+            <ShoppingBag className="w-3.5 h-3.5" />
+            <span>{t.addToCarry}</span>
+          </button>
+          <Link
+            href={`/bags/${bag.slug}`}
+            className="flex items-center justify-center w-9 h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[#1A1614] transition-colors active:scale-95"
+            title={t.viewDetails}
+            aria-label={t.viewDetails}
+          >
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </article>

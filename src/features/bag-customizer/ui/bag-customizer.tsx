@@ -60,7 +60,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           className="object-cover object-center transition-all duration-300"
         />
         {enableMonogram && monogram.trim().length > 0 && (
-          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-3 py-1 font-serif text-sm tracking-widest border border-[#d4af37]/40 shadow-lg">
+          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
             INICIALE: {monogram.trim().toUpperCase()}
           </div>
         )}

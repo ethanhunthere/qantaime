@@ -20,11 +20,11 @@ export function HeroAtelier() {
             {t.heroBadge}
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-[var(--text-primary)] text-balance">
+          <h1 className="font-sans font-medium uppercase text-4xl sm:text-5xl lg:text-6xl tracking-[0.06em] leading-[1.05] text-[#1A1614] text-balance">
             {t.heroTitle}
           </h1>
 
-          <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-xl font-normal">
+          <p className="font-sans font-normal text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-xl">
             {t.heroSubtitle}
           </p>
 
@@ -47,15 +47,15 @@ export function HeroAtelier() {
           <div className="pt-8 border-t border-[var(--border-subtle)] grid grid-cols-3 gap-6 font-mono text-xs">
             <div>
               <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroTannery}</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroTanneryVal}</p>
+              <p className="text-[#1A1614] font-normal mt-0.5">{t.heroTanneryVal}</p>
             </div>
             <div>
               <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroAssembly}</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroAssemblyVal}</p>
+              <p className="text-[#1A1614] font-normal mt-0.5">{t.heroAssemblyVal}</p>
             </div>
             <div>
               <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroHardware}</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroHardwareVal}</p>
+              <p className="text-[#1A1614] font-normal mt-0.5">{t.heroHardwareVal}</p>
             </div>
           </div>
         </div>
@@ -72,12 +72,12 @@ export function HeroAtelier() {
               className="object-cover object-center"
             />
             {/* Architectural overlay caption */}
-            <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur-xs text-white border border-white/10 flex justify-between items-center text-xs font-mono">
+            <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur-xs text-white border border-white/10 flex justify-between items-center text-xs">
               <div>
-                <p className="font-semibold tracking-wider uppercase text-[11px]">L&apos;Arche Briefcase</p>
-                <p className="text-zinc-400 text-[10px]">Box Calfskin • 10.5 L</p>
+                <p className="font-sans font-medium tracking-[0.18em] uppercase text-[11px]">L&apos;Arche Briefcase</p>
+                <p className="font-mono text-zinc-400 text-[10px]">Box Calfskin • 10.5 L</p>
               </div>
-              <span className="text-[#d4af37] font-semibold tabular-nums">€1,450</span>
+              <span className="font-mono font-normal text-[#d4af37] tabular-nums">€1,450.00</span>
             </div>
           </div>
         </div>

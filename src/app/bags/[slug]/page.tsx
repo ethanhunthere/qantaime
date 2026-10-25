@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: BagPageProps): Promise<Metada
     title: `${bag.name} — ${bag.tagline}`,
     description: bag.description,
     openGraph: {
-      title: `${bag.name} | Atelier Véloce`,
+      title: `${bag.name} | QANTAIME`,
       description: bag.description,
       images: bag.images.map((img) => ({ url: img })),
     },

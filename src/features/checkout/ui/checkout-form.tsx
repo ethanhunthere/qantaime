@@ -53,7 +53,7 @@ export function CheckoutForm() {
     <form onSubmit={handleSubmit} className="space-y-8 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 md:p-8">
       {/* Contact Section */}
       <div className="space-y-4">
-        <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)] pb-2 border-b border-[var(--border-subtle)]">
+        <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614] pb-2 border-b border-[var(--border-subtle)]">
           {t.collectorInfo}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -131,7 +131,7 @@ export function CheckoutForm() {
 
       {/* Handled Transit */}
       <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
-        <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)]">
+        <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614]">
           {t.transitTitle}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

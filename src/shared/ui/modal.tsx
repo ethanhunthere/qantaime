@@ -44,7 +44,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           >
             <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]">
               {title && (
-                <h3 className="text-sm uppercase tracking-widest font-medium text-[var(--text-primary)]">
+                <h3 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614]">
                   {title}
                 </h3>
               )}

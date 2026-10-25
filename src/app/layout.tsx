@@ -7,26 +7,27 @@ import { CartDrawer } from "@/widgets/cart-drawer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Atelier Véloce — Architectural Leather Goods & Modular Carry",
-    template: "%s | Atelier Véloce",
+    default: "QANTAIME — Architectural Leather Goods & Monolithic Carry",
+    template: "%s | QANTAIME",
   },
   description:
     "Handcrafted full-grain box calfskin, Tuscan Vachetta, and milled Swiss hardware. Limited editions crafted between Paris and Milan with lifetime restorative service.",
   keywords: [
+    "QANTAIME",
     "luxury bags",
     "architectural carry",
     "leather briefcase",
     "weekender holdall",
     "vegetable tanned leather",
-    "Parisian leathercraft",
+    "Swiss luxury leathercraft",
   ],
-  authors: [{ name: "Atelier Véloce" }],
+  authors: [{ name: "QANTAIME" }],
   openGraph: {
-    title: "Atelier Véloce — Architectural Leather Goods",
+    title: "QANTAIME — Architectural Leather Goods",
     description: "Handcrafted full-grain box calfskin and monolithic modular carry.",
     type: "website",
-    locale: "en_US",
-    siteName: "Atelier Véloce",
+    locale: "sq_AL",
+    siteName: "QANTAIME",
   },
 };
 
@@ -36,8 +37,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] antialiased">
+    <html lang="sq" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap"
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] font-sans antialiased">
         <Providers>
           <Header />
           <main className="flex-1 w-full">{children}</main>

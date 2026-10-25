@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand Manifesto & Newsletter */}
           <div className="md:col-span-6 space-y-4">
-            <span className="font-serif text-xl tracking-tight font-semibold text-[var(--text-primary)] block">
+            <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] block">
               {t.brandName}
             </span>
             <p className="text-xs font-mono leading-relaxed max-w-md text-[var(--text-secondary)]">
@@ -47,17 +47,17 @@ export function Footer() {
 
           {/* Navigation Links & Language */}
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
-            <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
+            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614] block">
               Dokumentacioni & Gjuha
             </span>
-            <ul className="space-y-2">
+            <ul className="space-y-2 font-sans font-medium text-[11px] uppercase tracking-[0.18em]">
               <li>
-                <Link href="#craftsmanship" className="hover:text-[var(--text-primary)] transition-colors">
+                <Link href="#craftsmanship" className="hover:text-[#1A1614] transition-colors">
                   {t.navProvenance}
                 </Link>
               </li>
               <li>
-                <Link href="#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+                <Link href="#catalog" className="hover:text-[#1A1614] transition-colors">
                   {t.catalogTitle}
                 </Link>
               </li>

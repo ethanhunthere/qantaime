@@ -38,7 +38,7 @@ export function CraftsmanshipStory() {
           <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
             {t.craftPhilosophy}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[var(--text-primary)] text-balance">
+          <h2 className="font-sans font-medium uppercase text-3xl sm:text-4xl lg:text-5xl tracking-[0.06em] leading-[1.05] text-[#1A1614] text-balance">
             {t.craftTitle}
           </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
@@ -58,7 +58,7 @@ export function CraftsmanshipStory() {
                 <div className="w-9 h-9 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-cognac)]">
                   <Icon className="w-4 h-4" />
                 </div>
-                <h3 className="font-serif text-lg text-[var(--text-primary)]">
+                <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614]">
                   {pillar.title}
                 </h3>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">

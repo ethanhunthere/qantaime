@@ -30,7 +30,7 @@ export function CartDrawer() {
             <ShoppingBag className="w-6 h-6 text-[var(--text-muted)]" />
           </div>
           <div className="space-y-1">
-            <p className="font-serif text-lg text-[var(--text-primary)]">{t.emptyCarry}</p>
+            <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[#1A1614]">{t.emptyCarry}</p>
             <p className="text-xs font-mono text-[var(--text-secondary)]">
               {t.emptyCarryDesc}
             </p>
@@ -74,9 +74,9 @@ export function CartDrawer() {
                   {shippingEur === 0 ? t.complimentary : formatCurrency(shippingEur)}
                 </span>
               </div>
-              <div className="flex justify-between text-sm font-semibold text-[var(--text-primary)] pt-2 border-t border-[var(--border-subtle)]">
-                <span>{t.totalEstimated}</span>
-                <span className="tabular-nums">{formatCurrency(totalEur)}</span>
+              <div className="flex justify-between font-mono text-[12px] tabular-nums tracking-[0.04em] text-[#1A1614] pt-2 border-t border-[var(--border-subtle)] items-baseline">
+                <span className="font-sans font-medium uppercase text-[11px] tracking-[0.18em]">{t.totalEstimated}</span>
+                <span className="font-mono text-sm tabular-nums">{formatCurrency(totalEur)}</span>
               </div>
             </div>
 

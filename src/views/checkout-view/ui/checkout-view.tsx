@@ -20,7 +20,7 @@ export function CheckoutView() {
           <ShoppingBag className="w-8 h-8 text-[var(--text-muted)]" />
         </div>
         <div className="space-y-2">
-          <h1 className="font-serif text-3xl text-[var(--text-primary)]">{t.emptyCarry}</h1>
+          <h1 className="font-sans font-medium uppercase text-2xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">{t.emptyCarry}</h1>
           <p className="text-xs font-mono text-[var(--text-secondary)]">
             {t.emptyCarryDesc}
           </p>
@@ -54,7 +54,7 @@ export function CheckoutView() {
 
         {/* Right: Itemized Carry Breakdown */}
         <div className="lg:col-span-5 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 space-y-6">
-          <h2 className="font-serif text-lg tracking-tight text-[var(--text-primary)] pb-3 border-b border-[var(--border-subtle)]">
+          <h2 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614] pb-3 border-b border-[var(--border-subtle)]">
             {t.yourCarry} ({items.length} {items.length === 1 ? "Model" : "Modele"})
           </h2>
 

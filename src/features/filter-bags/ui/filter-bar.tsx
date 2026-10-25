@@ -60,10 +60,10 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               <button
                 key={cat.id}
                 onClick={() => handleCategoryClick(cat.id)}
-                className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-all whitespace-nowrap ${
+                className={`px-3 py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.18em] transition-all whitespace-nowrap ${
                   isActive
-                    ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] font-semibold shadow-xs"
-                    : "bg-[var(--bg-surface-raised)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-active)]"
+                    ? "bg-[#1A1614] text-[var(--bg-canvas)] shadow-xs"
+                    : "bg-[var(--bg-surface-raised)] text-[#736B62] hover:text-[#1A1614] hover:bg-[var(--bg-surface-active)]"
                 }`}
               >
                 {cat.label}
@@ -73,13 +73,13 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono text-[var(--text-muted)] tabular-nums">
+          <span className="font-mono text-[11px] text-[var(--text-muted)] tabular-nums">
             {totalResults} {totalResults === 1 ? "Model" : "Modele"}
           </span>
           {isFiltered && (
             <button
               onClick={handleReset}
-              className="inline-flex items-center gap-1 text-xs font-mono text-[var(--accent-cognac)] hover:underline ml-2"
+              className="inline-flex items-center gap-1 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--accent-cognac)] hover:underline ml-2"
               title="Reset all filters"
             >
               <RotateCcw className="w-3 h-3" />
@@ -98,20 +98,20 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
             placeholder={t.searchPlaceholder}
             value={filters.search}
             onChange={handleSearchChange}
-            className="w-full h-10 pl-9 pr-3 text-xs font-mono bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
+            className="w-full h-10 pl-9 pr-3 font-sans text-[12px] bg-[var(--bg-surface-raised)] text-[#1A1614] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
           />
         </div>
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <SlidersHorizontal className="w-4 h-4 text-[var(--text-muted)]" />
-            <span className="text-xs font-mono text-[var(--text-secondary)] whitespace-nowrap">
+            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#736B62] whitespace-nowrap">
               {t.sortLabel}
             </span>
             <select
               value={filters.sortBy}
               onChange={handleSortChange}
-              className="h-10 px-3 text-xs font-mono bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] outline-none focus-visible:border-[var(--text-primary)]"
+              className="h-10 px-3 font-sans text-[11px] uppercase tracking-[0.10em] bg-[var(--bg-surface-raised)] text-[#1A1614] border border-[var(--border-subtle)] outline-none focus-visible:border-[var(--text-primary)]"
             >
               <option value="curated">{t.sortCurated}</option>
               <option value="price-asc">{t.sortPriceAsc}</option>

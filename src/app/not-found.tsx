@@ -7,7 +7,7 @@ export default function NotFound() {
       <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
         Archival Reference 404
       </span>
-      <h1 className="font-serif text-3xl sm:text-4xl text-[var(--text-primary)]">
+      <h1 className="font-sans font-medium uppercase text-2xl sm:text-3xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
         Silhouette Not Located
       </h1>
       <p className="text-xs font-mono text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto">

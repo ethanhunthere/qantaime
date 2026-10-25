@@ -1,6 +1,6 @@
 export const sq = {
   // Brand & Header
-  brandName: "ATELIER VÉLOCE",
+  brandName: "QANTAIME",
   brandSubtitle: "Çanta Luksoze Arkitekturore",
   topAnnouncement: "Koleksioni 2026 • Dërgesë Falas me Korrier në Gjithë Botën • Punuar me Dorë në Paris & Milano",
   navWorks: "Katalogu i Çantave",
@@ -98,14 +98,14 @@ export const sq = {
   accountHolder: "Emri i Mbajtësit të Llogarisë",
   accountIban: "Numri i Llogarisë / IBAN",
   bicSwift: "Kodi BIC / SWIFT (Opsional)",
-  stripeNotice: "Mbrojtur me Stripe. Duke autorizuar pagesën, ju lejoni Atelier Véloce dhe Stripe të debitojnë llogarinë tuaj bankare sipas rregullave bankare.",
+  stripeNotice: "Mbrojtur me Stripe. Duke autorizuar pagesën, ju lejoni QANTAIME dhe Stripe të debitojnë llogarinë tuaj bankare sipas rregullave bankare.",
   confirmCommission: "Konfirmo Porosinë me Bankë",
   encryptedGateway: "Infrastrukturë e Sigurt e Kriptuar 256-bit nga Stripe",
 
   // Craftsmanship Section
   craftPhilosophy: "Filozofia & Prejardhja",
   craftTitle: "Krijuar për të Fituar Vlerë me Kalimin e Kohës.",
-  craftDesc: "Në një botë të prodhimit masiv, Atelier Véloce krijon çanta që zgjasin më shumë se modat e përkohshme. Ne e trajtojmë lëkurën si vepër arti.",
+  craftDesc: "Në një botë të prodhimit masiv, QANTAIME krijon çanta që zgjasin më shumë se modat e përkohshme. Ne e trajtojmë lëkurën si vepër arti.",
   craftTanningTitle: "Rrjepje Natyrale Toskane",
   craftTanningDesc: "Lëkura jonë trajtohet me ekstrakt gështenje dhe mimose për 60 ditë në vozga druri, duke ruajtur strukturën natyrale.",
   craftStitchingTitle: "Qepje me Dorë me Dy Gjilpëra",
@@ -123,5 +123,5 @@ export const sq = {
   newsletterTitle: "Regjistrohu për Koleksionet e Reja",
   newsletterPlaceholder: "Shkruani email-in tuaj...",
   subscribeButton: "Abonohu",
-  allRightsReserved: "Të gjitha të drejtat e rezervuara. Atelier Véloce SAS.",
+  allRightsReserved: "Të gjitha të drejtat e rezervuara. QANTAIME.",
 };

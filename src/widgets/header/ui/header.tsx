@@ -37,17 +37,17 @@ export function Header() {
         {/* Brand Logo & Tag */}
         <div className="flex items-center gap-6">
           <Link href="/" className="group flex flex-col">
-            <span className="font-serif text-xl sm:text-2xl tracking-tight font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-cognac)] transition-colors">
+            <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] group-hover:opacity-75 transition-opacity">
               {t.brandName}
             </span>
-            <span className="text-[9px] font-mono tracking-widest uppercase text-[var(--text-muted)] -mt-1">
+            <span className="text-[9px] font-mono tracking-[0.24em] uppercase text-[var(--text-muted)] mt-0.5">
               {t.brandSubtitle}
             </span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)]">
+        <nav className="hidden md:flex items-center gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
             {t.navWorks}
           </Link>
@@ -84,8 +84,8 @@ export function Header() {
             aria-label={`View Cart (${totalItemsCount} items)`}
           >
             <ShoppingBag className="w-4 h-4 text-[var(--text-primary)]" />
-            <span className="text-xs font-mono uppercase tracking-wider hidden sm:inline">{t.cartButton}</span>
-            <span className="font-mono text-xs font-bold tabular-nums px-1.5 py-0.2 bg-[var(--text-primary)] text-[var(--bg-canvas)] rounded-full">
+            <span className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] hidden sm:inline">{t.cartButton}</span>
+            <span className="font-mono text-[11px] font-normal tabular-nums px-1.5 py-0.5 bg-[var(--text-primary)] text-[var(--bg-canvas)]">
               {totalItemsCount}
             </span>
           </button>
@@ -104,7 +104,7 @@ export function Header() {
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 space-y-4">
-          <nav className="flex flex-col gap-3 text-sm font-mono uppercase tracking-wider text-[var(--text-primary)]">
+          <nav className="flex flex-col gap-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-primary)]">
             <Link href="/#catalog" onClick={() => setMobileMenuOpen(false)} className="py-1">
               {t.navWorks}
             </Link>

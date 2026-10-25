@@ -1,7 +1,7 @@
 import { sq } from "./sq";
 
 export const it: typeof sq = {
-  brandName: "ATELIER VÉLOCE",
+  brandName: "QANTAIME",
   brandSubtitle: "Borse in Pelle Architetturali",
   topAnnouncement: "Edizione 2026 • Spedizione Corriere Assicurata Gratuita • Fatto a Mano a Parigi e Milano",
   navWorks: "Catalogo Opere",
@@ -116,5 +116,5 @@ export const it: typeof sq = {
   newsletterTitle: "Dispaccio Privato dell'Atelier",
   newsletterPlaceholder: "Il tuo indirizzo email...",
   subscribeButton: "Iscriviti",
-  allRightsReserved: "Tutti i diritti riservati. Atelier Véloce SAS.",
+  allRightsReserved: "Tutti i diritti riservati. QANTAIME.",
 };
