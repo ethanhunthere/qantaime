@@ -34,8 +34,8 @@ export function CraftsmanshipStory() {
     <section id="craftsmanship" className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         <div className="max-w-3xl space-y-3 sm:space-y-4">
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-[#1A1614] block">
-            [ATELIER DOSSIER — CRAFTSMANSHIP STANDARDS]
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.20em] text-[var(--accent-cognac)] block">
+            {t.craftPhilosophy}
           </span>
           <h2 className="font-sans font-medium uppercase text-2xl sm:text-4xl lg:text-5xl tracking-[0.06em] leading-[1.05] text-[#1A1614] text-balance">
             {t.craftTitle}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag, Menu, X, Sun, Moon } from "lucide-react";
 import { useCart } from "@/features/cart";
@@ -36,10 +37,15 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div className="flex items-center gap-4 sm:gap-6">
-          <Link href="/" className="group flex items-center">
-            <span className="font-sans font-medium uppercase text-[15px] sm:text-[16px] md:text-[18px] tracking-[0.24em] sm:tracking-[0.28em] text-[#1A1614] group-hover:opacity-75 transition-opacity">
-              {t.brandName}
-            </span>
+          <Link href="/" className="group flex items-center py-1">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={160}
+              height={44}
+              priority
+              className="h-9 sm:h-11 w-auto object-contain dark:invert transition-opacity group-hover:opacity-80"
+            />
           </Link>
         </div>
 

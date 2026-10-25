@@ -53,8 +53,8 @@ export function BagGrid({ initialBags }: BagGridProps) {
     <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-6 sm:space-y-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.20em] text-[#1A1614] block">
-            [ATELIER PERMANENT REPOSITORY]
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-[var(--accent-cognac)] block">
+            {t.catalogTitle}
           </span>
           <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl md:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614] mt-1">
             {t.catalogSubtitle}
@@ -84,33 +84,12 @@ export function BagGrid({ initialBags }: BagGridProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {filteredBags.map((bag, idx) => (
-            <React.Fragment key={bag.id}>
-              <BagCard
-                bag={bag}
-                onQuickView={(b) => setInspectBag(b)}
-              />
-              {idx === 5 && !filters.search && filters.category === "all" && (
-                <div className="col-span-1 sm:col-span-2 lg:col-span-3 border border-[var(--border-strong)] bg-[#1A1614] text-white p-6 sm:p-10 my-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                  <div className="space-y-2 max-w-xl">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-stone-400 block">
-                      [ARCHITECTURAL PROVENANCE]
-                    </span>
-                    <h3 className="font-sans font-medium uppercase text-xl sm:text-2xl lg:text-3xl tracking-[0.06em] leading-tight text-white">
-                      FULL-GRAIN FRENCH BOX CALFSKIN & MILLED BRASS
-                    </h3>
-                    <p className="font-sans font-normal text-xs sm:text-sm text-stone-300 leading-relaxed">
-                      Zero synthetic stiffeners. Every silhouette is structured entirely through traditional vegetable tanning and leather temper.
-                    </p>
-                  </div>
-                  <Link href="#craftsmanship" className="shrink-0">
-                    <Button variant="outline" size="md" className="border-white/40 text-white hover:bg-white/10 rounded-none">
-                      ATELIER DOSSIER
-                    </Button>
-                  </Link>
-                </div>
-              )}
-            </React.Fragment>
+          {filteredBags.map((bag) => (
+            <BagCard
+              key={bag.id}
+              bag={bag}
+              onQuickView={(b) => setInspectBag(b)}
+            />
           ))}
         </div>
       )}

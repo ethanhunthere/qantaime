@@ -22,9 +22,6 @@ export function CheckoutView() {
             <ShoppingBag className="w-6 h-6 text-[#1A1614]" />
           </div>
           <div className="space-y-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-muted)] block">
-              [DISPATCH PROTOCOL]
-            </span>
             <h1 className="font-sans font-medium uppercase text-xl sm:text-2xl tracking-[0.06em] leading-[1.05] text-[#1A1614]">
               {t.emptyCarry}
             </h1>

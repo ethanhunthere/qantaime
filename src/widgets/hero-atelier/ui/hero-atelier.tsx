@@ -12,21 +12,6 @@ export function HeroAtelier() {
 
   return (
     <section className="relative w-full border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] overflow-hidden">
-      {/* Architectural Archival Rule Header */}
-      <div className="border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--text-secondary)]">
-          <span className="text-[#1A1614] font-medium tracking-[0.20em]">
-            [ATELIER 01 — PARIS & MILANO]
-          </span>
-          <span className="hidden sm:inline text-[var(--text-muted)]">
-            L&apos;ARCHE BRUTALIST LEATHERWORK
-          </span>
-          <span className="tabular-nums text-[#1A1614]">
-            ANNUAL ARCHIVE — 150 PIECES
-          </span>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
         {/* Main Monolithic Headline */}
         <div className="max-w-5xl mb-8 sm:mb-12">
