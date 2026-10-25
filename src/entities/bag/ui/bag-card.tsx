@@ -41,16 +41,16 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
   };
 
   return (
-    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all duration-300 shadow-xs hover:shadow-md">
-      {/* Product Image Frame */}
-      <div className="relative aspect-4/3 w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)]">
-        <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full">
+    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all duration-300 shadow-xs hover:shadow-md overflow-hidden">
+      {/* Product Image Frame — Strict 1:1 Square with Hardware Paint Isolation */}
+      <div className="relative aspect-square w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] [isolation:isolate] [contain:paint]">
+        <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full overflow-hidden">
           <Image
             src={currentColor.image}
             alt={`${bag.name} in ${currentColor.name}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03] select-none"
           />
         </Link>
 
