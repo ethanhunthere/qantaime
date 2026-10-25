@@ -1,28 +1,33 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Scissors, Shield, Compass, Sparkles } from "lucide-react";
+import { useLanguage } from "@/features/language";
 
 export function CraftsmanshipStory() {
+  const { t } = useLanguage();
+
   const pillars = [
     {
       icon: Compass,
-      title: "Santa Croce sull'Arno Tanning",
-      desc: "Our Vachetta and bullhide are conditioned with natural chestnut, mimosa, and quebracho tannins over sixty days in revolving wooden vats, preserving the authentic grain topography.",
+      title: t.craftTanningTitle,
+      desc: t.craftTanningDesc,
     },
     {
       icon: Scissors,
-      title: "Hand Saddle-Stitched Seams",
-      desc: "Two needles and natural waxed French linen thread pass through every awl punch hole in opposing directions. If one thread ever wears through, the seam remains structurally intact.",
+      title: t.craftStitchingTitle,
+      desc: t.craftStitchingDesc,
     },
     {
       icon: Sparkles,
-      title: "Beeswax & Edge Burnishing",
-      desc: "Raw edges receive six progressive coats of pigmented mineral dye followed by hand-friction burnishing with pure organic beeswax, sealing the fibers against humidity.",
+      title: t.craftBeeswaxTitle,
+      desc: t.craftBeeswaxDesc,
     },
     {
       icon: Shield,
-      title: "Lifelong Atelier Restoration",
-      desc: "Every piece includes our workshop certificate. Send your bag to our Parisian atelier every 36 months for complimentary deep conditioning, re-stitching, and hardware replating.",
+      title: t.craftRestorationTitle,
+      desc: t.craftRestorationDesc,
     },
   ];
 
@@ -31,13 +36,13 @@ export function CraftsmanshipStory() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="max-w-3xl space-y-4">
           <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
-            Philosophy & Provenance
+            {t.craftPhilosophy}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[var(--text-primary)] text-balance">
-            Designed to Acquire Character Rather Than Wear.
+            {t.craftTitle}
           </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-            In an era of disposable mass production, Atelier Véloce builds carry goods that outlive seasonal fashion. We treat leather as an architectural material — measuring tension, weight distribution, and aging resilience down to the tenth of a millimeter.
+            {t.craftDesc}
           </p>
         </div>
 

@@ -7,9 +7,11 @@ import { useCart } from "@/features/cart";
 import { CheckoutForm } from "@/features/checkout";
 import { formatCurrency } from "@/shared/lib";
 import { Button } from "@/shared/ui";
+import { useLanguage } from "@/features/language";
 
 export function CheckoutView() {
   const { items, subtotalEur, discountEur, shippingEur, totalEur } = useCart();
+  const { t } = useLanguage();
 
   if (items.length === 0) {
     return (
@@ -18,14 +20,14 @@ export function CheckoutView() {
           <ShoppingBag className="w-8 h-8 text-[var(--text-muted)]" />
         </div>
         <div className="space-y-2">
-          <h1 className="font-serif text-3xl text-[var(--text-primary)]">Your Carry is Empty</h1>
+          <h1 className="font-serif text-3xl text-[var(--text-primary)]">{t.emptyCarry}</h1>
           <p className="text-xs font-mono text-[var(--text-secondary)]">
-            Select an architectural silhouette before proceeding to commission.
+            {t.emptyCarryDesc}
           </p>
         </div>
         <Link href="/">
           <Button variant="primary" size="md">
-            Return to Catalogue
+            {t.heroCtaCatalog}
           </Button>
         </Link>
       </div>
@@ -38,10 +40,10 @@ export function CheckoutView() {
       <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
         <Link href="/" className="inline-flex items-center gap-1 hover:text-[var(--text-primary)] transition-colors">
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Catalogue</span>
+          <span>{t.navWorks}</span>
         </Link>
         <span>/</span>
-        <span className="text-[var(--text-primary)] font-medium">Commission Settlement</span>
+        <span className="text-[var(--text-primary)] font-medium">{t.checkoutTitle}</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -53,7 +55,7 @@ export function CheckoutView() {
         {/* Right: Itemized Carry Breakdown */}
         <div className="lg:col-span-5 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 space-y-6">
           <h2 className="font-serif text-lg tracking-tight text-[var(--text-primary)] pb-3 border-b border-[var(--border-subtle)]">
-            Commission Summary ({items.length} {items.length === 1 ? "Piece" : "Pieces"})
+            {t.yourCarry} ({items.length} {items.length === 1 ? "Model" : "Modele"})
           </h2>
 
           <div className="divide-y divide-[var(--border-subtle)] space-y-3">
@@ -66,11 +68,11 @@ export function CheckoutView() {
                   </p>
                   {item.monogram && (
                     <p className="text-[var(--accent-cognac)] text-[10px]">
-                      Debossed Initials: [{item.monogram}]
+                      Iniciale: [{item.monogram}]
                     </p>
                   )}
                   <span className="text-[var(--text-muted)] text-[10px]">
-                    Qty: {item.quantity}
+                    Sasia: {item.quantity}
                   </span>
                 </div>
                 <div className="text-right">
@@ -85,23 +87,23 @@ export function CheckoutView() {
           {/* Pricing Totals */}
           <div className="border-t border-[var(--border-subtle)] pt-4 space-y-2 font-mono text-xs">
             <div className="flex justify-between text-[var(--text-secondary)]">
-              <span>Subtotal</span>
+              <span>{t.subtotal}</span>
               <span className="tabular-nums">{formatCurrency(subtotalEur)}</span>
             </div>
             {discountEur > 0 && (
               <div className="flex justify-between text-green-700">
-                <span>Privilege Discount</span>
+                <span>{t.privilegeDiscount}</span>
                 <span className="tabular-nums">-{formatCurrency(discountEur)}</span>
               </div>
             )}
             <div className="flex justify-between text-[var(--text-secondary)]">
-              <span>Courier Transit</span>
+              <span>{t.courierTransit}</span>
               <span className="tabular-nums">
-                {shippingEur === 0 ? "Complimentary" : formatCurrency(shippingEur)}
+                {shippingEur === 0 ? t.complimentary : formatCurrency(shippingEur)}
               </span>
             </div>
             <div className="flex justify-between text-base font-semibold text-[var(--text-primary)] pt-3 border-t border-[var(--border-subtle)]">
-              <span>Total Amount</span>
+              <span>{t.totalEstimated}</span>
               <span className="tabular-nums">{formatCurrency(totalEur)}</span>
             </div>
           </div>

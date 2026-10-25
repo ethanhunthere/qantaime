@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { NewsletterForm } from "@/features/newsletter";
+import { useLanguage, LanguageSwitcher } from "@/features/language";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-[var(--text-secondary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
@@ -10,14 +15,14 @@ export function Footer() {
           {/* Brand Manifesto & Newsletter */}
           <div className="md:col-span-6 space-y-4">
             <span className="font-serif text-xl tracking-tight font-semibold text-[var(--text-primary)] block">
-              ATELIER VÉLOCE
+              {t.brandName}
             </span>
             <p className="text-xs font-mono leading-relaxed max-w-md text-[var(--text-secondary)]">
-              Architectural leather goods and modular carry crafted in France and Italy. Built with lifetime restorative service for those who value quiet permanence.
+              {t.footerDesc}
             </p>
             <div className="pt-2">
               <span className="text-[11px] font-mono uppercase tracking-widest text-[var(--text-primary)] block mb-2 font-medium">
-                Private Workshop Dispatch
+                {t.newsletterTitle}
               </span>
               <NewsletterForm />
             </div>
@@ -26,53 +31,57 @@ export function Footer() {
           {/* Workshop Addresses */}
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
             <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
-              Workshops & Salons
+              {t.salonsTitle}
             </span>
             <div className="space-y-1">
               <p className="text-[var(--text-primary)] font-medium">Atelier Paris</p>
               <p className="text-[var(--text-muted)]">14 Rue de Verneuil, 75007 Paris</p>
-              <p className="text-[var(--text-muted)]">By private appointment only</p>
+              <p className="text-[var(--text-muted)]">Me takim privat</p>
             </div>
             <div className="space-y-1 pt-2">
               <p className="text-[var(--text-primary)] font-medium">Laboratorio Milano</p>
               <p className="text-[var(--text-muted)]">Via Solferino 19, 20121 Milano</p>
-              <p className="text-[var(--text-muted)]">Tuesday — Saturday</p>
+              <p className="text-[var(--text-muted)]">E Martë — E Shtunë</p>
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Navigation Links & Language */}
           <div className="md:col-span-3 space-y-3 font-mono text-xs">
             <span className="text-[11px] uppercase tracking-widest text-[var(--text-primary)] font-semibold block">
-              Documentation
+              Dokumentacioni & Gjuha
             </span>
             <ul className="space-y-2">
               <li>
                 <Link href="#craftsmanship" className="hover:text-[var(--text-primary)] transition-colors">
-                  Vegetable Tanning Standards
+                  {t.navProvenance}
                 </Link>
               </li>
               <li>
                 <Link href="#catalog" className="hover:text-[var(--text-primary)] transition-colors">
-                  Permanent Catalogue
+                  {t.catalogTitle}
                 </Link>
               </li>
               <li>
-                <span className="text-[var(--text-muted)]">Lifetime Conditioning Protocol</span>
-              </li>
-              <li>
-                <span className="text-[var(--text-muted)]">Certificates of Authenticity</span>
+                <span className="text-[var(--text-muted)]">Protokolli i Mirëmbajtjes</span>
               </li>
             </ul>
+
+            <div className="pt-3">
+              <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
+                Zgjidh Gjuhën / Select Language
+              </span>
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[var(--text-muted)]">
-          <p>© {new Date().getFullYear()} Atelier Véloce SAS. All rights reserved. Registered in Paris.</p>
+          <p>© {new Date().getFullYear()} {t.allRightsReserved}</p>
           <div className="flex items-center gap-6">
-            <span>Terms of Commission</span>
-            <span>Privacy Policy</span>
-            <span>White-Glove Courier Logistics</span>
+            <span>Kushtet e Porosisë</span>
+            <span>Privatësia</span>
+            <span>Dërgesa me Korrier VIP</span>
           </div>
         </div>
       </div>

@@ -1,38 +1,43 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/shared/ui";
+import { useLanguage } from "@/features/language";
 
 export function HeroAtelier() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Monastic Editorial Copy */}
         <div className="lg:col-span-7 space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] text-[11px] font-mono tracking-widest uppercase text-[var(--accent-cognac)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cognac)]" />
-            Autumn / Winter 2026 Collection
+            {t.heroBadge}
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-[var(--text-primary)] text-balance">
-            Architectural Carry Sculpted for Decades.
+            {t.heroTitle}
           </h1>
 
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-xl font-normal">
-            Handcrafted in limited editions between Paris and Milan. We eliminate ornamental hardware and commercial branding in favor of continuous full-grain box calf, saddle-stitch reinforcement, and Swiss-machined metal fittings.
+            {t.heroSubtitle}
           </p>
 
           {/* Action Row */}
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link href="#catalog">
               <Button size="lg" variant="primary">
-                Explore Collection
+                {t.heroCtaCatalog}
               </Button>
             </Link>
             <Link href="/bags/arche-briefcase">
               <Button size="lg" variant="outline" className="gap-2">
-                <span>View Flagship Briefcase</span>
+                <span>{t.heroCtaFlagship}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Button>
             </Link>
@@ -41,16 +46,16 @@ export function HeroAtelier() {
           {/* Provenance Micro-Indicators */}
           <div className="pt-8 border-t border-[var(--border-subtle)] grid grid-cols-3 gap-6 font-mono text-xs">
             <div>
-              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">Tannery</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">Tuscany & Alsace</p>
+              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroTannery}</p>
+              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroTanneryVal}</p>
             </div>
             <div>
-              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">Assembly</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">Hand Saddle-Stitched</p>
+              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroAssembly}</p>
+              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroAssemblyVal}</p>
             </div>
             <div>
-              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">Hardware</p>
-              <p className="text-[var(--text-primary)] font-medium mt-0.5">Solid Milled Brass</p>
+              <p className="text-[var(--text-muted)] uppercase tracking-wider text-[10px]">{t.heroHardware}</p>
+              <p className="text-[var(--text-primary)] font-medium mt-0.5">{t.heroHardwareVal}</p>
             </div>
           </div>
         </div>
@@ -67,10 +72,10 @@ export function HeroAtelier() {
               className="object-cover object-center"
             />
             {/* Architectural overlay caption */}
-            <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/75 backdrop-blur-xs text-white border border-white/10 flex justify-between items-center text-xs font-mono">
+            <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur-xs text-white border border-white/10 flex justify-between items-center text-xs font-mono">
               <div>
-                <p className="font-semibold tracking-wider uppercase text-[11px]">L&apos;Arche Porte-Documents</p>
-                <p className="text-zinc-400 text-[10px]">Single continuous cut • 10.5 Liters</p>
+                <p className="font-semibold tracking-wider uppercase text-[11px]">L&apos;Arche Briefcase</p>
+                <p className="text-zinc-400 text-[10px]">Box Calfskin • 10.5 L</p>
               </div>
               <span className="text-[#d4af37] font-semibold tabular-nums">€1,450</span>
             </div>

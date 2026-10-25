@@ -1,22 +1,27 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { Bag } from "@/shared/types";
 import { BagCustomizer } from "@/features/bag-customizer";
 import { BagSpecsTable } from "@/entities/bag";
+import { useLanguage } from "@/features/language";
 
 interface BagDetailViewProps {
   bag: Bag;
 }
 
 export function BagDetailView({ bag }: BagDetailViewProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-12">
       {/* Breadcrumb navigation */}
       <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
         <Link href="/" className="inline-flex items-center gap-1 hover:text-[var(--text-primary)] transition-colors">
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>All Works</span>
+          <span>{t.navWorks}</span>
         </Link>
         <span>/</span>
         <span className="uppercase text-[var(--text-secondary)]">{bag.category}</span>
@@ -35,7 +40,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
         <div className="lg:col-span-5 space-y-8">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)] block mb-1">
-              {bag.category} Silhouette
+              Modeli {bag.category}
             </span>
             <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)]">
               {bag.name}
@@ -52,7 +57,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
           {/* Key Architectural Features */}
           <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
             <h4 className="text-xs uppercase font-mono tracking-wider font-semibold text-[var(--text-primary)]">
-              Architectural Specifications
+              Specifikimet Kryesore
             </h4>
             <ul className="space-y-2 text-xs font-mono text-[var(--text-secondary)]">
               {bag.features.map((feat) => (
@@ -67,7 +72,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
           {/* Artisan Notes */}
           <div className="p-4 bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2">
             <h4 className="text-xs uppercase font-mono tracking-wider font-semibold text-[var(--text-primary)]">
-              Workshop Atelier Notes
+              Shënime nga Punishtja
             </h4>
             <ul className="space-y-1.5 text-xs font-mono text-[var(--text-secondary)]">
               {bag.craftsmanshipNotes.map((note, idx) => (

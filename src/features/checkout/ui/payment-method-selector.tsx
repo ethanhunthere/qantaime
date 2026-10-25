@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Building2, CreditCard, ShieldCheck } from "lucide-react";
 import { Input } from "@/shared/ui";
+import { useLanguage } from "@/features/language";
 
 interface PaymentMethodSelectorProps {
   selectedMethod: string;
@@ -15,12 +16,12 @@ export function PaymentMethodSelector({
   onChangeMethod,
   errors,
 }: PaymentMethodSelectorProps) {
+  const { t } = useLanguage();
   const [iban, setIban] = useState("");
   const [holder, setHolder] = useState("");
   const [bic, setBic] = useState("");
 
   const handleIbanChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Format IBAN into clean 4-character clusters
     const raw = e.target.value.replace(/\s+/g, "").toUpperCase();
     const formatted = raw.replace(/(.{4})/g, "$1 ").trim();
     setIban(formatted);
@@ -30,7 +31,7 @@ export function PaymentMethodSelector({
     <div className="space-y-4 pt-4 border-t border-[var(--border-subtle)]">
       <div className="flex items-center justify-between pb-1">
         <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)]">
-          3. Secure Settlement Method
+          {t.paymentTitle}
         </h3>
         <span className="text-[10px] font-mono text-[var(--accent-cognac)] uppercase tracking-wider flex items-center gap-1">
           <ShieldCheck className="w-3.5 h-3.5" /> Stripe Verified
@@ -58,10 +59,10 @@ export function PaymentMethodSelector({
           <div className="text-xs font-mono">
             <div className="flex items-center gap-1.5 font-semibold text-[var(--text-primary)]">
               <Building2 className="w-4 h-4 text-[var(--accent-cognac)]" />
-              <span>Stripe Bank Payment</span>
+              <span>{t.stripeBankTitle}</span>
             </div>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              SEPA Direct Debit / Bank Transfer via Stripe
+              {t.stripeBankSub}
             </p>
           </div>
         </label>
@@ -85,10 +86,10 @@ export function PaymentMethodSelector({
           <div className="text-xs font-mono">
             <div className="flex items-center gap-1.5 font-semibold text-[var(--text-primary)]">
               <CreditCard className="w-4 h-4 text-[var(--text-secondary)]" />
-              <span>Card / Private Vault</span>
+              <span>{t.cardTitle}</span>
             </div>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Visa, Mastercard, Amex
+              {t.cardSub}
             </p>
           </div>
         </label>
@@ -112,7 +113,7 @@ export function PaymentMethodSelector({
           <div className="text-xs font-mono">
             <p className="font-semibold text-[var(--text-primary)]">Apple Pay</p>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Instant Biometric Express
+              Pagesë e Shpejtë Biometrike
             </p>
           </div>
         </label>
@@ -134,9 +135,9 @@ export function PaymentMethodSelector({
             className="mt-1 accent-[var(--accent-cognac)]"
           />
           <div className="text-xs font-mono">
-            <p className="font-semibold text-[var(--text-primary)]">Manual Wire Transfer</p>
+            <p className="font-semibold text-[var(--text-primary)]">Transfertë Bankare Direkte</p>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Atelier Private Banking IBAN
+              Faturë me IBAN të Atelierit
             </p>
           </div>
         </label>
@@ -149,11 +150,11 @@ export function PaymentMethodSelector({
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs font-mono font-medium text-[var(--text-primary)] uppercase tracking-wider">
-                Stripe Bank Direct Authorization
+                {t.stripeBankTitle}
               </span>
             </div>
             <span className="text-[10px] font-mono text-[var(--text-muted)]">
-              SEPA • ACH • Financial Connections
+              SEPA • ACH • Stripe Financial Connections
             </span>
           </div>
 
@@ -161,8 +162,8 @@ export function PaymentMethodSelector({
             <Input
               id="stripeBankHolder"
               name="stripeBankHolder"
-              label="Account Holder Name"
-              placeholder="e.g. Jean-Luc Moreau"
+              label={t.accountHolder}
+              placeholder="p.sh. Alban Kastrati"
               value={holder}
               onChange={(e) => setHolder(e.target.value)}
               error={errors?.stripeBankHolder?.[0]}
@@ -171,8 +172,8 @@ export function PaymentMethodSelector({
             <Input
               id="stripeBankBic"
               name="stripeBankBic"
-              label="Bank Identifier / BIC (Optional)"
-              placeholder="e.g. BNPAFRPPXXX"
+              label={t.bicSwift}
+              placeholder="p.sh. BNPAFRPPXXX"
               value={bic}
               onChange={(e) => setBic(e.target.value.toUpperCase())}
             />
@@ -181,8 +182,8 @@ export function PaymentMethodSelector({
           <Input
             id="stripeBankIban"
             name="stripeBankIban"
-            label="IBAN or Bank Account Number"
-            placeholder="FR76 3000 6000 0112 3456 7890 189"
+            label={t.accountIban}
+            placeholder="AL35 2021 1109 0000 0002 0150 1234"
             value={iban}
             onChange={handleIbanChange}
             error={errors?.stripeBankIban?.[0]}
@@ -191,11 +192,9 @@ export function PaymentMethodSelector({
 
           <div className="p-3 bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[11px] font-mono text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
             <p className="font-semibold text-[var(--text-primary)]">
-              Stripe Mandate & Authorization Notice:
+              Autorizimi dhe Rregullorja e Stripe:
             </p>
-            <p>
-              By proceeding with this bank transfer via Stripe, you authorize Atelier Véloce SAS and Stripe Payments to send instructions to your bank to debit your account in accordance with European SEPA and banking standards.
-            </p>
+            <p>{t.stripeNotice}</p>
           </div>
         </div>
       )}

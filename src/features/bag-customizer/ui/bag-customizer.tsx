@@ -7,6 +7,7 @@ import { Bag, CartItem } from "@/shared/types";
 import { formatCurrency } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { useCart } from "@/features/cart";
+import { useLanguage } from "@/features/language";
 
 interface BagCustomizerProps {
   bag: Bag;
@@ -14,6 +15,7 @@ interface BagCustomizerProps {
 
 export function BagCustomizer({ bag }: BagCustomizerProps) {
   const { addItem } = useCart();
+  const { t } = useLanguage();
   const [selectedColor, setSelectedColor] = useState(bag.colors[0]);
   const [selectedHardware, setSelectedHardware] = useState(bag.hardwareOptions[0]);
   const [monogram, setMonogram] = useState("");
@@ -59,7 +61,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         />
         {enableMonogram && monogram.trim().length > 0 && (
           <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-3 py-1 font-serif text-sm tracking-widest border border-[#d4af37]/40 shadow-lg">
-            DEBOSSED: {monogram.trim().toUpperCase()}
+            INICIALE: {monogram.trim().toUpperCase()}
           </div>
         )}
       </div>
@@ -70,7 +72,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         <div>
           <div className="flex justify-between items-baseline mb-2">
             <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
-              1. Full-Grain Patina
+              {t.patinaStep}
             </span>
             <span className="text-xs font-mono font-medium text-[var(--text-primary)]">
               {selectedColor.name}
@@ -106,7 +108,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         <div>
           <div className="flex justify-between items-baseline mb-2">
             <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
-              2. Milled Hardware Finishing
+              {t.hardwareStep}
             </span>
             <span className="text-xs font-mono font-medium text-[var(--text-primary)]">
               {selectedHardware.name}
@@ -142,7 +144,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
               className="accent-[var(--accent-cognac)] w-4 h-4 cursor-pointer"
             />
             <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-primary)]">
-              Bespoke Gold-Foil Monogramming (+{formatCurrency(MONOGRAM_FEE_EUR)})
+              {t.monogramCheck}
             </span>
           </label>
 
@@ -157,7 +159,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 className="w-24 h-10 px-3 text-center uppercase tracking-widest font-mono text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] focus-visible:border-[var(--text-primary)]"
               />
               <span className="text-[11px] font-mono text-[var(--text-muted)]">
-                Up to 3 uppercase initials. Debossed by hand in Milan.
+                {t.monogramDesc}
               </span>
             </div>
           )}
@@ -167,7 +169,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
-              Total Composition Price
+              {t.totalPrice}
             </span>
             <p className="font-mono text-2xl font-bold tabular-nums text-[var(--text-primary)]">
               {formatCurrency(unitPrice)}
@@ -182,10 +184,10 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           >
             {isAddedFeedback ? (
               <span className="flex items-center gap-1.5 text-green-400">
-                <Check className="w-4 h-4" /> Added to Carry
+                <Check className="w-4 h-4" /> {t.addedToCarry}
               </span>
             ) : (
-              "Acquire Silhouette"
+              t.addToCarry
             )}
           </Button>
         </div>
@@ -194,11 +196,11 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
-            Lifetime Craftsmanship Guarantee
+            {t.lifetimeGuarantee}
           </span>
           <span className="flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
-            Complimentary Courier Delivery
+            {t.complimentaryCourier}
           </span>
         </div>
       </div>

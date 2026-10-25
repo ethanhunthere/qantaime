@@ -8,9 +8,11 @@ import { ActionState, OrderConfirmation } from "@/shared/types";
 import { Button, Input } from "@/shared/ui";
 import { OrderSummaryCard } from "@/entities/order";
 import { PaymentMethodSelector } from "./payment-method-selector";
+import { useLanguage } from "@/features/language";
 
 export function CheckoutForm() {
   const { items, subtotalEur, discountEur, shippingEur, totalEur, clearCart } = useCart();
+  const { t } = useLanguage();
   const [isPending, startTransition] = useTransition();
   const [state, setState] = useState<ActionState<OrderConfirmation> | null>(null);
   const [paymentMethod, setPaymentMethod] = useState<"stripe_bank" | "card" | "apple_pay" | "wire">("stripe_bank");
@@ -52,14 +54,14 @@ export function CheckoutForm() {
       {/* Contact Section */}
       <div className="space-y-4">
         <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)] pb-2 border-b border-[var(--border-subtle)]">
-          1. Collector & Delivery Information
+          {t.collectorInfo}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input
             id="fullName"
             name="fullName"
-            label="Full Legal Name"
-            placeholder="Alexandra Vance"
+            label={t.fullName}
+            placeholder="p.sh. Alban Kastrati"
             required
             error={state?.errors?.fullName?.[0]}
           />
@@ -67,8 +69,8 @@ export function CheckoutForm() {
             id="email"
             name="email"
             type="email"
-            label="Email Address for Manifest"
-            placeholder="alexandra@vance-atelier.com"
+            label={t.emailAddress}
+            placeholder="alban@kastrati-atelier.com"
             required
             error={state?.errors?.email?.[0]}
           />
@@ -77,16 +79,16 @@ export function CheckoutForm() {
           <Input
             id="addressLine1"
             name="addressLine1"
-            label="Street Address"
-            placeholder="42 Rue de l'Université"
+            label={t.address}
+            placeholder="Rruga Nënë Tereza 14"
             required
             error={state?.errors?.addressLine1?.[0]}
           />
           <Input
             id="addressLine2"
             name="addressLine2"
-            label="Apartment / Suite (Optional)"
-            placeholder="Floor 3, Door A"
+            label={t.suite}
+            placeholder="Kati 3, Banesa 8"
             error={state?.errors?.addressLine2?.[0]}
           />
         </div>
@@ -94,24 +96,24 @@ export function CheckoutForm() {
           <Input
             id="city"
             name="city"
-            label="City"
-            placeholder="Paris"
+            label={t.city}
+            placeholder="Tiranë / Prishtinë"
             required
             error={state?.errors?.city?.[0]}
           />
           <Input
             id="postalCode"
             name="postalCode"
-            label="Postal / ZIP"
-            placeholder="75007"
+            label={t.postalCode}
+            placeholder="10000"
             required
             error={state?.errors?.postalCode?.[0]}
           />
           <Input
             id="country"
             name="country"
-            label="Country"
-            placeholder="France"
+            label={t.country}
+            placeholder="Shqipëri / Kosovë"
             required
             error={state?.errors?.country?.[0]}
           />
@@ -120,8 +122,8 @@ export function CheckoutForm() {
           id="phone"
           name="phone"
           type="tel"
-          label="Courier Contact Phone"
-          placeholder="+33 6 12 34 56 78"
+          label={t.phone}
+          placeholder="+355 69 123 4567"
           required
           error={state?.errors?.phone?.[0]}
         />
@@ -130,28 +132,28 @@ export function CheckoutForm() {
       {/* Handled Transit */}
       <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
         <h3 className="font-serif text-lg tracking-tight text-[var(--text-primary)]">
-          2. Handled Transit
+          {t.transitTitle}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
             <input type="radio" name="shippingMethod" value="courier" defaultChecked className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
-              <p className="font-semibold text-[var(--text-primary)]">White-Glove Courier</p>
-              <p className="text-[var(--text-secondary)]">24h Express Insured</p>
+              <p className="font-semibold text-[var(--text-primary)]">{t.courierWhiteGlove}</p>
+              <p className="text-[var(--text-secondary)]">24h Express</p>
             </div>
           </label>
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
             <input type="radio" name="shippingMethod" value="express" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
-              <p className="font-semibold text-[var(--text-primary)]">Priority Air</p>
-              <p className="text-[var(--text-secondary)]">2-3 Business Days</p>
+              <p className="font-semibold text-[var(--text-primary)]">{t.expressAir}</p>
+              <p className="text-[var(--text-secondary)]">2-3 Ditë</p>
             </div>
           </label>
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
             <input type="radio" name="shippingMethod" value="standard" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
-              <p className="font-semibold text-[var(--text-primary)]">Standard Ground</p>
-              <p className="text-[var(--text-secondary)]">4-5 Business Days</p>
+              <p className="font-semibold text-[var(--text-primary)]">{t.standardGround}</p>
+              <p className="text-[var(--text-secondary)]">4-5 Ditë</p>
             </div>
           </label>
         </div>
@@ -174,7 +176,7 @@ export function CheckoutForm() {
       <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
           <Lock className="w-3.5 h-3.5 text-green-600" />
-          <span>256-Bit Encrypted Stripe Infrastructure</span>
+          <span>{t.encryptedGateway}</span>
         </div>
         <Button
           type="submit"
@@ -184,7 +186,7 @@ export function CheckoutForm() {
           disabled={items.length === 0}
           className="w-full sm:w-auto"
         >
-          {paymentMethod === "stripe_bank" ? "Authorize Bank Payment with Stripe" : "Confirm Commission"}
+          {paymentMethod === "stripe_bank" ? t.confirmCommission : "Konfirmo Porosinë"}
         </Button>
       </div>
     </form>

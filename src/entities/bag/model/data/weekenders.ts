@@ -1,0 +1,112 @@
+import { Bag } from "@/shared/types";
+
+export const weekenders: Bag[] = [
+  {
+    id: "nomade-weekender",
+    slug: "nomade-weekender",
+    name: "Le Nomade 48H Holdall",
+    tagline: "Çantë udhëtimi me vëllim të madh prej lëkure alpine dhe Cordura 1050D.",
+    category: "weekender",
+    priceEur: 1820,
+    capacityLiters: 44.0,
+    weightGrams: 1850,
+    dimensions: { widthMm: 520, heightMm: 320, depthMm: 260 },
+    leatherType: "Lëkurë Demi Alpin Full-Grain 2.2mm & Pëlhurë Balistike",
+    liningMaterial: "Pëlhurë e Qëndrueshme Liri Belg",
+    hardwareOptions: [
+      { id: "palladium", name: "Paladium Mat", finish: "palladium" },
+      { id: "black-pvd", name: "Titan PVD i Zi", finish: "black-pvd" },
+    ],
+    colors: [
+      { id: "espresso", name: "Kafe e Errët Bistre", hex: "#261a15", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80" },
+      { id: "obsidian", name: "E Zezë Mat", hex: "#121214", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Krijuar për udhëtime transatlantike dhe fundjava spontane. Përputhet me standardet e kabinës së avionit IATA ndërsa maksimizon volumin e paketimit.",
+    craftsmanshipNotes: ["Fund i dyfishtë me pesë këmbëza mbrojtëse prej tunxhi të pastër.", "Zinxhirë zviceranë me dryn lëkure."],
+    features: ["Përputhet me kabinën e avionëve ndërkombëtarë", "Dhomë e veçantë e izoluar për këpucë", "Rrip i mbushur për shpatullën"],
+    inStock: true,
+    isBestseller: true,
+    images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.98,
+    reviewsCount: 52
+  },
+  {
+    id: "riviera-duffle",
+    slug: "riviera-duffle",
+    name: "Le Riviera Duffle Bag",
+    tagline: "Çantë udhëtimi verore në lëkurë Vachetta dhe pëlhurë pambuku të dyllosur.",
+    category: "weekender",
+    priceEur: 1490,
+    capacityLiters: 38.0,
+    weightGrams: 1620,
+    dimensions: { widthMm: 490, heightMm: 300, depthMm: 240 },
+    leatherType: "Lëkurë Vachetta me Dyll Blete & Kanavacë Detare",
+    liningMaterial: "Pambuk i Bardhë me Vija Detare",
+    hardwareOptions: [
+      { id: "brass", name: "Tunxh Detar Rezistent ndaj Kripës", finish: "brass" },
+    ],
+    colors: [
+      { id: "cognac", name: "Konjak & Krem", hex: "#a16233", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Ideale për pushime në bregdet dhe udhëtime me jaht. Kanavaca e dyllosur mbron nga spërkatjet e ujit të detit.",
+    craftsmanshipNotes: ["Aksesorë tunxhi detar të garantuar kundër korrozionit."],
+    features: ["E lehtë për paketim", "Hapje me formë U-je për të parë çdo gjë menjëherë", "Xhep anësor i papërshkueshëm"],
+    inStock: true,
+    images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.92,
+    reviewsCount: 28
+  },
+  {
+    id: "transatlantique-holdall",
+    slug: "transatlantique-holdall",
+    name: "Le Transatlantique Large Holdall",
+    tagline: "Çantë masive udhëtimi me kapacitet 52 litra tërësisht prej lëkure viçi.",
+    category: "weekender",
+    priceEur: 2150,
+    capacityLiters: 52.0,
+    weightGrams: 2100,
+    dimensions: { widthMm: 560, heightMm: 350, depthMm: 280 },
+    leatherType: "Lëkurë Demi e Trashë e Zgjedhur me Dorë",
+    liningMaterial: "Kamosh i Kuq Bourdeaux",
+    hardwareOptions: [
+      { id: "brass", name: "Tunxh Masiv i Rëndë", finish: "brass" },
+    ],
+    colors: [
+      { id: "espresso", name: "Kafe e Zezë Bourdeaux", hex: "#1f1513", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Vepra më madhështore e koleksionit të udhëtimit. Çdo detaj është i përforcuar për t'i bërë ballë dekadave të udhëtimeve të largëta.",
+    craftsmanshipNotes: ["Kërkon 42 orë punë të pandërprerë të mjeshtrit kryesor."],
+    features: ["Kapaciteti më i madh në koleksion", "Përfshin etiketë lëkure me iniciale", "Hapje me kornizë metalike 'Doctor's Bag'"],
+    inStock: true,
+    isBestseller: true,
+    images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.99,
+    reviewsCount: 45
+  },
+  {
+    id: "aviateur-valise",
+    slug: "aviateur-valise",
+    name: "L'Aviateur Pilot Case",
+    tagline: "Valixhe e butë me profil të ngushtë për kabinën e pilotëve.",
+    category: "weekender",
+    priceEur: 1650,
+    capacityLiters: 35.0,
+    weightGrams: 1540,
+    dimensions: { widthMm: 460, heightMm: 340, depthMm: 210 },
+    leatherType: "Lëkurë Box Calf e Trajtuar me Vaj Liri",
+    liningMaterial: "Pëlhurë e Zezë Aviacioni",
+    hardwareOptions: [
+      { id: "palladium", name: "Paladium Mat", finish: "palladium" },
+    ],
+    colors: [
+      { id: "obsidian", name: "E Zezë Obsidian", hex: "#141416", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Formë kompakte me hapje të sipërme për qasje të shpejtë në dokumenta fluturimi, kufje dhe veshje të ndërrimit.",
+    craftsmanshipNotes: ["Kënde me mbrojtëse të ngulura me ribatina çeliku."],
+    features: ["Qasje vertikale e menjëhershme", "Rrip i pasmë për dorezë valixheje me rrota", "Mbyllje e dyfishtë me kyç"],
+    inStock: true,
+    images: ["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.94,
+    reviewsCount: 31
+  }
+];

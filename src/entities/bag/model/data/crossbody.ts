@@ -1,0 +1,112 @@
+import { Bag } from "@/shared/types";
+
+export const crossbodies: Bag[] = [
+  {
+    id: "messager-sling",
+    slug: "messager-sling",
+    name: "Le Messager Crossbody",
+    tagline: "Çantë krahu ergonomike me kopsë alumini aeronautik me lirim të shpejtë.",
+    category: "crossbody",
+    priceEur: 680,
+    capacityLiters: 4.5,
+    weightGrams: 490,
+    dimensions: { widthMm: 290, heightMm: 190, depthMm: 70 },
+    leatherType: "Lëkurë e Butë Nappa Viçi Italiane",
+    liningMaterial: "Nylon i Ricikluar Ripstop",
+    hardwareOptions: [
+      { id: "black-pvd", name: "Kopsë e Zezë Mat", finish: "black-pvd" },
+      { id: "palladium", name: "Alumin i Lëmuar", finish: "palladium" },
+    ],
+    colors: [
+      { id: "obsidian", name: "E Zezë Stealth", hex: "#141416", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80" },
+      { id: "cognac", name: "Qelibar i Ngrohtë", hex: "#7d4824", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Elegancë taktike për lëvizje pa pengesa në qytet. Qëndron e palosur pas trupit pa penguar lirinë e lëvizjes.",
+    craftsmanshipNotes: ["Kopsë speciale Cobra AustriAlpin e punuar me precizion mikron."],
+    features: ["Nxë iPad Mini dhe Kindle", "Xhep i fshehur për pasaportë", "Rrip i gjerë 38mm i endur me densitet"],
+    inStock: true,
+    images: ["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.91,
+    reviewsCount: 19
+  },
+  {
+    id: "pochette-rive",
+    slug: "pochette-rive",
+    name: "La Pochette Rive Gauche",
+    tagline: "Çantë e vogël krahu për mbrëmje dhe darka elitare në qytet.",
+    category: "crossbody",
+    priceEur: 540,
+    capacityLiters: 2.8,
+    weightGrams: 360,
+    dimensions: { widthMm: 240, heightMm: 160, depthMm: 50 },
+    leatherType: "Lëkurë Viçi e Lëmuar me Shkëlqim të Lehtë",
+    liningMaterial: "Mëndafsh Natyral i Zi",
+    hardwareOptions: [
+      { id: "brass", name: "Zinxhir i Artë Tunxhi", finish: "brass" },
+      { id: "palladium", name: "Zinxhir Paladiumi", finish: "palladium" },
+    ],
+    colors: [
+      { id: "obsidian", name: "E Zezë e Thellë", hex: "#111113", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Krijuar për të mbajtur celularin, portofolin dhe çelësat me stilin më të lartë parizien. Rripi prej zinxhiri tunxhi mund të hiqet për t'u bërë çantë dore.",
+    craftsmanshipNotes: ["Mbyllje me klik të padukshëm."],
+    features: ["Përdoret si çantë krahu ose çantë dore", "3 ndarje për karta krediti", "Shumë e lehtë"],
+    inStock: true,
+    isNewArrival: true,
+    images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.93,
+    reviewsCount: 26
+  },
+  {
+    id: "bauletto-sling",
+    slug: "bauletto-sling",
+    name: "Il Bauletto Camera Crossbody",
+    tagline: "Strukturë cilindrike e frymëzuar nga çantat vintage të fotografëve.",
+    category: "crossbody",
+    priceEur: 790,
+    capacityLiters: 5.2,
+    weightGrams: 520,
+    dimensions: { widthMm: 270, heightMm: 180, depthMm: 95 },
+    leatherType: "Lëkurë Vachetta me Kokrriza Natyrale",
+    liningMaterial: "Kamosh i Trashë Mbrojtës",
+    hardwareOptions: [
+      { id: "brass", name: "Kopse Tunxhi Masiv", finish: "brass" },
+    ],
+    colors: [
+      { id: "cognac", name: "Toskane Natyrale", hex: "#8c5327", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Mbrojtje e shkëlqyer për aparate fotografikë Leica ose sende personale. Muret e mbushura me kamosh mbrojnë gjithçka nga goditjet.",
+    craftsmanshipNotes: ["Formë cilindrike e qepur me dorë mbi kallëp druri."],
+    features: ["Ndarëse të brendshme me ngjitëse", "Zinxhir i dyfishtë për hapje të shpejtë", "Rrip i butë lëkure"],
+    inStock: true,
+    images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.96,
+    reviewsCount: 37
+  },
+  {
+    id: "courrier-sacoche",
+    slug: "courrier-sacoche",
+    name: "La Sacoche de Courrier",
+    tagline: "Çantë postiere e sheshtë me xhep të jashtëm për pasaportë.",
+    category: "crossbody",
+    priceEur: 620,
+    capacityLiters: 3.9,
+    weightGrams: 420,
+    dimensions: { widthMm: 280, heightMm: 210, depthMm: 45 },
+    leatherType: "Lëkurë Viçi e Veshur me Dyll Blete",
+    liningMaterial: "Liri Francës",
+    hardwareOptions: [
+      { id: "black-pvd", name: "Titan i Zi", finish: "black-pvd" },
+    ],
+    colors: [
+      { id: "olive", name: "Ulli i Butë", hex: "#3b4238", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    description: "Frymëzuar nga postierët francezë të viteve 1950. E sheshtë, elegante dhe jashtëzakonisht e rehatshme nën xhaketë apo pallto.",
+    craftsmanshipNotes: ["Kallëp i hollë që nuk shformohet me kalimin e kohës."],
+    features: ["Mbyllje e shpejtë magnetike", "Xhep i fshehtë i pasmë", "Rrip lëkure i rregullueshëm"],
+    inStock: true,
+    images: ["https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80"],
+    rating: 4.88,
+    reviewsCount: 12
+  }
+];

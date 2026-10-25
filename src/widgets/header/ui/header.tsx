@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ShoppingBag, Menu, X, Sun, Moon } from "lucide-react";
 import { useCart } from "@/features/cart";
+import { useLanguage, LanguageSwitcher } from "@/features/language";
 
 export function Header() {
   const { totalItemsCount, openCart } = useCart();
+  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
@@ -27,7 +29,7 @@ export function Header() {
       {/* Top micro-announcement banner */}
       <div className="bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] px-4 py-1.5 text-center">
         <p className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
-          Edition 2026 • Complimentary Insured Courier Shipping Worldwide • Handcrafted in Paris & Milan
+          {t.topAnnouncement}
         </p>
       </div>
 
@@ -36,48 +38,53 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="group flex flex-col">
             <span className="font-serif text-xl sm:text-2xl tracking-tight font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-cognac)] transition-colors">
-              ATELIER VÉLOCE
+              {t.brandName}
             </span>
             <span className="text-[9px] font-mono tracking-widest uppercase text-[var(--text-muted)] -mt-1">
-              Architectural Carry Goods
+              {t.brandSubtitle}
             </span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)]">
-          <Link href="/" className="hover:text-[var(--text-primary)] transition-colors">
-            Works Catalog
+          <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
+            {t.navWorks}
           </Link>
           <Link href="/bags/arche-briefcase" className="hover:text-[var(--text-primary)] transition-colors">
-            L&apos;Arche Briefcase
+            {t.navBriefcases}
+          </Link>
+          <Link href="/bags/flaneur-tote" className="hover:text-[var(--text-primary)] transition-colors">
+            {t.navTotes}
           </Link>
           <Link href="/bags/nomade-weekender" className="hover:text-[var(--text-primary)] transition-colors">
-            48H Holdall
+            {t.navWeekenders}
           </Link>
           <Link href="#craftsmanship" className="hover:text-[var(--text-primary)] transition-colors">
-            Provenance
+            {t.navProvenance}
           </Link>
         </nav>
 
-        {/* Right utilities: Theme toggle + Cart trigger */}
-        <div className="flex items-center gap-3">
+        {/* Right utilities: Language switcher + Theme toggle + Cart trigger */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LanguageSwitcher />
+
           <button
             onClick={toggleTheme}
             className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95"
             aria-label="Toggle light / dark stone mode"
-            title="Toggle light / dark stone mode"
+            title="Toggle theme"
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
           <button
             onClick={openCart}
-            className="flex items-center gap-2.5 px-3.5 py-2 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none"
+            className="flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none"
             aria-label={`View Cart (${totalItemsCount} items)`}
           >
             <ShoppingBag className="w-4 h-4 text-[var(--text-primary)]" />
-            <span className="text-xs font-mono uppercase tracking-wider hidden sm:inline">Carry</span>
+            <span className="text-xs font-mono uppercase tracking-wider hidden sm:inline">{t.cartButton}</span>
             <span className="font-mono text-xs font-bold tabular-nums px-1.5 py-0.2 bg-[var(--text-primary)] text-[var(--bg-canvas)] rounded-full">
               {totalItemsCount}
             </span>
@@ -98,33 +105,20 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 space-y-4">
           <nav className="flex flex-col gap-3 text-sm font-mono uppercase tracking-wider text-[var(--text-primary)]">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--accent-cognac)]"
-            >
-              All Works
+            <Link href="/#catalog" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              {t.navWorks}
             </Link>
-            <Link
-              href="/bags/arche-briefcase"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--accent-cognac)]"
-            >
-              L&apos;Arche Briefcase
+            <Link href="/bags/arche-briefcase" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              {t.navBriefcases}
             </Link>
-            <Link
-              href="/bags/nomade-weekender"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--accent-cognac)]"
-            >
-              Le Nomade 48H
+            <Link href="/bags/flaneur-tote" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              {t.navTotes}
             </Link>
-            <Link
-              href="#craftsmanship"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--accent-cognac)]"
-            >
-              Provenance & Tanning
+            <Link href="/bags/nomade-weekender" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              {t.navWeekenders}
+            </Link>
+            <Link href="#craftsmanship" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              {t.navProvenance}
             </Link>
           </nav>
         </div>

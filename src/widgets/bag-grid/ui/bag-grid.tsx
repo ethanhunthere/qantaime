@@ -7,12 +7,14 @@ import { BagCard, BagSpecsTable } from "@/entities/bag";
 import { FilterBar } from "@/features/filter-bags";
 import { Modal, Button } from "@/shared/ui";
 import { formatCurrency } from "@/shared/lib";
+import { useLanguage } from "@/features/language";
 
 interface BagGridProps {
   initialBags: Bag[];
 }
 
 export function BagGrid({ initialBags }: BagGridProps) {
+  const { t } = useLanguage();
   const [filters, setFilters] = useState<FilterState>({
     category: "all",
     search: "",
@@ -52,14 +54,14 @@ export function BagGrid({ initialBags }: BagGridProps) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
-            Permanent Catalogue
+            {t.catalogTitle}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)] mt-1">
-            Articulated Silhouettes
+            {t.catalogSubtitle}
           </h2>
         </div>
         <p className="text-xs font-mono text-[var(--text-secondary)] max-w-md">
-          Each model is limited to an annual edition of 150 individually serialized units. Numbered by laser on the internal frame.
+          {t.catalogDesc}
         </p>
       </div>
 
@@ -74,10 +76,10 @@ export function BagGrid({ initialBags }: BagGridProps) {
       {filteredBags.length === 0 ? (
         <div className="p-12 text-center border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-3">
           <p className="font-serif text-lg text-[var(--text-primary)]">
-            No silhouettes match your specified criteria.
+            {t.noBagsFound}
           </p>
           <p className="text-xs font-mono text-[var(--text-secondary)]">
-            Try adjusting your search query or selecting &quot;All Works&quot;.
+            {t.noBagsSubtitle}
           </p>
         </div>
       ) : (
@@ -97,7 +99,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
         <Modal
           isOpen={!!inspectBag}
           onClose={() => setInspectBag(null)}
-          title={`Blueprint: ${inspectBag.name}`}
+          title={`Planimetria: ${inspectBag.name}`}
         >
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
@@ -118,11 +120,11 @@ export function BagGrid({ initialBags }: BagGridProps) {
 
             <div className="pt-2 flex justify-between items-center">
               <Button variant="outline" size="sm" onClick={() => setInspectBag(null)}>
-                Close Blueprint
+                Mbyll
               </Button>
               <Link href={`/bags/${inspectBag.slug}`}>
                 <Button variant="primary" size="sm">
-                  Customize & Commission
+                  {t.acquirePiece}
                 </Button>
               </Link>
             </div>
