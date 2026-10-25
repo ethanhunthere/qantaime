@@ -25,29 +25,29 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)]/90 backdrop-blur-md border-b border-[var(--border-subtle)] transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)]/95 backdrop-blur-md border-b border-[var(--border-subtle)] transition-colors">
       {/* Top micro-announcement banner */}
-      <div className="bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] px-4 py-1.5 text-center">
-        <p className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)]">
+      <div className="bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] px-3 sm:px-4 py-1.5 text-center overflow-hidden">
+        <p className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] truncate sm:whitespace-normal">
           {t.topAnnouncement}
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo & Tag */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <Link href="/" className="group flex flex-col">
-            <span className="font-sans font-medium uppercase text-[16px] md:text-[18px] tracking-[0.28em] text-[#1A1614] group-hover:opacity-75 transition-opacity">
+            <span className="font-sans font-medium uppercase text-[15px] sm:text-[16px] md:text-[18px] tracking-[0.24em] sm:tracking-[0.28em] text-[#1A1614] group-hover:opacity-75 transition-opacity">
               {t.brandName}
             </span>
-            <span className="text-[9px] font-mono tracking-[0.24em] uppercase text-[var(--text-muted)] mt-0.5">
+            <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.22em] uppercase text-[var(--text-muted)] mt-0.5">
               {t.brandSubtitle}
             </span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
             {t.navWorks}
           </Link>
@@ -66,12 +66,14 @@ export function Header() {
         </nav>
 
         {/* Right utilities: Language switcher + Theme toggle + Cart trigger */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher />
+        <div className="flex items-center gap-1.5 sm:gap-3">
+          <div className="hidden sm:block">
+            <LanguageSwitcher />
+          </div>
 
           <button
             onClick={toggleTheme}
-            className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95"
+            className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
             aria-label="Toggle light / dark stone mode"
             title="Toggle theme"
           >
@@ -80,7 +82,7 @@ export function Header() {
 
           <button
             onClick={openCart}
-            className="flex items-center gap-2 px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none"
+            className="min-h-[40px] flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none touch-manipulation"
             aria-label={`View Cart (${totalItemsCount} items)`}
           >
             <ShoppingBag className="w-4 h-4 text-[var(--text-primary)]" />
@@ -93,7 +95,7 @@ export function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen((p) => !p)}
-            className="md:hidden p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+            className="md:hidden min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-95 touch-manipulation"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -101,26 +103,56 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation with backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 space-y-4">
-          <nav className="flex flex-col gap-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-primary)]">
-            <Link href="/#catalog" onClick={() => setMobileMenuOpen(false)} className="py-1">
-              {t.navWorks}
+        <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-5 space-y-4 shadow-xl">
+          <nav className="flex flex-col divide-y divide-[var(--border-subtle)] font-sans font-medium text-[12px] uppercase tracking-[0.18em] text-[var(--text-primary)]">
+            <Link
+              href="/#catalog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+            >
+              <span>{t.navWorks}</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">20 Modele</span>
             </Link>
-            <Link href="/bags/arche-briefcase" onClick={() => setMobileMenuOpen(false)} className="py-1">
-              {t.navBriefcases}
+            <Link
+              href="/bags/arche-briefcase"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+            >
+              <span>{t.navBriefcases}</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Porte-Documents</span>
             </Link>
-            <Link href="/bags/flaneur-tote" onClick={() => setMobileMenuOpen(false)} className="py-1">
-              {t.navTotes}
+            <Link
+              href="/bags/flaneur-tote"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+            >
+              <span>{t.navTotes}</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Totes</span>
             </Link>
-            <Link href="/bags/nomade-weekender" onClick={() => setMobileMenuOpen(false)} className="py-1">
-              {t.navWeekenders}
+            <Link
+              href="/bags/nomade-weekender"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+            >
+              <span>{t.navWeekenders}</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">48H</span>
             </Link>
-            <Link href="#craftsmanship" onClick={() => setMobileMenuOpen(false)} className="py-1">
-              {t.navProvenance}
+            <Link
+              href="#craftsmanship"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+            >
+              <span>{t.navProvenance}</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Atelier</span>
             </Link>
           </nav>
+
+          <div className="pt-2 flex items-center justify-between border-t border-[var(--border-subtle)]">
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Gjuha / Language:</span>
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </header>

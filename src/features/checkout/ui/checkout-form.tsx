@@ -50,7 +50,7 @@ export function CheckoutForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-4 sm:p-6 md:p-8">
       {/* Contact Section */}
       <div className="space-y-4">
         <h3 className="font-sans font-medium uppercase text-sm tracking-[0.06em] text-[#1A1614] pb-2 border-b border-[var(--border-subtle)]">
@@ -184,7 +184,7 @@ export function CheckoutForm() {
           variant="primary"
           isLoading={isPending}
           disabled={items.length === 0}
-          className="w-full sm:w-auto"
+          className="w-full sm:w-auto min-h-[48px] touch-manipulation"
         >
           {paymentMethod === "stripe_bank" ? t.confirmCommission : "Konfirmo Porosinë"}
         </Button>

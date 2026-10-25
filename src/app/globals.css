@@ -92,3 +92,26 @@ html, body {
   outline: 2px solid var(--accent-cognac);
   outline-offset: 2px;
 }
+
+/* Touch-friendly manipulation across mobile devices */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Hide scrollbars for clean horizontal sliding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile safe area padding utilities */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+

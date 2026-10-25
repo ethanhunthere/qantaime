@@ -6,7 +6,7 @@ import { formatCurrency } from "@/shared/lib";
 
 export function OrderSummaryCard({ order }: { order: OrderConfirmation }) {
   return (
-    <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 space-y-6">
+    <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 sm:p-6 space-y-5 sm:space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-4">
         <div>
           <span className="text-[11px] font-mono uppercase tracking-widest text-[var(--text-muted)]">

@@ -57,26 +57,26 @@ export function Drawer({ isOpen, onClose, title, children, position = "right" }:
             exit="closed"
             variants={slideVariants}
             className={cn(
-              "relative z-10 w-full max-w-md h-full bg-[var(--bg-canvas)] shadow-2xl flex flex-col border-hairline overflow-hidden",
+              "relative z-10 w-full max-w-full sm:max-w-md h-full bg-[var(--bg-canvas)] shadow-2xl flex flex-col border-hairline overflow-hidden",
               position === "right" ? "ml-auto border-l" : "mr-auto border-r"
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-              <h2 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614]">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]">
+              <h2 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614] truncate pr-2">
                 {title}
               </h2>
               <button
                 onClick={onClose}
-                className="p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95"
+                className="min-w-[44px] min-h-[44px] -mr-2 -my-2 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
                 aria-label="Close drawer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Content */}
-            <div className="flex-1 overflow-y-auto p-6" style={{ overscrollBehavior: "contain" }}>
+            {/* Content with safe area bottom padding */}
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]" style={{ overscrollBehavior: "contain" }}>
               {children}
             </div>
           </motion.div>

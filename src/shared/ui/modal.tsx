@@ -40,23 +40,23 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] as const }}
-            className="relative z-10 w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-2xl p-6 md:p-8 overflow-hidden max-h-[90vh] flex flex-col"
+            className="relative z-10 w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-2xl p-4 sm:p-6 md:p-8 overflow-hidden max-h-[92vh] sm:max-h-[90vh] flex flex-col"
           >
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]">
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[var(--border-subtle)]">
               {title && (
-                <h3 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614]">
+                <h3 className="font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[#1A1614] pr-2 truncate">
                   {title}
                 </h3>
               )}
               <button
                 onClick={onClose}
-                className="ml-auto p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95"
+                className="ml-auto min-w-[44px] min-h-[44px] -mr-2 -my-2 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
                 aria-label="Close dialog"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="overflow-y-auto pt-6" style={{ overscrollBehavior: "contain" }}>
+            <div className="overflow-y-auto pt-4 sm:pt-6" style={{ overscrollBehavior: "contain" }}>
               {children}
             </div>
           </motion.div>

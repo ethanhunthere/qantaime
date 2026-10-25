@@ -14,9 +14,9 @@ interface CartItemRowProps {
 
 export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowProps) {
   return (
-    <div className="flex gap-4 py-4 border-b border-[var(--border-subtle)] items-start">
+    <div className="flex gap-3 sm:gap-4 py-3.5 sm:py-4 border-b border-[var(--border-subtle)] items-start">
       {/* Thumbnail */}
-      <div className="relative w-20 h-20 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] shrink-0 overflow-hidden">
+      <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] shrink-0 overflow-hidden">
         <Image src={item.image} alt={item.bagName} fill className="object-cover" />
       </div>
 
@@ -25,7 +25,7 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
         <h4 className="font-sans font-medium uppercase text-xs tracking-[0.08em] text-[#1A1614] leading-tight truncate">
           {item.bagName}
         </h4>
-        <div className="text-[11px] font-mono text-[var(--text-secondary)] space-y-0.5">
+        <div className="text-[10px] sm:text-[11px] font-mono text-[var(--text-secondary)] space-y-0.5">
           <p>Leather: {item.color.name}</p>
           <p>Hardware: {item.hardware.name}</p>
           {item.monogram && (
@@ -34,11 +34,11 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
         </div>
 
         {/* Stepper + Price */}
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex items-center justify-between pt-1.5 sm:pt-2">
           <div className="flex items-center border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-              className="p-1 hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)]"
+              className="p-1.5 sm:p-2 min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation"
               aria-label="Decrease quantity"
             >
               <Minus className="w-3.5 h-3.5" />
@@ -48,7 +48,7 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
             </span>
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-              className="p-1 hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)]"
+              className="p-1.5 sm:p-2 min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation"
               aria-label="Increase quantity"
             >
               <Plus className="w-3.5 h-3.5" />
@@ -66,7 +66,7 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
       {/* Remove button */}
       <button
         onClick={() => onRemove(item.id)}
-        className="p-1 text-[var(--text-muted)] hover:text-red-600 transition-colors"
+        className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-red-600 transition-colors touch-manipulation -mr-1"
         title="Remove item"
         aria-label="Remove item"
       >

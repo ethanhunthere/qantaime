@@ -82,7 +82,7 @@ export function CartDrawer() {
 
             <div className="pt-2">
               <Link href="/checkout" onClick={closeCart} className="block w-full">
-                <Button size="lg" variant="primary" className="w-full justify-between group">
+                <Button size="lg" variant="primary" className="w-full justify-between group min-h-[48px] touch-manipulation">
                   <span>{t.proceedCheckout}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Button>

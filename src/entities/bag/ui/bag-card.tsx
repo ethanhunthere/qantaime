@@ -44,7 +44,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
     <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all duration-300 shadow-xs hover:shadow-md">
       {/* Product Image Frame */}
       <div className="relative aspect-4/3 w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)]">
-        <Link href={`/bags/${bag.slug}`} className="block w-full h-full">
+        <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full">
           <Image
             src={currentColor.image}
             alt={`${bag.name} in ${currentColor.name}`}
@@ -64,7 +64,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         {onQuickView && (
           <button
             onClick={() => onQuickView(bag)}
-            className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150 px-3 py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[var(--bg-surface)] text-[#1A1614] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)]"
+            className="absolute bottom-2.5 right-2.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-150 px-2.5 sm:px-3 py-1 sm:py-1.5 font-sans font-medium text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] bg-[var(--bg-surface)] text-[#1A1614] border border-[var(--border-strong)] shadow-sm hover:bg-[var(--bg-surface-active)] min-h-[32px] flex items-center touch-manipulation"
           >
             {t.quickInspect}
           </button>
@@ -72,7 +72,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
       </div>
 
       {/* Bag Details */}
-      <div className="p-5 flex flex-col flex-1 justify-between gap-4">
+      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3.5 sm:gap-4">
         {/* Strict 3-Line Brutalist Layout */}
         <div className="space-y-1">
           {/* Line 1 — Brand Name */}
@@ -98,20 +98,24 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono">
             {t.colorLabel}
           </span>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             {bag.colors.map((color, idx) => (
               <button
                 key={color.id}
                 onClick={() => setActiveColorIdx(idx)}
-                className={`w-3.5 h-3.5 rounded-full border transition-all ${
-                  idx === activeColorIdx
-                    ? "ring-1 ring-offset-1 ring-[var(--text-primary)] scale-110"
-                    : "opacity-80 hover:opacity-100"
-                }`}
-                style={{ backgroundColor: color.hex, borderColor: "var(--border-strong)" }}
+                className="p-1 -m-0.5 inline-flex items-center justify-center touch-manipulation"
                 title={color.name}
                 aria-label={`Zgjidh ${color.name}`}
-              />
+              >
+                <span
+                  className={`w-3.5 h-3.5 rounded-full border transition-all ${
+                    idx === activeColorIdx
+                      ? "ring-1 ring-offset-1 ring-[var(--text-primary)] scale-110"
+                      : "opacity-80 hover:opacity-100"
+                  }`}
+                  style={{ backgroundColor: color.hex, borderColor: "var(--border-strong)" }}
+                />
+              </button>
             ))}
           </div>
           <span className="text-[10px] text-[var(--text-muted)] font-mono ml-auto">
@@ -123,14 +127,14 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
           <button
             onClick={handleQuickAdd}
-            className="flex-1 flex items-center justify-center gap-1.5 h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[#1A1614] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none"
+            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.18em] bg-[#1A1614] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all select-none touch-manipulation"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>{t.addToCarry}</span>
           </button>
           <Link
             href={`/bags/${bag.slug}`}
-            className="flex items-center justify-center w-9 h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[#1A1614] transition-colors active:scale-95"
+            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-raised)] text-[#1A1614] transition-colors active:scale-95 touch-manipulation"
             title={t.viewDetails}
             aria-label={t.viewDetails}
           >

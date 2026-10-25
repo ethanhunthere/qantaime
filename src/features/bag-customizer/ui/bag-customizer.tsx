@@ -48,7 +48,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-6 md:p-8">
+    <div className="flex flex-col gap-5 sm:gap-6 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-4 sm:p-6 md:p-8">
       {/* Visual Preview Frame */}
       <div className="relative aspect-16/10 w-full overflow-hidden bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)]">
         <Image
@@ -60,14 +60,14 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           className="object-cover object-center transition-all duration-300"
         />
         {enableMonogram && monogram.trim().length > 0 && (
-          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/80 backdrop-blur-xs text-[#d4af37] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[#d4af37]/40 shadow-lg">
             INICIALE: {monogram.trim().toUpperCase()}
           </div>
         )}
       </div>
 
       {/* Configuration Controls */}
-      <div className="space-y-6">
+      <div className="space-y-5 sm:space-y-6">
         {/* Color Choice */}
         <div>
           <div className="flex justify-between items-baseline mb-2">
@@ -78,14 +78,14 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
               {selectedColor.name}
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
             {bag.colors.map((color) => {
               const isSelected = color.id === selectedColor.id;
               return (
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2.5 p-2.5 border text-left transition-all ${
+                  className={`flex items-center gap-2 p-2 sm:p-2.5 min-h-[44px] border text-left transition-all touch-manipulation ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
@@ -121,7 +121,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2.5 text-xs font-mono border text-center transition-all ${
+                  className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
@@ -136,7 +136,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
 
         {/* Bespoke Hot-Stamping Monogram */}
         <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3">
-          <label className="flex items-center gap-2 cursor-pointer select-none">
+          <label className="flex items-center gap-2 cursor-pointer select-none min-h-[36px] touch-manipulation">
             <input
               type="checkbox"
               checked={enableMonogram}
@@ -149,14 +149,14 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           </label>
 
           {enableMonogram && (
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
               <input
                 type="text"
                 maxLength={3}
                 placeholder="ABC"
                 value={monogram}
                 onChange={(e) => setMonogram(e.target.value.toUpperCase())}
-                className="w-24 h-10 px-3 text-center uppercase tracking-widest font-mono text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] focus-visible:border-[var(--text-primary)]"
+                className="w-28 h-11 px-3 text-center uppercase tracking-widest font-mono text-base sm:text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] focus-visible:border-[var(--text-primary)]"
               />
               <span className="text-[11px] font-mono text-[var(--text-muted)]">
                 {t.monogramDesc}
@@ -180,7 +180,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
             size="lg"
             variant="primary"
             onClick={handleAddToCart}
-            className="w-full sm:w-auto min-w-[220px]"
+            className="w-full sm:w-auto min-w-[220px] min-h-[48px]"
           >
             {isAddedFeedback ? (
               <span className="flex items-center gap-1.5 text-green-400">
@@ -193,13 +193,13 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         </div>
 
         {/* Workshop guarantee badges */}
-        <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-cognac)] shrink-0" />
             {t.lifetimeGuarantee}
           </span>
           <span className="flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-cognac)]" />
+            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-cognac)] shrink-0" />
             {t.complimentaryCourier}
           </span>
         </div>

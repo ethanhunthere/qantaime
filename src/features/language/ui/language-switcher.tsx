@@ -15,7 +15,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all select-none"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 min-h-[38px] text-xs font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all select-none touch-manipulation"
         aria-label="Ndrysho Gjuhën / Select Language"
       >
         <span className="text-sm">{current.flag}</span>
@@ -26,7 +26,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 mt-1 w-36 bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl z-50 py-1 font-mono text-xs">
+          <div className="absolute right-0 mt-1 w-40 bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl z-50 py-1 font-mono text-xs">
             {availableLanguages.map((item) => (
               <button
                 key={item.code}
@@ -34,7 +34,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
                   setLanguage(item.code as Language);
                   setIsOpen(false);
                 }}
-                className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-[var(--bg-surface-active)] transition-colors ${
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 min-h-[40px] text-left hover:bg-[var(--bg-surface-active)] transition-colors touch-manipulation ${
                   item.code === language
                     ? "font-bold text-[var(--accent-cognac)] bg-[var(--bg-surface-raised)]"
                     : "text-[var(--text-primary)]"

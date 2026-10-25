@@ -50,13 +50,13 @@ export function BagGrid({ initialBags }: BagGridProps) {
   }, [initialBags, filters]);
 
   return (
-    <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
+    <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-6 sm:space-y-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 pb-4 border-b border-[var(--border-subtle)]">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)]">
             {t.catalogTitle}
           </span>
-          <h2 className="font-sans font-medium uppercase text-3xl sm:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614] mt-1">
+          <h2 className="font-sans font-medium uppercase text-2xl sm:text-3xl md:text-4xl tracking-[0.06em] leading-[1.05] text-[#1A1614] mt-1">
             {t.catalogSubtitle}
           </h2>
         </div>
@@ -74,7 +74,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
 
       {/* Product Grid */}
       {filteredBags.length === 0 ? (
-        <div className="p-12 text-center border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-3">
+        <div className="p-8 sm:p-12 text-center border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-3">
           <p className="font-sans font-medium uppercase text-base tracking-[0.06em] text-[#1A1614]">
             {t.noBagsFound}
           </p>
@@ -83,7 +83,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {filteredBags.map((bag) => (
             <BagCard
               key={bag.id}
@@ -101,13 +101,13 @@ export function BagGrid({ initialBags }: BagGridProps) {
           onClose={() => setInspectBag(null)}
           title={`Planimetria: ${inspectBag.name}`}
         >
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
               <div>
-                <h3 className="font-sans font-medium uppercase text-xl tracking-[0.06em] text-[#1A1614]">{inspectBag.name}</h3>
+                <h3 className="font-sans font-medium uppercase text-lg sm:text-xl tracking-[0.06em] text-[#1A1614]">{inspectBag.name}</h3>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">{inspectBag.tagline}</p>
               </div>
-              <span className="font-mono text-xl font-bold tabular-nums text-[var(--text-primary)]">
+              <span className="font-mono text-lg sm:text-xl font-bold tabular-nums text-[var(--text-primary)]">
                 {formatCurrency(inspectBag.priceEur)}
               </span>
             </div>
@@ -118,12 +118,12 @@ export function BagGrid({ initialBags }: BagGridProps) {
 
             <BagSpecsTable bag={inspectBag} />
 
-            <div className="pt-2 flex justify-between items-center">
-              <Button variant="outline" size="sm" onClick={() => setInspectBag(null)}>
+            <div className="pt-2 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-2.5">
+              <Button variant="outline" size="sm" onClick={() => setInspectBag(null)} className="w-full sm:w-auto min-h-[42px]">
                 Mbyll
               </Button>
-              <Link href={`/bags/${inspectBag.slug}`}>
-                <Button variant="primary" size="sm">
+              <Link href={`/bags/${inspectBag.slug}`} className="w-full sm:w-auto">
+                <Button variant="primary" size="sm" className="w-full sm:w-auto min-h-[42px]">
                   {t.acquirePiece}
                 </Button>
               </Link>

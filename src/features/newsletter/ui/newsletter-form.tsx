@@ -31,7 +31,7 @@ export function NewsletterForm() {
           type="email"
           required
           placeholder="Private dispatch address..."
-          className="flex-1 h-11 px-3.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-primary)] focus-visible:border-[var(--text-primary)] outline-none"
+          className="flex-1 h-11 px-3.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] text-base sm:text-xs font-mono text-[var(--text-primary)] focus-visible:border-[var(--text-primary)] outline-none"
         />
         <Button
           type="submit"
