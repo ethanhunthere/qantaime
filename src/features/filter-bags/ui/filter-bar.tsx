@@ -20,7 +20,6 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     { id: "curated", label: t.sortCurated },
     { id: "price-asc", label: t.sortPriceAsc },
     { id: "price-desc", label: t.sortPriceDesc },
-    { id: "capacity", label: t.sortCapacity },
   ];
 
   useEffect(() => {
@@ -62,12 +61,12 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
 
   return (
     <div className="w-full space-y-2">
-      {/* Single Unified Control Panel (Search Box + Filters) with Crisp Visible Borders */}
-      <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-strong)] p-3 sm:p-4 shadow-xs">
+      {/* Single Unified Control Panel (Search Box + Filters) with Crisp High-Contrast Borders */}
+      <div className="w-full bg-[var(--bg-surface)] border border-zinc-200 dark:border-zinc-800 p-3 sm:p-4 shadow-xs">
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 w-full">
-          {/* Search Input — Fully Expansive Width & Bespoke Luxury Obsidian/Cognac Palette */}
-          <div className="relative flex-1 w-full">
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-none bg-[#26201b] border border-[#3b322a] flex items-center justify-center text-[#d4af37] pointer-events-none shrink-0 shadow-xs">
+          {/* Search Input — High Contrast Light Theme Architecture */}
+          <div className="group/input relative flex-1 w-full">
+            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-none bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-900 dark:text-zinc-100 pointer-events-none shrink-0 transition-colors group-focus-within/input:bg-zinc-950 group-focus-within/input:text-white dark:group-focus-within/input:bg-white dark:group-focus-within/input:text-zinc-950">
               <Search className="w-4 h-4" />
             </div>
             <input
@@ -75,17 +74,18 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               placeholder={t.searchPlaceholder}
               value={filters.search}
               onChange={handleSearchChange}
-              className="w-full h-12 sm:h-13 pl-13 pr-10 font-sans text-sm sm:text-[13px] tracking-[0.02em] bg-[#181614] dark:bg-[#11100f] text-[#faf7f2] placeholder:text-[#9c948a] border border-[#2d2722] dark:border-[#332c26] focus:border-[#42372e] outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-none focus:shadow-none transition-none [appearance:none] [-webkit-appearance:none]"
+              className="w-full h-12 sm:h-13 pl-14 pr-10 font-sans text-sm tracking-[0.01em] bg-white dark:bg-[#141416] text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600 focus:border-zinc-950 dark:focus:border-zinc-200 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-xs focus:shadow-sm transition-all [appearance:none] [-webkit-appearance:none]"
             />
             {filters.search && (
               <button
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-[#9c948a] hover:text-[#faf7f2] transition-colors cursor-pointer outline-none focus:outline-none"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors cursor-pointer outline-none focus:outline-none flex items-center gap-1"
                 title="Pastro kërkimin"
                 aria-label="Pastro kërkimin"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
+                <span className="text-[10px] hidden sm:inline uppercase">Pastro</span>
               </button>
             )}
           </div>
@@ -95,20 +95,20 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
             <button
               type="button"
               onClick={() => setSortOpen((prev) => !prev)}
-              className="h-12 sm:h-13 w-full md:w-auto min-w-[210px] px-4 flex items-center justify-between gap-3 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-strong)] transition-all font-sans text-xs uppercase tracking-[0.12em] outline-none focus:outline-none focus:ring-0 ring-0 cursor-pointer select-none"
+              className="h-12 sm:h-13 w-full md:w-auto min-w-[210px] px-4 flex items-center justify-between gap-3 bg-white dark:bg-[#141416] hover:bg-zinc-50 dark:hover:bg-zinc-900 text-zinc-950 dark:text-zinc-50 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-950 dark:hover:border-zinc-300 transition-all font-sans text-xs uppercase tracking-[0.12em] font-medium outline-none focus:outline-none focus:ring-0 ring-0 cursor-pointer select-none"
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
             >
               <div className="flex items-center gap-2 truncate">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" />
-                <span className="text-[10px] text-[var(--text-muted)] tracking-widest hidden md:inline">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+                <span className="text-[10px] text-zinc-400 dark:text-zinc-500 tracking-widest hidden md:inline">
                   {t.sortLabel}
                 </span>
-                <span className="font-medium truncate">{currentSortLabel}</span>
+                <span className="font-semibold truncate">{currentSortLabel}</span>
               </div>
               <ChevronDown
-                className={`w-3.5 h-3.5 text-[var(--text-muted)] shrink-0 transition-transform duration-200 ${
-                  sortOpen ? "rotate-180 text-[var(--text-primary)]" : ""
+                className={`w-3.5 h-3.5 text-zinc-500 shrink-0 transition-transform duration-200 ${
+                  sortOpen ? "rotate-180 text-zinc-950 dark:text-zinc-100" : ""
                 }`}
               />
             </button>
@@ -117,7 +117,7 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
             {sortOpen && (
               <div
                 role="listbox"
-                className="absolute right-0 top-full mt-1.5 w-full sm:w-64 bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-xl z-50 py-1 font-sans divide-y divide-[var(--border-subtle)] animate-in fade-in slide-in-from-top-1 duration-150"
+                className="absolute right-0 top-full mt-1.5 w-full sm:w-64 bg-white dark:bg-[#141416] border border-zinc-900 dark:border-zinc-700 shadow-xl z-50 py-1 font-sans divide-y divide-zinc-100 dark:divide-zinc-800 animate-in fade-in slide-in-from-top-1 duration-150"
               >
                 {sortOptions.map((opt) => {
                   const isSelected = filters.sortBy === opt.id;
@@ -130,13 +130,13 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
                       onClick={() => handleSelectSort(opt.id)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 text-left text-xs uppercase tracking-[0.10em] transition-colors cursor-pointer outline-none focus:outline-none ${
                         isSelected
-                          ? "bg-[var(--bg-surface-raised)] text-[var(--text-primary)] font-semibold"
-                          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-active)]"
+                          ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 font-bold"
+                          : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900"
                       }`}
                     >
                       <span className="truncate pr-2">{opt.label}</span>
                       {isSelected && (
-                        <Check className="w-3.5 h-3.5 text-[var(--text-primary)] shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-zinc-950 dark:text-zinc-50 shrink-0" />
                       )}
                     </button>
                   );
