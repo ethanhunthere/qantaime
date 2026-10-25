@@ -89,13 +89,16 @@ html, body {
   border: 1px solid var(--border-strong);
 }
 
-/* Focus outline: subtle, accessible, zero disruptive rings */
+/* Focus outline: zero disruptive outer lines */
 *:focus-visible {
   outline: none;
 }
-input:focus-visible, textarea:focus-visible {
-  outline: none;
-  border-color: var(--text-primary);
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Touch-friendly manipulation across mobile devices */

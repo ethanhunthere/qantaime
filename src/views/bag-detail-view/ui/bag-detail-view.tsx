@@ -37,7 +37,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16 space-y-8 sm:space-y-12 pb-24 lg:pb-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-24 lg:pb-16 space-y-5 sm:space-y-6">
       {/* Breadcrumb navigation */}
       <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono text-[var(--text-muted)]">
         <Link href="/" className="inline-flex items-center gap-1 hover:text-[var(--text-primary)] transition-colors min-h-[32px]">

@@ -40,7 +40,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] as const }}
-            className="relative z-10 w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-2xl p-4 sm:p-6 md:p-8 overflow-hidden max-h-[92vh] sm:max-h-[90vh] flex flex-col"
+            className="relative z-10 w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-strong)] shadow-2xl p-4 sm:p-6 md:p-7 overflow-hidden max-h-[88vh] flex flex-col"
           >
             <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[var(--border-subtle)]">
               {title && (

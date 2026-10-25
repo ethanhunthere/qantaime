@@ -48,16 +48,16 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
   };
 
   return (
-    <div className="flex flex-col gap-5 sm:gap-6 bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-4 sm:p-6 md:p-8">
-      {/* Visual Preview Frame */}
-      <div className="relative aspect-16/10 w-full overflow-hidden bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)]">
+    <div className="flex flex-col gap-3.5 sm:gap-4 bg-[var(--bg-surface)] border border-[var(--border-strong)] p-4 sm:p-5 md:p-6 shadow-sm">
+      {/* Visual Preview Frame — Contained so bottom of panel is always visible on screen */}
+      <div className="relative aspect-16/10 max-h-[300px] sm:max-h-[340px] w-full overflow-hidden bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] [contain:paint]">
         <Image
           src={selectedColor.image}
           alt={`${bag.name} in ${selectedColor.name}`}
           fill
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-center transition-all duration-300"
+          className="object-cover object-center transition-all duration-300 select-none"
         />
         {enableMonogram && monogram.trim().length > 0 && (
           <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[var(--text-primary)] text-[var(--bg-canvas)] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[var(--border-subtle)] shadow-lg">
@@ -67,10 +67,10 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
       </div>
 
       {/* Configuration Controls */}
-      <div className="space-y-5 sm:space-y-6">
+      <div className="space-y-3.5 sm:space-y-4">
         {/* Color Choice */}
         <div>
-          <div className="flex justify-between items-baseline mb-2">
+          <div className="flex justify-between items-baseline mb-1.5">
             <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
               {t.patinaStep}
             </span>
@@ -78,14 +78,14 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
               {selectedColor.name}
             </span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {bag.colors.map((color) => {
               const isSelected = color.id === selectedColor.id;
               return (
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2.5 p-2 sm:p-2.5 min-h-[44px] border text-left transition-all touch-manipulation rounded-none ${
+                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-all touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
@@ -106,7 +106,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
 
         {/* Hardware Finishing */}
         <div>
-          <div className="flex justify-between items-baseline mb-2">
+          <div className="flex justify-between items-baseline mb-1.5">
             <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)]">
               {t.hardwareStep}
             </span>
@@ -121,7 +121,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation rounded-none ${
+                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
@@ -135,8 +135,8 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         </div>
 
         {/* Bespoke Hot-Stamping Monogram */}
-        <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3">
-          <label className="flex items-center gap-2 cursor-pointer select-none min-h-[36px] touch-manipulation">
+        <div className="pt-3 border-t border-[var(--border-subtle)] space-y-2.5">
+          <label className="flex items-center gap-2 cursor-pointer select-none min-h-[32px] touch-manipulation">
             <input
               type="checkbox"
               checked={enableMonogram}
@@ -156,7 +156,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 placeholder="ABC"
                 value={monogram}
                 onChange={(e) => setMonogram(e.target.value.toUpperCase())}
-                className="w-28 h-11 px-3 text-center uppercase tracking-widest font-mono text-base sm:text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] focus-visible:border-[var(--text-primary)]"
+                className="w-28 h-10 px-3 text-center uppercase tracking-widest font-mono text-base sm:text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] outline-none"
               />
               <span className="text-[11px] font-mono text-[var(--text-muted)]">
                 {t.monogramDesc}
@@ -166,7 +166,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         </div>
 
         {/* Pricing Summary & Action */}
-        <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="pt-3.5 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
               {t.totalPrice}
@@ -180,7 +180,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
             size="lg"
             variant="primary"
             onClick={handleAddToCart}
-            className="w-full sm:w-auto min-w-[220px] min-h-[48px] rounded-none"
+            className="w-full sm:w-auto min-w-[200px] min-h-[44px] rounded-none cursor-pointer"
           >
             {isAddedFeedback ? (
               <span className="flex items-center gap-1.5 text-stone-300">
@@ -193,7 +193,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         </div>
 
         {/* Guarantee and dispatch indicators */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-[var(--text-muted)] pt-2.5 border-t border-[var(--border-subtle)]">
           <span className="tracking-wider uppercase">
             [AUTENTICITET I GARANTUAR]
           </span>

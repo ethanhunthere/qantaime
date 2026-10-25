@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Search, SlidersHorizontal, RotateCcw, X, ChevronDown, Check } from "lucide-react";
-import { BagCategory, FilterState } from "@/shared/types";
+import { FilterState } from "@/shared/types";
 import { useLanguage } from "@/features/language";
 
 interface FilterBarProps {
@@ -15,15 +15,6 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
   const { t } = useLanguage();
   const [sortOpen, setSortOpen] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
-
-  const categories: { id: BagCategory; label: string }[] = [
-    { id: "all", label: t.allWorks },
-    { id: "briefcase", label: t.catBriefcase },
-    { id: "tote", label: t.catTote },
-    { id: "weekender", label: t.catWeekender },
-    { id: "crossbody", label: t.catCrossbody },
-    { id: "backpack", label: t.catBackpack },
-  ];
 
   const sortOptions: { id: FilterState["sortBy"]; label: string }[] = [
     { id: "curated", label: t.sortCurated },
@@ -46,10 +37,6 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     };
   }, [sortOpen]);
 
-  const handleCategoryClick = (cat: BagCategory) => {
-    onFilterChange({ ...filters, category: cat });
-  };
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFilterChange({ ...filters, search: e.target.value });
   };
@@ -68,41 +55,17 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     });
   };
 
-  const isFiltered =
-    filters.category !== "all" ||
-    filters.search !== "" ||
-    filters.sortBy !== "curated";
+  const isFiltered = filters.search !== "" || filters.sortBy !== "curated";
 
   const currentSortLabel =
     sortOptions.find((o) => o.id === filters.sortBy)?.label || t.sortCurated;
 
   return (
-    <div className="w-full space-y-2.5">
-      {/* Control Panel (Constant height, zero layout shift) */}
-      <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] p-3 sm:p-4 space-y-3 sm:space-y-4 shadow-xs">
-        {/* Top tier: Category tabs */}
-        <div className="flex items-center gap-1.5 overflow-x-auto py-1 no-scrollbar w-full -mx-1 px-1 touch-pan-x">
-          {categories.map((cat) => {
-            const isActive = filters.category === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => handleCategoryClick(cat.id)}
-                className={`px-3.5 py-2 sm:py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] transition-all whitespace-nowrap min-h-[36px] flex items-center touch-manipulation cursor-pointer border-0 outline-none focus:outline-none focus-visible:outline-none ring-0 ${
-                  isActive
-                    ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
-                    : "bg-[var(--bg-surface-raised)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-active)]"
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Bottom tier: Search input + Custom Luxury Sort Dropdown */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
-          {/* Search Input with inline clear */}
+    <div className="w-full space-y-2">
+      {/* Single Unified Control Panel (Search Box + Filters) with Crisp Visible Borders */}
+      <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-strong)] p-3 sm:p-3.5 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          {/* Search Input with inline clear — zero outer lines on click/focus */}
           <div className="relative flex-1 max-w-full sm:max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)] pointer-events-none" />
             <input
@@ -110,13 +73,13 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               placeholder={t.searchPlaceholder}
               value={filters.search}
               onChange={handleSearchChange}
-              className="w-full h-11 pl-9 pr-9 font-sans text-base sm:text-xs bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:border-[var(--text-primary)] outline-none focus:outline-none focus:ring-0"
+              className="w-full h-11 pl-9 pr-9 font-sans text-base sm:text-xs bg-[var(--bg-surface-raised)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus:border-[var(--border-subtle)] outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-none focus:shadow-none transition-none [appearance:none] [-webkit-appearance:none]"
             />
             {filters.search && (
               <button
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer outline-none"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer outline-none focus:outline-none"
                 title="Pastro kërkimin"
                 aria-label="Pastro kërkimin"
               >
@@ -130,7 +93,7 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
             <button
               type="button"
               onClick={() => setSortOpen((prev) => !prev)}
-              className="h-11 w-full sm:w-auto min-w-[210px] px-3.5 flex items-center justify-between gap-3 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-sans text-xs uppercase tracking-[0.12em] outline-none focus:outline-none focus:ring-0 cursor-pointer select-none"
+              className="h-11 w-full sm:w-auto min-w-[210px] px-3.5 flex items-center justify-between gap-3 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all font-sans text-xs uppercase tracking-[0.12em] outline-none focus:outline-none focus:ring-0 ring-0 cursor-pointer select-none"
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
             >
