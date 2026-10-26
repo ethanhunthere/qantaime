@@ -38,11 +38,6 @@ export function OrderSummaryCard({ order }: { order: OrderConfirmation }) {
               <p className="text-[11px] font-mono text-[var(--text-secondary)]">
                 {item.color.name} — {item.hardware.name}
               </p>
-              {item.monogram && (
-                <p className="text-[10px] font-mono text-[var(--accent-cognac)]">
-                  Monogram: [{item.monogram}]
-                </p>
-              )}
             </div>
             <div className="text-right font-mono text-xs tabular-nums text-[var(--text-primary)]">
               <span>{item.quantity} × {formatCurrency(item.unitPriceEur)}</span>

@@ -27,7 +27,6 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     { id: "wallet", label: t.catWallet },
     { id: "tote", label: t.catTote },
     { id: "crossbody", label: t.catCrossbody },
-    { id: "weekender", label: t.catWeekender },
   ];
 
   useEffect(() => {

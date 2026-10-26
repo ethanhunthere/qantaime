@@ -21,7 +21,6 @@ function getCategoryLabel(
     catWallet: string;
     catTote: string;
     catCrossbody: string;
-    catWeekender: string;
     catLuxury: string;
   }
 ): string {
@@ -33,8 +32,6 @@ function getCategoryLabel(
       return t.catTote;
     case "crossbody":
       return t.catCrossbody;
-    case "weekender":
-      return t.catWeekender;
     default:
       return t.catLuxury;
   }

@@ -20,12 +20,11 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
   const [customization, setCustomization] = useState<CustomizationState>({
     color: bag.colors[0],
     hardware: bag.hardwareOptions[0],
-    monogram: undefined,
     unitPrice: bag.priceEur,
   });
 
   const handleMobileQuickAdd = () => {
-    const cartItemId = `${bag.id}-${customization.color.id}-${customization.hardware.id}-${customization.monogram || "none"}`;
+    const cartItemId = `${bag.id}-${customization.color.id}-${customization.hardware.id}`;
     const cartItem: CartItem = {
       id: cartItemId,
       bagId: bag.id,
@@ -33,7 +32,6 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
       slug: bag.slug,
       color: customization.color,
       hardware: customization.hardware,
-      monogram: customization.monogram,
       unitPriceEur: customization.unitPrice,
       quantity: 1,
       image: customization.color.image,

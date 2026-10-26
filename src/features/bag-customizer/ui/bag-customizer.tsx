@@ -12,7 +12,6 @@ import { useLanguage } from "@/features/language";
 export interface CustomizationState {
   color: ColorVariant;
   hardware: HardwareOption;
-  monogram?: string;
   unitPrice: number;
 }
 
@@ -26,25 +25,20 @@ export function BagCustomizer({ bag, onCustomizationChange }: BagCustomizerProps
   const { t } = useLanguage();
   const [selectedColor, setSelectedColor] = useState(bag.colors[0]);
   const [selectedHardware, setSelectedHardware] = useState(bag.hardwareOptions[0]);
-  const [monogram, setMonogram] = useState("");
-  const [enableMonogram, setEnableMonogram] = useState(false);
   const [isAddedFeedback, setIsAddedFeedback] = useState(false);
 
-  const MONOGRAM_FEE_EUR = 45;
-  const unitPrice = bag.priceEur + (enableMonogram && monogram.trim().length > 0 ? MONOGRAM_FEE_EUR : 0);
+  const unitPrice = bag.priceEur;
 
   useEffect(() => {
     onCustomizationChange?.({
       color: selectedColor,
       hardware: selectedHardware,
-      monogram: enableMonogram && monogram.trim().length > 0 ? monogram.trim().toUpperCase() : undefined,
       unitPrice,
     });
-  }, [selectedColor, selectedHardware, monogram, enableMonogram, unitPrice, onCustomizationChange]);
+  }, [selectedColor, selectedHardware, unitPrice, onCustomizationChange]);
 
   const handleAddToCart = () => {
-    const finalMonogram = enableMonogram && monogram.trim().length > 0 ? monogram.trim().toUpperCase() : undefined;
-    const cartItemId = `${bag.id}-${selectedColor.id}-${selectedHardware.id}-${finalMonogram || "none"}`;
+    const cartItemId = `${bag.id}-${selectedColor.id}-${selectedHardware.id}`;
 
     const cartItem: CartItem = {
       id: cartItemId,
@@ -53,7 +47,6 @@ export function BagCustomizer({ bag, onCustomizationChange }: BagCustomizerProps
       slug: bag.slug,
       color: selectedColor,
       hardware: selectedHardware,
-      monogram: finalMonogram,
       unitPriceEur: unitPrice,
       quantity: 1,
       image: selectedColor.image,
@@ -80,11 +73,6 @@ export function BagCustomizer({ bag, onCustomizationChange }: BagCustomizerProps
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover object-center transition-opacity duration-150 select-none"
         />
-        {enableMonogram && monogram.trim().length > 0 && (
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[var(--text-primary)] text-[var(--bg-canvas)] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[var(--border-subtle)] shadow-lg">
-            {t.initialsPrefix} {monogram.trim().toUpperCase()}
-          </div>
-        )}
       </div>
 
       {/* Configuration Controls */}
@@ -153,37 +141,6 @@ export function BagCustomizer({ bag, onCustomizationChange }: BagCustomizerProps
               );
             })}
           </div>
-        </div>
-
-        {/* Bespoke Hot-Stamping Monogram */}
-        <div className="pt-3 border-t border-[var(--border-subtle)] space-y-2.5">
-          <label className="flex items-center gap-2.5 cursor-pointer select-none min-h-[44px] touch-manipulation py-1">
-            <input
-              type="checkbox"
-              checked={enableMonogram}
-              onChange={(e) => setEnableMonogram(e.target.checked)}
-              className="accent-[var(--accent-cognac)] w-5 h-5 cursor-pointer"
-            />
-            <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-primary)]">
-              {t.monogramCheck}
-            </span>
-          </label>
-
-          {enableMonogram && (
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-              <input
-                type="text"
-                maxLength={3}
-                placeholder="ABC"
-                value={monogram}
-                onChange={(e) => setMonogram(e.target.value.toUpperCase())}
-                className="w-28 h-10 px-3 text-center uppercase tracking-widest font-mono text-base sm:text-sm bg-[var(--bg-surface-raised)] border border-[var(--border-strong)] text-[var(--text-primary)] outline-none"
-              />
-              <span className="text-[11px] font-mono text-[var(--text-muted)]">
-                {t.monogramDesc}
-              </span>
-            </div>
-          )}
         </div>
 
         {/* Pricing Summary & Action */}

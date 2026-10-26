@@ -125,11 +125,6 @@ export function CheckoutView() {
                   <p className="text-[var(--text-secondary)] text-[11px]">
                     {item.color.name} — {item.hardware.name}
                   </p>
-                  {item.monogram && (
-                    <p className="text-[var(--accent-cognac)] text-[10px]">
-                      Iniciale: [{item.monogram}]
-                    </p>
-                  )}
                   <span className="text-[var(--text-muted)] text-[10px]">
                     Sasia: {item.quantity}
                   </span>

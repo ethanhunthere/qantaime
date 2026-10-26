@@ -31,9 +31,6 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
         <div className="text-[10px] sm:text-[11px] font-mono text-[var(--text-secondary)] space-y-0.5">
           <p>{t.leatherLabel} {item.color.name}</p>
           <p>{t.hardwareLabel} {item.hardware.name}</p>
-          {item.monogram && (
-            <p className="text-[var(--accent-cognac)] font-medium">{t.monogramLabel} [{item.monogram}]</p>
-          )}
         </div>
 
         {/* Stepper + Price — Enhanced 40px+ Touch Target Area on Mobile */}

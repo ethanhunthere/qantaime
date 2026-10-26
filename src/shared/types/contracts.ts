@@ -1,4 +1,4 @@
-export type BagCategory = "all" | "tote" | "crossbody" | "weekender" | "wallet";
+export type BagCategory = "all" | "tote" | "crossbody" | "wallet";
 
 export interface ColorVariant {
   id: string;
