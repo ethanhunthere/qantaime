@@ -41,26 +41,26 @@ export function Header() {
   }, []);
 
   const setThemeMode = (targetDark: boolean) => {
-    setIsDark(targetDark);
+    // 1. Immediately update DOM class for zero-delay frame-0 paint
     if (targetDark) {
       document.documentElement.classList.add("dark");
-      try {
-        localStorage.setItem("atelier_theme", "dark");
-      } catch {
-        // Storage blocked
-      }
     } else {
       document.documentElement.classList.remove("dark");
+    }
+    // 2. Update React state
+    setIsDark(targetDark);
+    // 3. Persist asynchronously in microtask without blocking the render pipeline
+    queueMicrotask(() => {
       try {
-        localStorage.setItem("atelier_theme", "light");
+        localStorage.setItem("atelier_theme", targetDark ? "dark" : "light");
       } catch {
         // Storage blocked
       }
-    }
+    });
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)] border-b border-[var(--border-subtle)] transition-colors duration-200">
+    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)] border-b border-[var(--border-subtle)] transition-colors duration-75">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo with Smooth Cross-fade (Zero Layout Shift) */}
         <div className="flex items-center gap-4 sm:gap-6">
@@ -73,7 +73,7 @@ export function Header() {
                 fill
                 sizes="(max-width: 640px) 28px, 36px"
                 priority
-                className="object-contain transition-opacity duration-300 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
+                className="object-contain transition-opacity duration-75 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
               />
               {/* Dark Mode Logo (Pure White) */}
               <Image
@@ -82,7 +82,7 @@ export function Header() {
                 fill
                 sizes="(max-width: 640px) 28px, 36px"
                 priority
-                className="object-contain transition-opacity duration-300 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
+                className="object-contain transition-opacity duration-75 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
               />
             </div>
           </Link>
@@ -111,12 +111,12 @@ export function Header() {
           <div
             role="group"
             aria-label={t.toggleTheme}
-            className="flex items-center p-0.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] rounded-full transition-colors"
+            className="flex items-center p-0.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] rounded-full transition-colors duration-75"
           >
             <button
               type="button"
               onClick={() => setThemeMode(false)}
-              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-200 cursor-pointer ${
+              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-75 cursor-pointer active:scale-95 ${
                 mounted && !isDark
                   ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -130,7 +130,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setThemeMode(true)}
-              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-200 cursor-pointer ${
+              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-75 cursor-pointer active:scale-95 ${
                 mounted && isDark
                   ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"

@@ -55,7 +55,7 @@ export function EspressoAmbientBlobs() {
         style={{
           transform: `translate3d(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px, 0)`,
         }}
-        className="absolute -top-24 -left-24 w-[360px] sm:w-[520px] md:w-[680px] h-[360px] sm:h-[520px] md:h-[680px] rounded-full blur-[80px] sm:blur-[110px] md:blur-[130px] opacity-45 dark:opacity-40 transition-colors duration-1000 will-change-transform bg-[radial-gradient(circle,rgba(66,34,19,0.7)_0%,rgba(42,22,13,0.4)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(84,40,20,0.65)_0%,rgba(46,20,12,0.45)_55%,transparent_80%)]"
+        className="absolute -top-24 -left-24 w-[360px] sm:w-[520px] md:w-[680px] h-[360px] sm:h-[520px] md:h-[680px] rounded-full blur-[80px] sm:blur-[110px] md:blur-[130px] opacity-45 dark:opacity-40 will-change-transform bg-[radial-gradient(circle,rgba(66,34,19,0.7)_0%,rgba(42,22,13,0.4)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(84,40,20,0.65)_0%,rgba(46,20,12,0.45)_55%,transparent_80%)]"
       />
 
       {/* Blob 2: Warm Tuscan Cognac & Amber (Top-Right) */}
@@ -77,7 +77,7 @@ export function EspressoAmbientBlobs() {
         style={{
           transform: `translate3d(${-mousePos.x * 0.3}px, ${-mousePos.y * 0.3}px, 0)`,
         }}
-        className="absolute top-12 -right-28 w-[340px] sm:w-[480px] md:w-[620px] h-[340px] sm:h-[480px] md:h-[620px] rounded-full blur-[85px] sm:blur-[115px] md:blur-[140px] opacity-35 dark:opacity-35 transition-colors duration-1000 will-change-transform bg-[radial-gradient(circle,rgba(138,75,30,0.55)_0%,rgba(102,52,22,0.3)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(156,82,32,0.5)_0%,rgba(92,44,18,0.35)_55%,transparent_80%)]"
+        className="absolute top-12 -right-28 w-[340px] sm:w-[480px] md:w-[620px] h-[340px] sm:h-[480px] md:h-[620px] rounded-full blur-[85px] sm:blur-[115px] md:blur-[140px] opacity-35 dark:opacity-35 will-change-transform bg-[radial-gradient(circle,rgba(138,75,30,0.55)_0%,rgba(102,52,22,0.3)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(156,82,32,0.5)_0%,rgba(92,44,18,0.35)_55%,transparent_80%)]"
       />
 
       {/* Blob 3: Velvet Hazelnut Shadow (Mid-Bottom Canvas) */}
@@ -99,7 +99,7 @@ export function EspressoAmbientBlobs() {
         style={{
           transform: `translate3d(${mousePos.x * 0.2}px, ${mousePos.y * 0.2}px, 0)`,
         }}
-        className="absolute top-[45%] left-[20%] w-[320px] sm:w-[460px] md:w-[580px] h-[320px] sm:h-[460px] md:h-[580px] rounded-full blur-[90px] sm:blur-[120px] md:blur-[150px] opacity-25 dark:opacity-30 transition-colors duration-1000 will-change-transform bg-[radial-gradient(circle,rgba(80,45,25,0.45)_0%,rgba(50,26,16,0.25)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(110,55,25,0.4)_0%,rgba(60,28,14,0.25)_55%,transparent_80%)]"
+        className="absolute top-[45%] left-[20%] w-[320px] sm:w-[460px] md:w-[580px] h-[320px] sm:h-[460px] md:h-[580px] rounded-full blur-[90px] sm:blur-[120px] md:blur-[150px] opacity-25 dark:opacity-30 will-change-transform bg-[radial-gradient(circle,rgba(80,45,25,0.45)_0%,rgba(50,26,16,0.25)_50%,transparent_75%)] dark:bg-[radial-gradient(circle,rgba(110,55,25,0.4)_0%,rgba(60,28,14,0.25)_55%,transparent_80%)]"
       />
 
       {/* Subtle Micro-Grain Atmosphere Overlay */}
