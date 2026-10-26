@@ -12,79 +12,79 @@ export function Header() {
   const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("atelier_theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (stored === "dark" || (!stored && prefersDark)) {
-        setIsDark(true);
-        document.documentElement.classList.add("dark");
-      } else {
-        setIsDark(false);
-        document.documentElement.classList.remove("dark");
-      }
+      const isDocDark = document.documentElement.classList.contains("dark");
+      setIsDark(isDocDark);
+      setMounted(true);
+
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleMediaChange = (e: MediaQueryListEvent) => {
+        const stored = localStorage.getItem("atelier_theme");
+        if (!stored) {
+          if (e.matches) {
+            document.documentElement.classList.add("dark");
+            setIsDark(true);
+          } else {
+            document.documentElement.classList.remove("dark");
+            setIsDark(false);
+          }
+        }
+      };
+      mq.addEventListener("change", handleMediaChange);
+      return () => mq.removeEventListener("change", handleMediaChange);
     } catch {
       // Storage access or SSR
     }
   }, []);
 
-  const toggleTheme = () => {
-    // Add transitioning class to smoothly morph all surfaces and borders
-    document.documentElement.classList.add("theme-transitioning");
-
-    setIsDark((prev) => {
-      const next = !prev;
-      if (next) {
-        document.documentElement.classList.add("dark");
-        try {
-          localStorage.setItem("atelier_theme", "dark");
-        } catch {
-          // Storage blocked
-        }
-      } else {
-        document.documentElement.classList.remove("dark");
-        try {
-          localStorage.setItem("atelier_theme", "light");
-        } catch {
-          // Storage blocked
-        }
+  const setThemeMode = (targetDark: boolean) => {
+    setIsDark(targetDark);
+    if (targetDark) {
+      document.documentElement.classList.add("dark");
+      try {
+        localStorage.setItem("atelier_theme", "dark");
+      } catch {
+        // Storage blocked
       }
-      return next;
-    });
-
-    // Remove transition class after animation finishes so normal micro-interactions stay 0ms
-    setTimeout(() => {
-      document.documentElement.classList.remove("theme-transitioning");
-    }, 280);
+    } else {
+      document.documentElement.classList.remove("dark");
+      try {
+        localStorage.setItem("atelier_theme", "light");
+      } catch {
+        // Storage blocked
+      }
+    }
   };
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)] border-b border-[var(--border-subtle)] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo with Smooth Cross-fade (Zero Layout Shift) */}
         <div className="flex items-center gap-4 sm:gap-6">
           <Link href="/" className="group flex items-center py-1">
-            {/* Light Mode Logo (Espresso Brown) */}
-            <Image
-              src="/images/logo.png"
-              alt="Logo"
-              width={44}
-              height={44}
-              priority
-              style={{ width: "auto", height: "auto" }}
-              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80 dark:hidden"
-            />
-            {/* Dark Mode Logo (Pure White) */}
-            <Image
-              src="/images/logo-white.png"
-              alt="Logo"
-              width={44}
-              height={44}
-              priority
-              style={{ width: "auto", height: "auto" }}
-              className="h-9 sm:h-11 object-contain transition-opacity group-hover:opacity-80 hidden dark:block"
-            />
+            <div className="relative h-9 w-9 sm:h-11 sm:w-11 shrink-0">
+              {/* Light Mode Logo (Espresso Brown) */}
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                fill
+                sizes="(max-width: 640px) 36px, 44px"
+                priority
+                className="object-contain transition-opacity duration-300 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
+              />
+              {/* Dark Mode Logo (Pure White) */}
+              <Image
+                src="/images/logo-white.png"
+                alt="Logo"
+                fill
+                sizes="(max-width: 640px) 36px, 44px"
+                priority
+                className="object-contain transition-opacity duration-300 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
+              />
+            </div>
           </Link>
         </div>
 
@@ -102,30 +102,46 @@ export function Header() {
         </nav>
 
         {/* Right utilities: Language switcher + Theme toggle + Cart trigger */}
-        <div className="flex items-center gap-1.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <div className="hidden sm:block">
             <LanguageSwitcher />
           </div>
 
-          <button
-            onClick={toggleTheme}
-            className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation cursor-pointer"
+          {/* Architectural Segmented Theme Control: [ ☼ Light | ☾ Dark ] */}
+          <div
+            role="group"
             aria-label={t.toggleTheme}
-            title={t.toggleTheme}
+            className="flex items-center p-0.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] rounded-full transition-colors"
           >
-            <span className="relative w-4 h-4 flex items-center justify-center">
-              <Sun
-                className={`w-4 h-4 absolute transition-all duration-300 ${
-                  isDark ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50 pointer-events-none"
-                }`}
-              />
-              <Moon
-                className={`w-4 h-4 absolute transition-all duration-300 ${
-                  isDark ? "opacity-0 rotate-90 scale-50 pointer-events-none" : "opacity-100 rotate-0 scale-100"
-                }`}
-              />
-            </span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setThemeMode(false)}
+              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-200 cursor-pointer ${
+                mounted && !isDark
+                  ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              }`}
+              aria-label={t.themeLight}
+              title={t.themeLight}
+              aria-pressed={!isDark}
+            >
+              <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setThemeMode(true)}
+              className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-200 cursor-pointer ${
+                mounted && isDark
+                  ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] shadow-xs"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              }`}
+              aria-label={t.themeDark}
+              title={t.themeDark}
+              aria-pressed={isDark}
+            >
+              <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            </button>
+          </div>
 
           <button
             onClick={openCart}

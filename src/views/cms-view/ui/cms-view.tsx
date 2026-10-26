@@ -5,12 +5,14 @@ import Link from "next/link";
 import { ArrowLeft, PackagePlus, ListFilter } from "lucide-react";
 import { Bag } from "@/shared/types";
 import { CmsForm, CmsBagList } from "@/features/cms";
+import { useLanguage } from "@/features/language";
 
 interface CmsViewProps {
   initialBags: Bag[];
 }
 
 export function CmsView({ initialBags }: CmsViewProps) {
+  const { t } = useLanguage();
   const [bags, setBags] = useState<Bag[]>(initialBags);
   const [activeTab, setActiveTab] = useState<"create" | "list">("create");
 
@@ -45,13 +47,13 @@ export function CmsView({ initialBags }: CmsViewProps) {
             className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-2"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Kthehu në Dyqan</span>
+            <span>{t.cmsBackToStore}</span>
           </Link>
           <h1 className="font-sans font-medium uppercase text-2xl sm:text-3xl tracking-[0.06em] text-[var(--text-primary)]">
-            Paneli i Menaxhimit (CMS)
+            {t.cmsTitle}
           </h1>
           <p className="text-xs font-mono text-[var(--text-secondary)] mt-1">
-            Postoni modele të reja dhe ngjyra të ndryshme me foto dhe çmim.
+            {t.cmsSubtitle}
           </p>
         </div>
 
@@ -66,7 +68,7 @@ export function CmsView({ initialBags }: CmsViewProps) {
             }`}
           >
             <PackagePlus className="w-3.5 h-3.5" />
-            <span>Shto Çantë</span>
+            <span>{t.cmsAddBag}</span>
           </button>
           <button
             onClick={() => setActiveTab("list")}
@@ -77,7 +79,7 @@ export function CmsView({ initialBags }: CmsViewProps) {
             }`}
           >
             <ListFilter className="w-3.5 h-3.5" />
-            <span>Çantat ({bags.length})</span>
+            <span>{t.cmsBagsCount} ({bags.length})</span>
           </button>
         </div>
       </div>
@@ -88,10 +90,10 @@ export function CmsView({ initialBags }: CmsViewProps) {
           <div>
             <div className="pb-4 mb-6 border-b border-[var(--border-subtle)]">
               <h2 className="font-sans font-medium uppercase text-base tracking-wider text-[var(--text-primary)]">
-                Formulari i Publikimit të Çantës
+                {t.cmsFormTitle}
               </h2>
               <p className="text-xs font-mono text-[var(--text-secondary)] mt-0.5">
-                Vendosni vetëm emrin, çmimin, ngjyrën dhe fotot. Asgjë më tepër.
+                {t.cmsFormSubtitle}
               </p>
             </div>
             <CmsForm onSuccess={handleBagAdded} existingBags={bags} />

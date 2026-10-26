@@ -13,6 +13,8 @@ export const en: typeof sq = {
   cartButton: "Cart",
   languageLabel: "Language:",
   toggleTheme: "Toggle Theme",
+  themeLight: "Light",
+  themeDark: "Dark",
 
   // Hero Section
   heroBadge: "EXCLUSIVE COLLECTION",
@@ -167,4 +169,13 @@ export const en: typeof sq = {
   newsletterPlaceholder: "Enter your email...",
   subscribeButton: "Subscribe",
   allRightsReserved: "All rights reserved. QANTAIME.",
+
+  // CMS & Management
+  cmsBackToStore: "Back to Store",
+  cmsTitle: "Management Panel (CMS)",
+  cmsSubtitle: "Post new models and distinct colorways with imagery and pricing.",
+  cmsAddBag: "Add Bag",
+  cmsBagsCount: "Bags",
+  cmsFormTitle: "Bag Publishing Form",
+  cmsFormSubtitle: "Specify name, price, color, and photos. Nothing superfluous.",
 };

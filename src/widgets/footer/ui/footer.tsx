@@ -11,26 +11,26 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Small Logo */}
-        <Link href="/" className="inline-flex items-center">
-          {/* Light Mode Logo */}
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={32}
-            height={32}
-            style={{ width: "auto", height: "auto" }}
-            className="h-7 sm:h-8 object-contain dark:hidden"
-          />
-          {/* Dark Mode Logo */}
-          <Image
-            src="/images/logo-white.png"
-            alt="Logo"
-            width={32}
-            height={32}
-            style={{ width: "auto", height: "auto" }}
-            className="h-7 sm:h-8 object-contain hidden dark:block"
-          />
+        {/* Small Logo with Smooth Cross-fade */}
+        <Link href="/" className="group inline-flex items-center">
+          <div className="relative h-7 w-7 sm:h-8 sm:w-8 shrink-0">
+            {/* Light Mode Logo */}
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              fill
+              sizes="(max-width: 640px) 28px, 32px"
+              className="object-contain transition-opacity duration-300 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
+            />
+            {/* Dark Mode Logo */}
+            <Image
+              src="/images/logo-white.png"
+              alt="Logo"
+              fill
+              sizes="(max-width: 640px) 28px, 32px"
+              className="object-contain transition-opacity duration-300 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
+            />
+          </div>
         </Link>
 
         {/* 3 Navigation Texts */}

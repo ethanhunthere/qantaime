@@ -80,7 +80,7 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               <button
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors cursor-pointer outline-none focus:outline-none flex items-center gap-1"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-600 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors cursor-pointer outline-none focus:outline-none flex items-center gap-1"
                 title={t.clearSearch}
                 aria-label={t.clearSearch}
               >
@@ -100,14 +100,14 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               aria-expanded={sortOpen}
             >
               <div className="flex items-center gap-2 truncate">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                <span className="text-[10px] text-zinc-400 dark:text-zinc-500 tracking-widest hidden md:inline">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-zinc-600 dark:text-zinc-300 shrink-0" />
+                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 tracking-widest hidden md:inline">
                   {t.sortLabel}
                 </span>
                 <span className="font-semibold truncate">{currentSortLabel}</span>
               </div>
               <ChevronDown
-                className={`w-3.5 h-3.5 text-zinc-500 shrink-0 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 text-zinc-600 dark:text-zinc-300 shrink-0 transition-transform duration-200 ${
                   sortOpen ? "rotate-180 text-zinc-950 dark:text-zinc-100" : ""
                 }`}
               />

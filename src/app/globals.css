@@ -70,17 +70,30 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fully smooth, clean, GPU-accelerated theme switching transitions */
-html.theme-transitioning,
-html.theme-transitioning *,
-html.theme-transitioning *::before,
-html.theme-transitioning *::after {
-  transition: background-color 260ms cubic-bezier(0.23, 1, 0.32, 1),
-              border-color 260ms cubic-bezier(0.23, 1, 0.32, 1),
-              color 220ms cubic-bezier(0.23, 1, 0.32, 1),
-              fill 220ms cubic-bezier(0.23, 1, 0.32, 1),
-              stroke 220ms cubic-bezier(0.23, 1, 0.32, 1) !important;
-  transition-delay: 0ms !important;
+/* Fully smooth, clean, GPU-accelerated theme transitions on structural surfaces, text & icons */
+body,
+header,
+footer,
+nav,
+aside,
+main,
+section,
+article,
+div[class*="bg-"],
+div[class*="border-"],
+button,
+input,
+select,
+textarea {
+  transition-property: background-color, border-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+svg {
+  transition-property: color, stroke, fill;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Force zero italics anywhere on site */

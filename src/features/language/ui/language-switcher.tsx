@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Globe, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "../model/language-context";
 import { Language } from "@/shared/config/translations";
 
@@ -20,7 +20,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       >
         <span className="text-sm">{current.flag}</span>
         {!compact && <span className="font-medium uppercase">{current.code}</span>}
-        <ChevronDown className="w-3 h-3 text-[var(--text-muted)]" />
+        <ChevronDown className="w-3 h-3 text-[var(--text-secondary)]" />
       </button>
 
       {isOpen && (

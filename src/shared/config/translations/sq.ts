@@ -11,6 +11,8 @@ export const sq = {
   cartButton: "Shporta",
   languageLabel: "Gjuha:",
   toggleTheme: "Ndrysho Temën",
+  themeLight: "Dritë",
+  themeDark: "Errët",
 
   // Hero Section
   heroBadge: "KOLEKSIONI EKSKLUZIV",
@@ -165,4 +167,13 @@ export const sq = {
   newsletterPlaceholder: "Shkruani email-in tuaj...",
   subscribeButton: "Regjistrohu",
   allRightsReserved: "Të gjitha të drejtat e rezervuara. QANTAIME.",
+
+  // CMS & Management
+  cmsBackToStore: "Kthehu në Dyqan",
+  cmsTitle: "Paneli i Menaxhimit (CMS)",
+  cmsSubtitle: "Postoni modele të reja dhe ngjyra të ndryshme me foto dhe çmim.",
+  cmsAddBag: "Shto Çantë",
+  cmsBagsCount: "Çantat",
+  cmsFormTitle: "Formulari i Publikimit të Çantës",
+  cmsFormSubtitle: "Vendosni vetëm emrin, çmimin, ngjyrën dhe fotot. Asgjë më tepër.",
 };
