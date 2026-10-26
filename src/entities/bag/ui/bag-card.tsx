@@ -140,13 +140,10 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </p>
 
           {/* High-Contrast Price */}
-          <div className="flex items-baseline justify-between pt-1">
+          <div className="pt-1">
             <p className="font-mono font-bold text-[15px] sm:text-[16px] tabular-nums tracking-[0.02em] text-[var(--text-primary)]">
               {formatCurrency(bag.priceEur)}
             </p>
-            <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-medium">
-              {t.inStock}
-            </span>
           </div>
         </div>
 

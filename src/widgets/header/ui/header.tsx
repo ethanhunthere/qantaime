@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag, Menu, X, Sun, Moon } from "lucide-react";
@@ -13,20 +13,54 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("atelier_theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (stored === "dark" || (!stored && prefersDark)) {
+        setIsDark(true);
+        document.documentElement.classList.add("dark");
+      } else {
+        setIsDark(false);
+        document.documentElement.classList.remove("dark");
+      }
+    } catch {
+      // Storage access or SSR
+    }
+  }, []);
+
   const toggleTheme = () => {
+    // Add transitioning class to smoothly morph all surfaces and borders
+    document.documentElement.classList.add("theme-transitioning");
+
     setIsDark((prev) => {
       const next = !prev;
       if (next) {
         document.documentElement.classList.add("dark");
+        try {
+          localStorage.setItem("atelier_theme", "dark");
+        } catch {
+          // Storage blocked
+        }
       } else {
         document.documentElement.classList.remove("dark");
+        try {
+          localStorage.setItem("atelier_theme", "light");
+        } catch {
+          // Storage blocked
+        }
       }
       return next;
     });
+
+    // Remove transition class after animation finishes so normal micro-interactions stay 0ms
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 280);
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)]/95 backdrop-blur-md border-b border-[var(--border-subtle)] transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-[var(--bg-canvas)] border-b border-[var(--border-subtle)] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div className="flex items-center gap-4 sm:gap-6">
@@ -75,16 +109,27 @@ export function Header() {
 
           <button
             onClick={toggleTheme}
-            className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
-            aria-label="Ndrysho pamjen"
-            title="Toggle theme"
+            className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation cursor-pointer"
+            aria-label={t.toggleTheme}
+            title={t.toggleTheme}
           >
-            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            <span className="relative w-4 h-4 flex items-center justify-center">
+              <Sun
+                className={`w-4 h-4 absolute transition-all duration-300 ${
+                  isDark ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50 pointer-events-none"
+                }`}
+              />
+              <Moon
+                className={`w-4 h-4 absolute transition-all duration-300 ${
+                  isDark ? "opacity-0 rotate-90 scale-50 pointer-events-none" : "opacity-100 rotate-0 scale-100"
+                }`}
+              />
+            </span>
           </button>
 
           <button
             onClick={openCart}
-            className="min-h-[40px] flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none touch-manipulation"
+            className="min-h-[40px] flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all active:scale-95 select-none touch-manipulation cursor-pointer"
             aria-label={`View Cart (${totalItemsCount} items)`}
           >
             <ShoppingBag className="w-4 h-4 text-[var(--text-primary)]" />
@@ -97,7 +142,7 @@ export function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen((p) => !p)}
-            className="md:hidden min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-95 touch-manipulation"
+            className="md:hidden min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-95 touch-manipulation cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -107,7 +152,7 @@ export function Header() {
 
       {/* Mobile Drawer Navigation with backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-5 space-y-4 shadow-xl">
+        <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4 py-5 space-y-4 shadow-xl">
           <nav className="flex flex-col divide-y divide-[var(--border-subtle)] font-sans font-medium text-[12px] uppercase tracking-[0.18em] text-[var(--text-primary)]">
             <Link
               href="/#catalog"

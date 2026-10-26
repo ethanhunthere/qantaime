@@ -50,7 +50,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
   }, [initialBags, filters]);
 
   return (
-    <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 space-y-5 sm:space-y-6">
+    <section id="catalog" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-12 sm:pb-16 space-y-5 sm:space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">
         <div>
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-[var(--accent-cognac)] block">
