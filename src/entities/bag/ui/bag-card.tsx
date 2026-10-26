@@ -73,7 +73,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
   };
 
   return (
-    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] transition-all duration-300 shadow-xs hover:shadow-md overflow-hidden">
+    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] transition-[border-color,box-shadow] duration-200 shadow-xs hover:shadow-md overflow-hidden">
       {/* Product Image Frame — Strict 1:1 Square with Paint Isolation */}
       <div className="relative aspect-square w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] [isolation:isolate] [contain:paint]">
         <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full overflow-hidden">
@@ -178,7 +178,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
           <button
             onClick={handleQuickAdd}
-            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.16em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer select-none touch-manipulation"
+            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.16em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-[transform,opacity] duration-100 cursor-pointer select-none touch-manipulation"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>{t.addToCarry}</span>

@@ -70,29 +70,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ultra-responsive, zero-delay theme transitions (under 100ms perceptual budget) */
-body {
-  transition: background-color 75ms cubic-bezier(0.23, 1, 0.32, 1),
-              color 75ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-header,
-footer,
-nav,
-aside,
-main,
-section,
-article {
-  transition: background-color 75ms cubic-bezier(0.23, 1, 0.32, 1),
-              border-color 75ms cubic-bezier(0.23, 1, 0.32, 1),
-              color 75ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-svg {
-  transition: color 75ms cubic-bezier(0.23, 1, 0.32, 1),
-              stroke 75ms cubic-bezier(0.23, 1, 0.32, 1),
-              fill 75ms cubic-bezier(0.23, 1, 0.32, 1);
-}
+/* Zero-flash, instantaneous theme synchronization across all surfaces & tokens */
 
 /* Force zero italics anywhere on site */
 *, *::before, *::after {

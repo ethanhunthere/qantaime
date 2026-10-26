@@ -221,7 +221,7 @@ export function CmsForm({ onSuccess, existingBags = [] }: CmsFormProps) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full sm:w-auto min-w-[240px] h-12 px-6 bg-[var(--text-primary)] text-[var(--bg-canvas)] font-sans font-medium text-xs uppercase tracking-[0.18em] hover:opacity-90 active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2 select-none"
+          className="w-full sm:w-auto min-w-[240px] h-12 px-6 bg-[var(--text-primary)] text-[var(--bg-canvas)] font-sans font-medium text-xs uppercase tracking-[0.18em] hover:opacity-90 active:scale-[0.99] transition-[transform,opacity] duration-100 cursor-pointer flex items-center justify-center gap-2 select-none"
         >
           {isLoading ? <span>Duke publikuar...</span> : <span>Publiko Çantën në Dyqan</span>}
         </button>

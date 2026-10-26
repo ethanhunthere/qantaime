@@ -57,7 +57,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
           fill
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-center transition-all duration-300 select-none"
+          className="object-cover object-center transition-opacity duration-150 select-none"
         />
         {enableMonogram && monogram.trim().length > 0 && (
           <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[var(--text-primary)] text-[var(--bg-canvas)] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[var(--border-subtle)] shadow-lg">
@@ -85,7 +85,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-all touch-manipulation rounded-none cursor-pointer ${
+                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-[border-color,transform] duration-100 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
@@ -121,7 +121,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-all touch-manipulation rounded-none cursor-pointer ${
+                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-[border-color,transform] duration-100 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"

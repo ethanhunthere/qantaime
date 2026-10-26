@@ -20,7 +20,7 @@ export function Footer() {
               alt="Logo"
               fill
               sizes="(max-width: 640px) 22px, 26px"
-              className="object-contain transition-opacity duration-75 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
+              className="object-contain opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
             />
             {/* Dark Mode Logo */}
             <Image
@@ -28,7 +28,7 @@ export function Footer() {
               alt="Logo"
               fill
               sizes="(max-width: 640px) 22px, 26px"
-              className="object-contain transition-opacity duration-75 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
+              className="object-contain opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
             />
           </div>
         </Link>

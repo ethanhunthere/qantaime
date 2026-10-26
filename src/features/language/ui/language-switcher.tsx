@@ -15,7 +15,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 min-h-[38px] text-xs font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-all select-none touch-manipulation cursor-pointer"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 min-h-[38px] text-xs font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 select-none touch-manipulation cursor-pointer"
         aria-label={t.languageLabel}
       >
         <span className="text-sm">{current.flag}</span>
