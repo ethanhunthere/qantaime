@@ -65,13 +65,13 @@ export function Header() {
         {/* Brand Logo with Smooth Cross-fade (Zero Layout Shift) */}
         <div className="flex items-center gap-4 sm:gap-6">
           <Link href="/" className="group flex items-center py-1">
-            <div className="relative h-9 w-9 sm:h-11 sm:w-11 shrink-0">
+            <div className="relative h-7 w-7 sm:h-9 sm:w-9 shrink-0">
               {/* Light Mode Logo (Espresso Brown) */}
               <Image
                 src="/images/logo.png"
                 alt="Logo"
                 fill
-                sizes="(max-width: 640px) 36px, 44px"
+                sizes="(max-width: 640px) 28px, 36px"
                 priority
                 className="object-contain transition-opacity duration-300 opacity-100 dark:opacity-0 group-hover:opacity-80 dark:group-hover:opacity-0"
               />
@@ -80,7 +80,7 @@ export function Header() {
                 src="/images/logo-white.png"
                 alt="Logo"
                 fill
-                sizes="(max-width: 640px) 36px, 44px"
+                sizes="(max-width: 640px) 28px, 36px"
                 priority
                 className="object-contain transition-opacity duration-300 opacity-0 dark:opacity-100 group-hover:opacity-0 dark:group-hover:opacity-80"
               />
