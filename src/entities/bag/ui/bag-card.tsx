@@ -19,28 +19,22 @@ function getCategoryLabel(
   slug: string,
   t: {
     catWallet: string;
-    catBriefcase: string;
     catTote: string;
     catCrossbody: string;
     catWeekender: string;
-    catBackpack: string;
     catLuxury: string;
   }
 ): string {
-  if (slug.includes("cardholder") || slug.includes("porte-monnaie") || slug.includes("wallet")) {
+  if (category === "wallet" || slug.includes("cardholder") || slug.includes("porte-monnaie") || slug.includes("wallet")) {
     return t.catWallet;
   }
   switch (category) {
-    case "briefcase":
-      return t.catBriefcase;
     case "tote":
       return t.catTote;
     case "crossbody":
       return t.catCrossbody;
     case "weekender":
       return t.catWeekender;
-    case "backpack":
-      return t.catBackpack;
     default:
       return t.catLuxury;
   }

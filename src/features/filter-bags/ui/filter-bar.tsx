@@ -24,11 +24,10 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
 
   const categoryOptions: { id: BagCategory; label: string }[] = [
     { id: "all", label: t.allWorks },
-    { id: "briefcase", label: t.catBriefcase },
+    { id: "wallet", label: t.catWallet },
     { id: "tote", label: t.catTote },
     { id: "crossbody", label: t.catCrossbody },
     { id: "weekender", label: t.catWeekender },
-    { id: "backpack", label: t.catBackpack },
   ];
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Bag, FilterState } from "@/shared/types";
-import { BagCard, BagSpecsTable } from "@/entities/bag";
+import { BagCard } from "@/entities/bag";
 import { FilterBar } from "@/features/filter-bags";
 import { Modal, Button } from "@/shared/ui";
 import { formatCurrency } from "@/shared/lib";
@@ -91,36 +92,39 @@ export function BagGrid({ initialBags }: BagGridProps) {
         </div>
       )}
 
-      {/* Quick View Modal */}
+      {/* Quick View Modal — Visual First, Clean Name & Price */}
       {inspectBag && (
         <Modal
           isOpen={!!inspectBag}
           onClose={() => setInspectBag(null)}
-          title={`${t.specsTitle}: ${inspectBag.name}`}
+          title={inspectBag.name}
         >
-          <div className="space-y-5 sm:space-y-6">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
-              <div>
-                <h3 className="font-sans font-medium uppercase text-lg sm:text-xl tracking-[0.06em] text-[var(--text-primary)]">{inspectBag.name}</h3>
-                <p className="text-xs text-[var(--text-secondary)] mt-1">{inspectBag.tagline}</p>
-              </div>
+          <div className="space-y-4">
+            <div className="relative aspect-16/10 max-h-[300px] w-full overflow-hidden bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)]">
+              <Image
+                src={inspectBag.colors[0]?.image || inspectBag.images[0]}
+                alt={inspectBag.name}
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </div>
+
+            <div className="flex items-baseline justify-between gap-3 pt-1">
+              <h3 className="font-sans font-medium uppercase text-lg sm:text-xl tracking-[0.06em] text-[var(--text-primary)]">
+                {inspectBag.name}
+              </h3>
               <span className="font-mono text-lg sm:text-xl font-bold tabular-nums text-[var(--text-primary)]">
                 {formatCurrency(inspectBag.priceEur)}
               </span>
             </div>
 
-            <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
-              {inspectBag.description}
-            </p>
-
-            <BagSpecsTable bag={inspectBag} />
-
             <div className="pt-2 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-2.5">
-              <Button variant="outline" size="sm" onClick={() => setInspectBag(null)} className="w-full sm:w-auto min-h-[42px] rounded-none">
+              <Button variant="outline" size="sm" onClick={() => setInspectBag(null)} className="w-full sm:w-auto min-h-[44px] rounded-none cursor-pointer">
                 {t.close}
               </Button>
               <Link href={`/bags/${inspectBag.slug}`} className="w-full sm:w-auto">
-                <Button variant="primary" size="sm" className="w-full sm:w-auto min-h-[42px] rounded-none">
+                <Button variant="primary" size="sm" className="w-full sm:w-auto min-h-[44px] rounded-none cursor-pointer">
                   {t.acquirePiece}
                 </Button>
               </Link>
