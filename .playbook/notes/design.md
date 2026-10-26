@@ -69,3 +69,21 @@
   3. "Nothing in the real world appears from nothing (`transform: scale(0.95); opacity: 0` instead of `transform: scale(0)`)."
 - **Application to Task**:
   - Tactile press interactions with `active:scale-[0.98]` and precision transitions.
+
+### react-bits: SoftAurora & Ambient Blobs (verified: .playbook/resources/design/react-bits/src/ts-default/Backgrounds/SoftAurora/SoftAurora.tsx)
+- **Exact Rules Quoted**:
+  1. "reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; if (reduced) pace = 0.35;"
+  2. "pointer events: passive: true on pointermove to prevent scroll blocking."
+  3. "clamp(density * uOpacity + grain, 0.0, 1.0);"
+  4. "container.getBoundingClientRect(); cssWidth = Math.max(1, rect.width);"
+- **Banned Anti-Patterns**:
+  - Heavy JS/WebGL runtime engines when the user specifically instructs "don't make it heavy js or anything".
+  - Synthetic neon purple/cyan gradients that clash with bespoke leather craftsmanship.
+  - Blocking page scroll or touch events with background canvas containers.
+- **APIs / Commands**:
+  - CSS hardware accelerated transforms (`transform: translate3d(0,0,0)`, `will-change: transform`).
+  - `motion/react` lightweight motion transitions with `ease: "easeInOut"` and `duration: 18-24s`.
+- **Application to Task**:
+  - Build bespoke lightweight Espresso Ambient Blobs using `motion/react` and pure CSS radial gradients (`#2b1a10`, `#522c15`, `#8c4d21` in dark mode; soft warm caramel/champagne `#dfd2c4`, `#e8decb` in light mode).
+  - Absolute/fixed background layer with `pointer-events-none` and `overflow-hidden` so page performance remains 120 FPS.
+

@@ -14,23 +14,35 @@ export interface BagCardProps {
   onQuickView?: (bag: Bag) => void;
 }
 
-function getCategoryLabel(category: string, slug: string): string {
+function getCategoryLabel(
+  category: string,
+  slug: string,
+  t: {
+    catWallet: string;
+    catBriefcase: string;
+    catTote: string;
+    catCrossbody: string;
+    catWeekender: string;
+    catBackpack: string;
+    catLuxury: string;
+  }
+): string {
   if (slug.includes("cardholder") || slug.includes("porte-monnaie") || slug.includes("wallet")) {
-    return "Kuletë & Aksesor";
+    return t.catWallet;
   }
   switch (category) {
     case "briefcase":
-      return "Çantë Pune";
+      return t.catBriefcase;
     case "tote":
-      return "Çantë Dore";
+      return t.catTote;
     case "crossbody":
-      return "Çantë Krahu";
+      return t.catCrossbody;
     case "weekender":
-      return "Çantë Udhëtimi";
+      return t.catWeekender;
     case "backpack":
-      return "Çantë Shpine";
+      return t.catBackpack;
     default:
-      return "Çantë Luksoze";
+      return t.catLuxury;
   }
 }
 
@@ -39,7 +51,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
   const { addItem } = useCart();
   const [activeColorIdx, setActiveColorIdx] = useState(0);
   const currentColor = bag.colors[activeColorIdx] || bag.colors[0];
-  const categoryLabel = getCategoryLabel(bag.category, bag.slug);
+  const categoryLabel = getCategoryLabel(bag.category, bag.slug, t);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -81,7 +93,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </span>
           {bag.isBestseller && (
             <span className="px-2 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-strong)] shadow-xs">
-              Më e Kërkuara
+              {t.bestseller}
             </span>
           )}
         </div>
@@ -133,7 +145,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
               {formatCurrency(bag.priceEur)}
             </p>
             <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-medium">
-              Në Gjendje
+              {t.inStock}
             </span>
           </div>
         </div>
@@ -141,7 +153,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
         {/* Color Swatches with Active Color Name Display */}
         <div className="flex items-center justify-between pt-2.5 border-t border-[var(--border-subtle)] text-[10px] font-mono">
           <span className="text-[var(--text-secondary)] truncate max-w-[150px] sm:max-w-[180px]">
-            Lëkura: <strong className="text-[var(--text-primary)] font-medium">{currentColor.name}</strong>
+            {t.leatherLabel} <strong className="text-[var(--text-primary)] font-medium">{currentColor.name}</strong>
           </span>
           <div className="flex items-center gap-1.5 shrink-0">
             {bag.colors.map((color, idx) => (
@@ -150,7 +162,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
                 onClick={() => setActiveColorIdx(idx)}
                 className="py-1 inline-flex items-center justify-center touch-manipulation cursor-pointer"
                 title={color.name}
-                aria-label={`Zgjidh ${color.name}`}
+                aria-label={`${t.selectColorAria} ${color.name}`}
               >
                 <span
                   className={`w-4 sm:w-5 h-2.5 rounded-none border transition-all ${

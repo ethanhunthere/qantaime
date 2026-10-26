@@ -1,6 +1,7 @@
 import { sq } from "./sq";
 
 export const en: typeof sq = {
+  // Brand & Header
   brandName: "QANTAIME",
   brandSubtitle: "Authentic Luxury Leather Bags",
   topAnnouncement: "INSURED EXPRESS COURIER DELIVERY DIRECT TO YOUR DOOR",
@@ -10,7 +11,10 @@ export const en: typeof sq = {
   navWeekenders: "Travel",
   navProvenance: "Collection",
   cartButton: "Cart",
+  languageLabel: "Language:",
+  toggleTheme: "Toggle Theme",
 
+  // Hero Section
   heroBadge: "EXCLUSIVE COLLECTION",
   heroTitle: "GENUINE LUXURY LEATHER BAGS.",
   heroSubtitle: "A curated collection of authentic leather bags with clear pricing in Euros, verified provenance, and insured courier delivery directly to your door.",
@@ -23,15 +27,18 @@ export const en: typeof sq = {
   heroHardware: "Hardware",
   heroHardwareVal: "Heavy Solid Brass",
 
+  // Filter Bar & Catalog
   catalogTitle: "Curated Luxury Bag Collection",
   catalogSubtitle: "Exclusive Collection",
   catalogDesc: "",
   allWorks: "All Bags",
-  catBriefcase: "Briefcases & Portfolios",
-  catTote: "Totes & Shoulder Bags",
-  catWeekender: "Travel Weekenders",
+  catBriefcase: "Briefcases",
+  catTote: "Tote Bags",
+  catWeekender: "Travel Bags",
   catCrossbody: "Crossbody Bags",
   catBackpack: "Backpacks",
+  catWallet: "Wallets & Accessories",
+  catLuxury: "Luxury Bags",
   searchPlaceholder: "Search by bag name, leather, or model...",
   sortLabel: "Sort:",
   sortCurated: "Most Popular",
@@ -39,26 +46,59 @@ export const en: typeof sq = {
   sortPriceDesc: "Price: High to Low",
   sortCapacity: "Capacity (Liters)",
   resetFilters: "Reset Filters",
+  resetAllFilters: "Reset all filters",
+  clearSearch: "Clear search",
+  clear: "Clear",
+  close: "Close",
+  modelSingular: "Model",
+  modelPlural: "Models",
+  completeCollection: "Complete collection",
   noBagsFound: "No bags found matching your criteria.",
   noBagsSubtitle: "Try searching with different terms or select 'All Bags'.",
 
+  // Bag Card
   quickInspect: "Quick View",
   colorLabel: "Leather Color:",
   acquirePiece: "Order This Bag",
   viewDetails: "View Details",
   iconicBadge: "Most Loved",
   newEditionBadge: "New Arrival",
+  bestseller: "Bestseller",
+  inStock: "In Stock",
+  leatherLabel: "Leather:",
+  hardwareLabel: "Hardware:",
+  monogramLabel: "Initials:",
+  price: "Price",
+  selectColorAria: "Select",
 
+  // Customizer
   patinaStep: "Choose Leather Color",
   hardwareStep: "Choose Metal Finish",
   monogramCheck: "Bespoke Monogram Stamping (+€45)",
   monogramDesc: "Up to 3 uppercase letters, stamped with precision.",
+  initialsPrefix: "INITIALS:",
   totalPrice: "Total Final Price",
   addToCarry: "Add to Cart",
   addedToCarry: "Added Successfully",
   lifetimeGuarantee: "Quality & Authenticity Guaranteed",
   complimentaryCourier: "Insured Courier Delivery",
+  guaranteedAuthenticity: "GUARANTEED AUTHENTICITY",
+  insuredCourier: "INSURED COURIER DELIVERY",
 
+  // Technical Specifications
+  specsTitle: "Technical Specifications & Composition",
+  keySpecs: "Key Specifications",
+  artisanNotes: "Artisan Craftsmanship & Notes",
+  styleCategory: "Style",
+  dimensions: "Dimensions",
+  material: "Material",
+  hardware: "Hardware",
+  condition: "Condition",
+  conditionVal: "Pristine, Archive Grade",
+  serialCode: "Serial Code",
+  capacityAndWeight: "Capacity & Weight",
+
+  // Cart Drawer
   yourCarry: "Your Shopping Bag",
   emptyCarry: "Your bag is currently empty.",
   emptyCarryDesc: "Browse our bag collection to choose your piece.",
@@ -71,6 +111,7 @@ export const en: typeof sq = {
   totalEstimated: "Estimated Total",
   proceedCheckout: "Proceed to Checkout",
 
+  // Checkout
   checkoutTitle: "Complete Order & Shipping",
   collectorInfo: "Recipient Details & Delivery Address",
   fullName: "Full Name",
@@ -83,8 +124,10 @@ export const en: typeof sq = {
   phone: "Phone Number for Courier",
   transitTitle: "Shipping Method",
   courierWhiteGlove: "Express Courier (Within 24h)",
-  expressAir: "International Air Courier (2-4 Days)",
-  standardGround: "Standard Ground Delivery",
+  expressAir: "International Air (2-3 Days)",
+  standardGround: "Standard Ground (4-5 Days)",
+  transit2_3d: "2-3 Days International Air",
+  transit4_5d: "4-5 Days Standard Ground",
   paymentTitle: "Secure Payment Method",
   stripeBankTitle: "Bank Payment via Stripe",
   stripeBankSub: "Direct Bank Transfer via Stripe",
@@ -95,8 +138,14 @@ export const en: typeof sq = {
   bicSwift: "BIC or SWIFT Code (Optional)",
   stripeNotice: "Secured by Stripe. By placing this order, you authorize Stripe and QANTAIME to securely process your transaction according to banking standards.",
   confirmCommission: "Confirm Bank Order",
+  confirmOrder: "Confirm Order",
   encryptedGateway: "256-bit Encrypted Infrastructure by Stripe",
+  fastBiometric: "Fast Biometric Checkout",
+  directWire: "Direct Wire Transfer",
+  wireInvoice: "Invoice with QANTAIME IBAN",
+  stripeAuth: "Stripe Authorization & Mandate:",
 
+  // Philosophy Section
   craftPhilosophy: "Our Exclusive Collection",
   craftTitle: "Authentic Bags Built to Last.",
   craftDesc: "At QANTAIME we curate authentic leather bags of timeless quality, transparent pricing, and direct doorstep delivery.",
@@ -109,6 +158,7 @@ export const en: typeof sq = {
   craftRestorationTitle: "Customer Care & Support",
   craftRestorationDesc: "For any questions or care advice for your bag, our team is always available.",
 
+  // Footer
   footerDesc: "Curated luxury leather bags. Guaranteed authenticity, transparent Euro pricing, and dedicated customer service.",
   salonsTitle: "Shipping & Support",
   parisAtelier: "Customer Service: Monday — Saturday",

@@ -61,7 +61,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
         <div className="lg:col-span-5 space-y-6 sm:space-y-8">
           <div>
             <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[var(--accent-cognac)] block mb-1">
-              Modeli {bag.category}
+              {t.styleCategory} {bag.category}
             </span>
             <h1 className="font-sans font-medium uppercase text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-[1.05] text-[var(--text-primary)]">
               {bag.name}
@@ -78,7 +78,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
           {/* Key Architectural Features */}
           <div className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
             <h4 className="text-xs uppercase font-mono tracking-wider font-semibold text-[var(--text-primary)]">
-              Specifikimet Kryesore
+              {t.keySpecs}
             </h4>
             <ul className="space-y-2 text-xs font-mono text-[var(--text-secondary)]">
               {bag.features.map((feat) => (
@@ -93,7 +93,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
           {/* Artisan Notes */}
           <div className="p-3.5 sm:p-4 bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2">
             <h4 className="text-xs uppercase font-mono tracking-wider font-semibold text-[var(--text-primary)]">
-              Shënime & Veçori të Modelit
+              {t.artisanNotes}
             </h4>
             <ul className="space-y-1.5 text-xs font-mono text-[var(--text-secondary)]">
               {bag.craftsmanshipNotes.map((note, idx) => (
@@ -113,7 +113,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
       {/* Mobile Sticky Quick Action Bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)] border-t border-[var(--border-strong)] z-30 shadow-lg flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
         <div>
-          <span className="text-[9px] font-mono uppercase text-[var(--text-muted)] block">Çmimi</span>
+          <span className="text-[9px] font-mono uppercase text-[var(--text-muted)] block">{t.price}</span>
           <p className="font-mono font-bold text-lg tabular-nums text-[var(--text-primary)]">
             {formatCurrency(bag.priceEur)}
           </p>

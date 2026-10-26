@@ -81,11 +81,11 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors cursor-pointer outline-none focus:outline-none flex items-center gap-1"
-                title="Pastro kërkimin"
-                aria-label="Pastro kërkimin"
+                title={t.clearSearch}
+                aria-label={t.clearSearch}
               >
                 <X className="w-3.5 h-3.5" />
-                <span className="text-[10px] hidden sm:inline uppercase">Pastro</span>
+                <span className="text-[10px] hidden sm:inline uppercase">{t.clear}</span>
               </button>
             )}
           </div>
@@ -150,20 +150,20 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
       {/* Grid Meta Information Bar (Placed below panel — prevents any panel height change) */}
       <div className="flex items-center justify-between min-h-[22px] px-1 text-xs font-mono text-[var(--text-secondary)]">
         <span className="tabular-nums text-[11px] uppercase tracking-wider text-[var(--text-muted)]">
-          {totalResults} {totalResults === 1 ? "Model" : "Modele"}
+          {totalResults} {totalResults === 1 ? t.modelSingular : t.modelPlural}
         </span>
         {isFiltered ? (
           <button
             onClick={handleReset}
             className="inline-flex items-center gap-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.16em] text-[var(--text-primary)] hover:opacity-70 transition-opacity cursor-pointer outline-none focus:outline-none"
-            title="Pastro të gjithë filtrat"
+            title={t.resetAllFilters}
           >
             <RotateCcw className="w-3 h-3" />
             <span>{t.resetFilters}</span>
           </button>
         ) : (
           <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] opacity-60">
-            Koleksioni i plotë
+            {t.completeCollection}
           </span>
         )}
       </div>

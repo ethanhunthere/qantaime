@@ -12,7 +12,7 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-const STORAGE_KEY = "atelier_lang_v1";
+const STORAGE_KEY = "atelier_lang_v2";
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Default is "sq" (Shqip) as requested by user
@@ -21,7 +21,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY) as Language;
-      if (stored && (stored === "sq" || stored === "en" || stored === "it")) {
+      if (stored && (stored === "sq" || stored === "en")) {
         setLanguageState(stored);
       }
     } catch {
@@ -41,7 +41,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const availableLanguages = [
     { code: "sq" as Language, ...LANGUAGE_LABELS.sq },
     { code: "en" as Language, ...LANGUAGE_LABELS.en },
-    { code: "it" as Language, ...LANGUAGE_LABELS.it },
   ];
 
   return (

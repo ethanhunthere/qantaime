@@ -96,7 +96,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
         <Modal
           isOpen={!!inspectBag}
           onClose={() => setInspectBag(null)}
-          title={`Planimetria: ${inspectBag.name}`}
+          title={`${t.specsTitle}: ${inspectBag.name}`}
         >
           <div className="space-y-5 sm:space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2">
@@ -117,7 +117,7 @@ export function BagGrid({ initialBags }: BagGridProps) {
 
             <div className="pt-2 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-2.5">
               <Button variant="outline" size="sm" onClick={() => setInspectBag(null)} className="w-full sm:w-auto min-h-[42px] rounded-none">
-                Mbyll
+                {t.close}
               </Button>
               <Link href={`/bags/${inspectBag.slug}`} className="w-full sm:w-auto">
                 <Button variant="primary" size="sm" className="w-full sm:w-auto min-h-[42px] rounded-none">

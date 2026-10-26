@@ -146,14 +146,14 @@ export function CheckoutForm() {
             <input type="radio" name="shippingMethod" value="express" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
               <p className="font-semibold text-[var(--text-primary)]">{t.expressAir}</p>
-              <p className="text-[var(--text-secondary)]">2-3 Ditë</p>
+              <p className="text-[var(--text-secondary)]">{t.transit2_3d}</p>
             </div>
           </label>
           <label className="flex items-start gap-3 p-3.5 border border-[var(--border-subtle)] bg-[var(--bg-surface-raised)] cursor-pointer hover:border-[var(--border-strong)]">
             <input type="radio" name="shippingMethod" value="standard" className="mt-1 accent-[var(--accent-cognac)]" />
             <div className="text-xs font-mono">
               <p className="font-semibold text-[var(--text-primary)]">{t.standardGround}</p>
-              <p className="text-[var(--text-secondary)]">4-5 Ditë</p>
+              <p className="text-[var(--text-secondary)]">{t.transit4_5d}</p>
             </div>
           </label>
         </div>
@@ -186,7 +186,7 @@ export function CheckoutForm() {
           disabled={items.length === 0}
           className="w-full sm:w-auto min-h-[48px] touch-manipulation"
         >
-          {paymentMethod === "stripe_bank" ? t.confirmCommission : "Konfirmo Porosinë"}
+          {paymentMethod === "stripe_bank" ? t.confirmCommission : t.confirmOrder}
         </Button>
       </div>
     </form>

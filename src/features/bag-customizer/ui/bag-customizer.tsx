@@ -61,7 +61,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         />
         {enableMonogram && monogram.trim().length > 0 && (
           <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[var(--text-primary)] text-[var(--bg-canvas)] px-2.5 sm:px-3 py-1 font-mono text-xs tracking-[0.20em] uppercase font-normal border border-[var(--border-subtle)] shadow-lg">
-            INITIALS: {monogram.trim().toUpperCase()}
+            {t.initialsPrefix} {monogram.trim().toUpperCase()}
           </div>
         )}
       </div>
@@ -195,10 +195,10 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
         {/* Guarantee and dispatch indicators */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-[var(--text-muted)] pt-2.5 border-t border-[var(--border-subtle)]">
           <span className="tracking-wider uppercase">
-            [AUTENTICITET I GARANTUAR]
+            [{t.guaranteedAuthenticity}]
           </span>
           <span className="tracking-wider uppercase">
-            [DËRGESË E SIGURUAR ME KORRIER]
+            [{t.insuredCourier}]
           </span>
         </div>
       </div>

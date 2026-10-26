@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
 import { CartDrawer } from "@/widgets/cart-drawer";
+import { EspressoAmbientBlobs } from "@/widgets/ambient-background";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -62,10 +63,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] font-sans antialiased">
+      <body className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] font-sans antialiased relative">
         <Providers>
+          <EspressoAmbientBlobs />
           <Header />
-          <main className="flex-1 w-full">{children}</main>
+          <main className="flex-1 w-full relative z-10">{children}</main>
           <Footer />
           <CartDrawer />
         </Providers>

@@ -57,13 +57,13 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-sans font-medium text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
           <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
-            Të Gjitha
+            {t.navWorks}
           </Link>
           <Link href="/#catalog" className="hover:text-[var(--text-primary)] transition-colors">
-            Çanta Luksoze
+            {t.navBriefcases}
           </Link>
           <Link href="/bags/porte-monnaie-cardholder" className="hover:text-[var(--text-primary)] transition-colors">
-            Kuleta
+            {t.navTotes}
           </Link>
         </nav>
 
@@ -114,26 +114,26 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>Të Gjitha</span>
+              <span>{t.navWorks}</span>
             </Link>
             <Link
               href="/#catalog"
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>Çanta Luksoze</span>
+              <span>{t.navBriefcases}</span>
             </Link>
             <Link
               href="/bags/porte-monnaie-cardholder"
               onClick={() => setMobileMenuOpen(false)}
               className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
             >
-              <span>Kuleta</span>
+              <span>{t.navTotes}</span>
             </Link>
           </nav>
 
           <div className="pt-2 flex items-center justify-between border-t border-[var(--border-subtle)]">
-            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">Gjuha:</span>
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)]">{t.languageLabel}</span>
             <LanguageSwitcher />
           </div>
         </div>

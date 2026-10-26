@@ -113,7 +113,7 @@ export function PaymentMethodSelector({
           <div className="text-xs font-mono">
             <p className="font-semibold text-[var(--text-primary)]">Apple Pay</p>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Pagesë e Shpejtë Biometrike
+              {t.fastBiometric}
             </p>
           </div>
         </label>
@@ -135,9 +135,9 @@ export function PaymentMethodSelector({
             className="mt-1 accent-[var(--accent-cognac)]"
           />
           <div className="text-xs font-mono">
-            <p className="font-semibold text-[var(--text-primary)]">Transfertë Bankare Direkte</p>
+            <p className="font-semibold text-[var(--text-primary)]">{t.directWire}</p>
             <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
-              Faturë me IBAN të QANTAIME
+              {t.wireInvoice}
             </p>
           </div>
         </label>
@@ -194,7 +194,7 @@ export function PaymentMethodSelector({
 
           <div className="p-3 bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[11px] font-mono text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
             <p className="font-semibold text-[var(--text-primary)]">
-              Autorizimi dhe Rregullorja e Stripe:
+              {t.stripeAuth}
             </p>
             <p>{t.stripeNotice}</p>
           </div>
