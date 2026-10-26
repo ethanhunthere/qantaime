@@ -85,7 +85,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-[border-color,transform] duration-100 touch-manipulation rounded-none cursor-pointer ${
+                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
@@ -121,7 +121,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-[border-color,transform] duration-100 touch-manipulation rounded-none cursor-pointer ${
+                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"

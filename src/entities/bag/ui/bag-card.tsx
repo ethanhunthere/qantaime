@@ -73,7 +73,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
   };
 
   return (
-    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] transition-[border-color,box-shadow] duration-200 shadow-xs hover:shadow-md overflow-hidden">
+    <article className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] transition-[box-shadow] duration-150 shadow-xs hover:shadow-md overflow-hidden">
       {/* Product Image Frame — Strict 1:1 Square with Paint Isolation */}
       <div className="relative aspect-square w-full overflow-hidden bg-[var(--bg-surface-raised)] border-b border-[var(--border-subtle)] [isolation:isolate] [contain:paint]">
         <Link href={`/bags/${bag.slug}`} className="relative block w-full h-full overflow-hidden">
@@ -185,7 +185,7 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </button>
           <Link
             href={`/bags/${bag.slug}`}
-            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-strong)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-colors active:scale-95 touch-manipulation"
+            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-strong)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 touch-manipulation"
             title={t.viewDetails}
             aria-label={t.viewDetails}
           >

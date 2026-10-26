@@ -42,7 +42,7 @@ export function PaymentMethodSelector({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* Stripe Pay with Bank (Primary) */}
         <label
-          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[border-color,box-shadow] duration-100 ${
+          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[box-shadow] duration-100 ${
             selectedMethod === "stripe_bank"
               ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
               : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] bg-[var(--bg-surface)]"
@@ -69,7 +69,7 @@ export function PaymentMethodSelector({
 
         {/* Credit Card */}
         <label
-          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[border-color,box-shadow] duration-100 ${
+          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[box-shadow] duration-100 ${
             selectedMethod === "card"
               ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
               : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] bg-[var(--bg-surface)]"
@@ -96,7 +96,7 @@ export function PaymentMethodSelector({
 
         {/* Apple Pay */}
         <label
-          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[border-color,box-shadow] duration-100 ${
+          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[box-shadow] duration-100 ${
             selectedMethod === "apple_pay"
               ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
               : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] bg-[var(--bg-surface)]"
@@ -120,7 +120,7 @@ export function PaymentMethodSelector({
 
         {/* Traditional Wire */}
         <label
-          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[border-color,box-shadow] duration-100 ${
+          className={`flex items-start gap-3 p-3.5 border cursor-pointer transition-[box-shadow] duration-100 ${
             selectedMethod === "wire"
               ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
               : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] bg-[var(--bg-surface)]"

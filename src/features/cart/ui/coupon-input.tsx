@@ -55,7 +55,7 @@ export function CouponInput() {
         </div>
         <button
           type="submit"
-          className="h-10 sm:h-9 px-3 text-xs uppercase tracking-wider font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] transition-colors active:scale-95 touch-manipulation min-w-[70px]"
+          className="h-10 sm:h-9 px-3 text-xs uppercase tracking-wider font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] transition-transform duration-100 active:scale-95 touch-manipulation min-w-[70px]"
         >
           Apply
         </button>

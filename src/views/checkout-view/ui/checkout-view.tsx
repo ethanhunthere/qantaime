@@ -55,7 +55,7 @@ export function CheckoutView() {
       <div className="lg:hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-hidden shadow-xs">
         <button
           onClick={() => setShowMobileSummary((prev) => !prev)}
-          className="w-full flex items-center justify-between p-4 text-xs font-mono text-[var(--text-primary)] hover:bg-[var(--bg-surface-raised)] transition-colors touch-manipulation"
+          className="w-full flex items-center justify-between p-4 text-xs font-mono text-[var(--text-primary)] hover:bg-[var(--bg-surface-raised)] touch-manipulation"
           aria-expanded={showMobileSummary}
         >
           <div className="flex items-center gap-2">
