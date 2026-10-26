@@ -169,6 +169,8 @@ export function PaymentMethodSelector({
               value={holder}
               onChange={(e) => setHolder(e.target.value)}
               error={errors?.stripeBankHolder?.[0]}
+              autoComplete="name"
+              autoCapitalize="words"
               required
             />
             <Input
@@ -178,6 +180,9 @@ export function PaymentMethodSelector({
               placeholder="p.sh. PRBKXKPRXXX"
               value={bic}
               onChange={(e) => setBic(e.target.value.toUpperCase())}
+              inputMode="text"
+              autoCapitalize="characters"
+              spellCheck={false}
             />
           </div>
 
@@ -189,6 +194,9 @@ export function PaymentMethodSelector({
             value={iban}
             onChange={handleIbanChange}
             error={errors?.stripeBankIban?.[0]}
+            inputMode="text"
+            autoCapitalize="characters"
+            spellCheck={false}
             required
           />
 

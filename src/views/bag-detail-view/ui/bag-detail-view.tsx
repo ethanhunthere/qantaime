@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ShoppingBag } from "lucide-react";
 import { Bag, CartItem } from "@/shared/types";
-import { BagCustomizer } from "@/features/bag-customizer";
+import { BagCustomizer, CustomizationState } from "@/features/bag-customizer";
 import { BagSpecsTable } from "@/entities/bag";
 import { useLanguage } from "@/features/language";
 import { useCart } from "@/features/cart";
@@ -17,27 +17,34 @@ interface BagDetailViewProps {
 
 export function BagDetailView({ bag }: BagDetailViewProps) {
   const { t } = useLanguage();
-  const { addItem } = useCart();
+  const { addItem, openCart } = useCart();
+  const [customization, setCustomization] = useState<CustomizationState>({
+    color: bag.colors[0],
+    hardware: bag.hardwareOptions[0],
+    monogram: undefined,
+    unitPrice: bag.priceEur,
+  });
 
   const handleMobileQuickAdd = () => {
-    const defaultColor = bag.colors[0];
-    const defaultHw = bag.hardwareOptions[0];
+    const cartItemId = `${bag.id}-${customization.color.id}-${customization.hardware.id}-${customization.monogram || "none"}`;
     const cartItem: CartItem = {
-      id: `${bag.id}-${defaultColor.id}-${defaultHw?.id || "default"}`,
+      id: cartItemId,
       bagId: bag.id,
       bagName: bag.name,
       slug: bag.slug,
-      color: defaultColor,
-      hardware: defaultHw,
-      unitPriceEur: bag.priceEur,
+      color: customization.color,
+      hardware: customization.hardware,
+      monogram: customization.monogram,
+      unitPriceEur: customization.unitPrice,
       quantity: 1,
-      image: defaultColor.image,
+      image: customization.color.image,
     };
     addItem(cartItem);
+    openCart();
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-24 lg:pb-16 space-y-5 sm:space-y-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-28 lg:pb-16 space-y-5 sm:space-y-6">
       {/* Breadcrumb navigation */}
       <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono text-[var(--text-muted)]">
         <Link href="/" className="inline-flex items-center gap-1 hover:text-[var(--text-primary)] transition-colors min-h-[32px]">
@@ -54,7 +61,7 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Interactive Customizer & Images */}
         <div id="customizer" className="lg:col-span-7">
-          <BagCustomizer bag={bag} />
+          <BagCustomizer bag={bag} onCustomizationChange={setCustomization} />
         </div>
 
         {/* Narrative & Craftsmanship Blueprint */}
@@ -110,21 +117,23 @@ export function BagDetailView({ bag }: BagDetailViewProps) {
         </div>
       </div>
 
-      {/* Mobile Sticky Quick Action Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)] border-t border-[var(--border-strong)] z-30 shadow-lg flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
-        <div>
-          <span className="text-[9px] font-mono uppercase text-[var(--text-muted)] block">{t.price}</span>
-          <p className="font-mono font-bold text-lg tabular-nums text-[var(--text-primary)]">
-            {formatCurrency(bag.priceEur)}
+      {/* Mobile Sticky Quick Action Bar — Synchronized with Active Customizer */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 p-3.5 bg-[var(--bg-canvas)] border-t border-[var(--border-strong)] z-30 shadow-2xl flex items-center justify-between gap-3 pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
+        <div className="min-w-0 pr-1">
+          <span className="text-[10px] font-mono uppercase text-[var(--text-secondary)] block truncate max-w-[130px]">
+            {customization.color.name}
+          </span>
+          <p className="font-mono font-bold text-lg tabular-nums text-[var(--text-primary)] leading-tight">
+            {formatCurrency(customization.unitPrice)}
           </p>
         </div>
         <Button
           size="md"
           variant="primary"
           onClick={handleMobileQuickAdd}
-          className="flex-1 max-w-[200px] min-h-[44px] flex items-center justify-center gap-1.5"
+          className="flex-1 max-w-[210px] min-h-[46px] flex items-center justify-center gap-1.5 touch-manipulation rounded-none shadow-sm cursor-pointer"
         >
-          <ShoppingBag className="w-3.5 h-3.5" />
+          <ShoppingBag className="w-4 h-4" />
           <span>{t.addToCarry}</span>
         </Button>
       </div>

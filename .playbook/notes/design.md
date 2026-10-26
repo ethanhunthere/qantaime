@@ -87,3 +87,21 @@
   - Build bespoke lightweight Espresso Ambient Blobs using `motion/react` and pure CSS radial gradients (`#2b1a10`, `#522c15`, `#8c4d21` in dark mode; soft warm caramel/champagne `#dfd2c4`, `#e8decb` in light mode).
   - Absolute/fixed background layer with `pointer-events-none` and `overflow-hidden` so page performance remains 120 FPS.
 
+### Mobile Commerce Ergonomics & Touch Guidelines (verified: playbooks/1-PLAYBOOK-DESIGN.md & playbooks/2-PLAYBOOK-WEBSITES.md)
+- **Exact Rules Quoted**:
+  1. "Minimum Touch Targets: All tap targets on mobile must be at least 44px × 44px (apply hitSlop or generous padding)."
+  2. "Horizontal Overflow Zero-Tolerance: Test at 320px, 375px, 414px, and 768px viewports."
+  3. "Root Overflow Rule: Set overflow-x: clip on html and body (NOT overflow-x: hidden, which breaks position: sticky)."
+  4. "Input Font-Size Floor: All form inputs must have computed font-size of at least 16px (1rem) on mobile to eliminate iOS Safari forced zoom on focus."
+  5. "Safe Area Inset Respect: Persistent top and bottom action elements must anchor above env(safe-area-inset-bottom) and below env(safe-area-inset-top)."
+- **Banned Anti-Patterns**:
+  - Inputs with font-size < 16px triggering layout displacement and auto-zoom on iOS.
+  - Tiny < 40px hit areas for color swatches, quantity steppers, or action buttons.
+  - Hiding the primary checkout path from thumb reach when items are in cart.
+  - Unsynchronized mobile sticky action bar ignoring customized options on product detail screens.
+- **Application to Task**:
+  - Synchronize product page sticky bottom bar with real-time customizer state (selected color, hardware, monogram, customized price).
+  - Add floating mobile cart pill for 1-tap checkout conversion across all browsing routes.
+  - Implement horizontal scrollable category pills in FilterBar for thumb-first category filtering.
+  - Optimize checkout form with mobile autofill tags, inputMode, and 44px+ hit targets.
+

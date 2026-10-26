@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, ArrowRight } from "lucide-react";
 import { Drawer, Button } from "@/shared/ui";
 import { formatCurrency } from "@/shared/lib";
 import { useCart, CartItemRow, CouponInput } from "@/features/cart";
@@ -82,8 +82,9 @@ export function CartDrawer() {
 
             <div className="pt-2">
               <Link href="/checkout" onClick={closeCart} className="block w-full">
-                <Button size="lg" variant="primary" className="w-full min-h-[48px] touch-manipulation rounded-none">
+                <Button size="lg" variant="primary" className="w-full min-h-[52px] touch-manipulation rounded-none flex items-center justify-center gap-2 cursor-pointer shadow-md">
                   <span>{t.proceedCheckout}</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

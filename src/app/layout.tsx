@@ -3,7 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
-import { CartDrawer } from "@/widgets/cart-drawer";
+import { CartDrawer, MobileFloatingCart } from "@/widgets/cart-drawer";
 import { EspressoAmbientBlobs } from "@/widgets/ambient-background";
 
 export const viewport: Viewport = {
@@ -85,6 +85,7 @@ export default function RootLayout({
           <main className="flex-1 w-full relative z-10">{children}</main>
           <Footer />
           <CartDrawer />
+          <MobileFloatingCart />
         </Providers>
       </body>
     </html>

@@ -1,20 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { Bag, CartItem } from "@/shared/types";
+import { Bag, CartItem, ColorVariant, HardwareOption } from "@/shared/types";
 import { formatCurrency } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { useCart } from "@/features/cart";
 import { useLanguage } from "@/features/language";
 
-interface BagCustomizerProps {
-  bag: Bag;
+export interface CustomizationState {
+  color: ColorVariant;
+  hardware: HardwareOption;
+  monogram?: string;
+  unitPrice: number;
 }
 
-export function BagCustomizer({ bag }: BagCustomizerProps) {
-  const { addItem } = useCart();
+export interface BagCustomizerProps {
+  bag: Bag;
+  onCustomizationChange?: (state: CustomizationState) => void;
+}
+
+export function BagCustomizer({ bag, onCustomizationChange }: BagCustomizerProps) {
+  const { addItem, openCart } = useCart();
   const { t } = useLanguage();
   const [selectedColor, setSelectedColor] = useState(bag.colors[0]);
   const [selectedHardware, setSelectedHardware] = useState(bag.hardwareOptions[0]);
@@ -24,6 +32,15 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
 
   const MONOGRAM_FEE_EUR = 45;
   const unitPrice = bag.priceEur + (enableMonogram && monogram.trim().length > 0 ? MONOGRAM_FEE_EUR : 0);
+
+  useEffect(() => {
+    onCustomizationChange?.({
+      color: selectedColor,
+      hardware: selectedHardware,
+      monogram: enableMonogram && monogram.trim().length > 0 ? monogram.trim().toUpperCase() : undefined,
+      unitPrice,
+    });
+  }, [selectedColor, selectedHardware, monogram, enableMonogram, unitPrice, onCustomizationChange]);
 
   const handleAddToCart = () => {
     const finalMonogram = enableMonogram && monogram.trim().length > 0 ? monogram.trim().toUpperCase() : undefined;
@@ -45,6 +62,10 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
     addItem(cartItem);
     setIsAddedFeedback(true);
     setTimeout(() => setIsAddedFeedback(false), 2000);
+    // On mobile screens, automatically open cart drawer for fast frictionless 1-tap checkout
+    if (window.innerWidth < 1024) {
+      openCart();
+    }
   };
 
   return (
@@ -85,7 +106,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={color.id}
                   onClick={() => setSelectedColor(color)}
-                  className={`flex items-center gap-2.5 p-2 min-h-[40px] border text-left transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
+                  className={`flex items-center gap-2.5 p-2.5 min-h-[44px] border text-left transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
@@ -121,7 +142,7 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
                 <button
                   key={hw.id}
                   onClick={() => setSelectedHardware(hw)}
-                  className={`p-2 min-h-[40px] flex items-center justify-center text-xs font-mono border text-center transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
+                  className={`p-2.5 min-h-[44px] flex items-center justify-center text-xs font-mono border text-center transition-transform duration-100 active:scale-95 touch-manipulation rounded-none cursor-pointer ${
                     isSelected
                       ? "border-[var(--text-primary)] bg-[var(--bg-surface-raised)] font-medium ring-1 ring-[var(--text-primary)]"
                       : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-[var(--text-secondary)]"
@@ -136,12 +157,12 @@ export function BagCustomizer({ bag }: BagCustomizerProps) {
 
         {/* Bespoke Hot-Stamping Monogram */}
         <div className="pt-3 border-t border-[var(--border-subtle)] space-y-2.5">
-          <label className="flex items-center gap-2 cursor-pointer select-none min-h-[32px] touch-manipulation">
+          <label className="flex items-center gap-2.5 cursor-pointer select-none min-h-[44px] touch-manipulation py-1">
             <input
               type="checkbox"
               checked={enableMonogram}
               onChange={(e) => setEnableMonogram(e.target.checked)}
-              className="accent-[var(--accent-cognac)] w-4 h-4 cursor-pointer"
+              className="accent-[var(--accent-cognac)] w-5 h-5 cursor-pointer"
             />
             <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-primary)]">
               {t.monogramCheck}

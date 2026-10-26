@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Search, SlidersHorizontal, RotateCcw, X, ChevronDown, Check } from "lucide-react";
-import { FilterState } from "@/shared/types";
+import { FilterState, BagCategory } from "@/shared/types";
 import { useLanguage } from "@/features/language";
 
 interface FilterBarProps {
@@ -20,6 +20,15 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     { id: "curated", label: t.sortCurated },
     { id: "price-asc", label: t.sortPriceAsc },
     { id: "price-desc", label: t.sortPriceDesc },
+  ];
+
+  const categoryOptions: { id: BagCategory; label: string }[] = [
+    { id: "all", label: t.allWorks },
+    { id: "briefcase", label: t.catBriefcase },
+    { id: "tote", label: t.catTote },
+    { id: "crossbody", label: t.catCrossbody },
+    { id: "weekender", label: t.catWeekender },
+    { id: "backpack", label: t.catBackpack },
   ];
 
   useEffect(() => {
@@ -45,6 +54,10 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     setSortOpen(false);
   };
 
+  const handleSelectCategory = (category: BagCategory) => {
+    onFilterChange({ ...filters, category });
+  };
+
   const handleReset = () => {
     onFilterChange({
       category: "all",
@@ -54,13 +67,34 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
     });
   };
 
-  const isFiltered = filters.search !== "" || filters.sortBy !== "curated";
+  const isFiltered = filters.category !== "all" || filters.search !== "" || filters.sortBy !== "curated";
 
   const currentSortLabel =
     sortOptions.find((o) => o.id === filters.sortBy)?.label || t.sortCurated;
 
   return (
     <div className="w-full space-y-2">
+      {/* Horizontal Scrollable Category Chips for 1-Thumb Mobile Selection */}
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 -mx-0.5 px-0.5 touch-pan-x">
+        {categoryOptions.map((cat) => {
+          const isActive = filters.category === cat.id;
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => handleSelectCategory(cat.id)}
+              className={`min-h-[38px] px-3.5 whitespace-nowrap text-xs font-mono uppercase tracking-[0.08em] border select-none transition-transform duration-100 active:scale-95 cursor-pointer shrink-0 touch-manipulation flex items-center justify-center ${
+                isActive
+                  ? "bg-[var(--text-primary)] text-[var(--bg-canvas)] border-[var(--text-primary)] font-semibold shadow-xs"
+                  : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
+              }`}
+            >
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+
       {/* Single Unified Control Panel (Search Box + Filters) with Crisp High-Contrast Borders */}
       <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-strong)] p-3 sm:p-4 shadow-xs">
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 w-full">
@@ -74,13 +108,13 @@ export function FilterBar({ filters, onFilterChange, totalResults }: FilterBarPr
               placeholder={t.searchPlaceholder}
               value={filters.search}
               onChange={handleSearchChange}
-              className="w-full h-12 sm:h-13 pl-14 pr-10 font-sans text-sm tracking-[0.01em] bg-[var(--bg-surface)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] focus:border-[var(--text-primary)] outline-none focus:outline-none ring-0 shadow-xs [appearance:none] [-webkit-appearance:none]"
+              className="w-full h-12 sm:h-13 pl-14 pr-12 font-sans text-base sm:text-sm tracking-[0.01em] bg-[var(--bg-surface)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] border border-[var(--border-strong)] hover:border-[var(--text-primary)] focus:border-[var(--text-primary)] outline-none focus:outline-none ring-0 shadow-xs [appearance:none] [-webkit-appearance:none]"
             />
             {filters.search && (
               <button
                 type="button"
                 onClick={() => onFilterChange({ ...filters, search: "" })}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] cursor-pointer outline-none flex items-center gap-1"
+                className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[36px] min-h-[36px] p-2 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] cursor-pointer outline-none flex items-center justify-center gap-1 touch-manipulation"
                 title={t.clearSearch}
                 aria-label={t.clearSearch}
               >

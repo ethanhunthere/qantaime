@@ -152,12 +152,12 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           <span className="text-[var(--text-secondary)] truncate max-w-[150px] sm:max-w-[180px]">
             {t.leatherLabel} <strong className="text-[var(--text-primary)] font-medium">{currentColor.name}</strong>
           </span>
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1 shrink-0">
             {bag.colors.map((color, idx) => (
               <button
                 key={color.id}
                 onClick={() => setActiveColorIdx(idx)}
-                className="py-1 inline-flex items-center justify-center touch-manipulation cursor-pointer"
+                className="min-w-[30px] min-h-[36px] inline-flex items-center justify-center touch-manipulation cursor-pointer"
                 title={color.name}
                 aria-label={`${t.selectColorAria} ${color.name}`}
               >
@@ -174,18 +174,18 @@ export function BagCard({ bag, onQuickView }: BagCardProps) {
           </div>
         </div>
 
-        {/* Footer Actions */}
+        {/* Footer Actions — Optimized 44px+ Hit Targets for Mobile Thumb Conversion */}
         <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center gap-2">
           <button
             onClick={handleQuickAdd}
-            className="flex-1 flex items-center justify-center gap-1.5 h-10 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.16em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-[transform,opacity] duration-100 cursor-pointer select-none touch-manipulation"
+            className="flex-1 flex items-center justify-center gap-1.5 h-11 sm:h-9 px-3 font-sans font-medium text-[11px] uppercase tracking-[0.16em] bg-[var(--text-primary)] text-[var(--bg-canvas)] hover:opacity-90 active:scale-[0.98] transition-[transform,opacity] duration-100 cursor-pointer select-none touch-manipulation"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>{t.addToCarry}</span>
           </button>
           <Link
             href={`/bags/${bag.slug}`}
-            className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 border border-[var(--border-strong)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 touch-manipulation"
+            className="flex items-center justify-center w-11 h-11 sm:w-9 sm:h-9 border border-[var(--border-strong)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 touch-manipulation shrink-0"
             title={t.viewDetails}
             aria-label={t.viewDetails}
           >

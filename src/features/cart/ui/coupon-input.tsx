@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 import { useCart } from "../model/cart-context";
+import { useLanguage } from "@/features/language";
 
 export function CouponInput() {
   const { couponCode, discountPercent, applyCoupon, removeCoupon } = useCart();
+  const { t } = useLanguage();
   const [inputVal, setInputVal] = useState("");
   const [feedback, setFeedback] = useState<{ message: string; isError: boolean } | null>(null);
 
@@ -25,14 +27,14 @@ export function CouponInput() {
       <div className="flex items-center justify-between p-2.5 bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] text-xs font-mono">
         <div className="flex items-center gap-2 text-[var(--text-primary)]">
           <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent-cognac)]">[APPLIED]</span>
-          <span>Privilege Code: <strong>{couponCode}</strong> ({discountPercent}% off)</span>
+          <span>{t.privilegeDiscount}: <strong>{couponCode}</strong> ({discountPercent}% off)</span>
         </div>
         <button
           onClick={removeCoupon}
-          className="text-[var(--text-muted)] hover:text-red-600 p-0.5"
+          className="min-w-[36px] min-h-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-red-600 p-1 cursor-pointer touch-manipulation"
           aria-label="Remove privilege code"
         >
-          <X className="w-3.5 h-3.5" />
+          <X className="w-4 h-4" />
         </button>
       </div>
     );
@@ -40,24 +42,24 @@ export function CouponInput() {
 
   return (
     <div className="space-y-1.5">
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit={handleSubmit} className="flex gap-2 items-stretch">
         <div className="relative flex-1">
           <input
             type="text"
-            placeholder="Privilege code (e.g. ATELIER10)"
+            placeholder={t.privilegeCode}
             value={inputVal}
             onChange={(e) => {
               setInputVal(e.target.value);
               setFeedback(null);
             }}
-            className="w-full h-10 sm:h-9 px-3 uppercase text-base sm:text-xs font-mono bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
+            className="w-full h-11 sm:h-9 px-3 uppercase text-base sm:text-xs font-mono bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-subtle)] focus-visible:border-[var(--text-primary)] outline-none"
           />
         </div>
         <button
           type="submit"
-          className="h-10 sm:h-9 px-3 text-xs uppercase tracking-wider font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] transition-transform duration-100 active:scale-95 touch-manipulation min-w-[70px]"
+          className="h-11 sm:h-9 px-3.5 text-xs uppercase tracking-wider font-mono bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] text-[var(--text-primary)] border border-[var(--border-subtle)] transition-transform duration-100 active:scale-95 touch-manipulation min-w-[76px] cursor-pointer"
         >
-          Apply
+          {t.applyCode}
         </button>
       </form>
       {feedback && (

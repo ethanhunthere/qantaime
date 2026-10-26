@@ -145,7 +145,7 @@ export function Header() {
 
           <button
             onClick={openCart}
-            className="min-h-[40px] flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 select-none touch-manipulation cursor-pointer"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 px-3 py-2 bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-active)] border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform duration-100 active:scale-95 select-none touch-manipulation cursor-pointer"
             aria-label={`View Cart (${totalItemsCount} items)`}
           >
             <ShoppingBag className="w-4 h-4 text-[var(--text-primary)]" />
@@ -158,7 +158,7 @@ export function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen((p) => !p)}
-            className="md:hidden min-w-[40px] min-h-[40px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-95 touch-manipulation cursor-pointer"
+            className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-95 touch-manipulation cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -173,24 +173,36 @@ export function Header() {
             <Link
               href="/#catalog"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+              className="py-3.5 min-h-[48px] flex items-center justify-between hover:text-[var(--accent-cognac)] touch-manipulation"
             >
               <span>{t.navWorks}</span>
             </Link>
             <Link
               href="/#catalog"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+              className="py-3.5 min-h-[48px] flex items-center justify-between hover:text-[var(--accent-cognac)] touch-manipulation"
             >
               <span>{t.navBriefcases}</span>
             </Link>
             <Link
               href="/bags/porte-monnaie-cardholder"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 flex items-center justify-between hover:text-[var(--accent-cognac)]"
+              className="py-3.5 min-h-[48px] flex items-center justify-between hover:text-[var(--accent-cognac)] touch-manipulation"
             >
               <span>{t.navTotes}</span>
             </Link>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openCart();
+              }}
+              className="py-3.5 min-h-[48px] flex items-center justify-between text-left hover:text-[var(--accent-cognac)] touch-manipulation cursor-pointer"
+            >
+              <span>{t.yourCarry}</span>
+              <span className="font-mono text-[11px] tabular-nums px-2 py-0.5 bg-[var(--text-primary)] text-[var(--bg-canvas)]">
+                {totalItemsCount}
+              </span>
+            </button>
           </nav>
 
           <div className="pt-2 flex items-center justify-between border-t border-[var(--border-subtle)]">

@@ -63,12 +63,18 @@ export function CheckoutForm() {
             label={t.fullName}
             placeholder="p.sh. Alban Berisha"
             required
+            autoComplete="name"
+            autoCapitalize="words"
             error={state?.errors?.fullName?.[0]}
           />
           <Input
             id="email"
             name="email"
             type="email"
+            inputMode="email"
+            autoComplete="email"
+            autoCapitalize="none"
+            spellCheck={false}
             label={t.emailAddress}
             placeholder="alban@qantaime.com"
             required
@@ -82,6 +88,7 @@ export function CheckoutForm() {
             label={t.address}
             placeholder="Rruga Nënë Tereza 14"
             required
+            autoComplete="address-line1"
             error={state?.errors?.addressLine1?.[0]}
           />
           <Input
@@ -89,6 +96,7 @@ export function CheckoutForm() {
             name="addressLine2"
             label={t.suite}
             placeholder="Kati 3, Banesa 8"
+            autoComplete="address-line2"
             error={state?.errors?.addressLine2?.[0]}
           />
         </div>
@@ -99,6 +107,7 @@ export function CheckoutForm() {
             label={t.city}
             placeholder="Prizren, Pejë, Gjakovë"
             required
+            autoComplete="address-level2"
             error={state?.errors?.city?.[0]}
           />
           <Input
@@ -107,6 +116,8 @@ export function CheckoutForm() {
             label={t.postalCode}
             placeholder="10000"
             required
+            inputMode="numeric"
+            autoComplete="postal-code"
             error={state?.errors?.postalCode?.[0]}
           />
           <Input
@@ -115,6 +126,7 @@ export function CheckoutForm() {
             label={t.country}
             placeholder="Kosovë, Shqipëri, Zvicër"
             required
+            autoComplete="country-name"
             error={state?.errors?.country?.[0]}
           />
         </div>
@@ -122,6 +134,8 @@ export function CheckoutForm() {
           id="phone"
           name="phone"
           type="tel"
+          inputMode="tel"
+          autoComplete="tel"
           label={t.phone}
           placeholder="+383 44 123 456"
           required
@@ -184,7 +198,7 @@ export function CheckoutForm() {
           variant="primary"
           isLoading={isPending}
           disabled={items.length === 0}
-          className="w-full sm:w-auto min-h-[48px] touch-manipulation"
+          className="w-full sm:w-auto min-h-[52px] touch-manipulation cursor-pointer text-xs uppercase tracking-[0.16em] font-semibold"
         >
           {paymentMethod === "stripe_bank" ? t.confirmCommission : t.confirmOrder}
         </Button>

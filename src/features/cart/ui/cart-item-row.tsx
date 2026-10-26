@@ -36,22 +36,22 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
           )}
         </div>
 
-        {/* Stepper + Price */}
+        {/* Stepper + Price — Enhanced 40px+ Touch Target Area on Mobile */}
         <div className="flex items-center justify-between pt-1.5 sm:pt-2">
           <div className="flex items-center border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-              className="p-1.5 sm:p-2 min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation cursor-pointer"
+              className="p-2 min-w-[38px] min-h-[38px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation cursor-pointer"
               aria-label="Decrease quantity"
             >
               <Minus className="w-3.5 h-3.5" />
             </button>
-            <span className="px-2 text-xs font-mono tabular-nums text-[var(--text-primary)]">
+            <span className="px-2.5 text-xs font-mono tabular-nums text-[var(--text-primary)]">
               {item.quantity}
             </span>
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-              className="p-1.5 sm:p-2 min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation cursor-pointer"
+              className="p-2 min-w-[38px] min-h-[38px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center hover:bg-[var(--bg-surface-active)] text-[var(--text-secondary)] touch-manipulation cursor-pointer"
               aria-label="Increase quantity"
             >
               <Plus className="w-3.5 h-3.5" />
@@ -66,10 +66,10 @@ export function CartItemRow({ item, onUpdateQuantity, onRemove }: CartItemRowPro
         </div>
       </div>
 
-      {/* Remove button */}
+      {/* Remove button — 44x44px touch target */}
       <button
         onClick={() => onRemove(item.id)}
-        className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-red-600 transition-colors touch-manipulation -mr-1 cursor-pointer"
+        className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--text-muted)] hover:text-red-600 transition-colors touch-manipulation -mr-2 cursor-pointer"
         title="Remove item"
         aria-label="Remove item"
       >
